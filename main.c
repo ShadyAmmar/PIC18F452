@@ -17,16 +17,24 @@
 #include "INT.h"
 
 DEVICE LED0 = {'B',0,OUTPUT};
-DEVICE BTN0 = {'B',1,INPUT};
+DEVICE LED1 = {'B',1,OUTPUT};
+DEVICE LED2 = {'B',2,OUTPUT};
+DEVICE BTN0 = {'D',0,INPUT};
 
-void callback_INT1();
+void callback_INTonChange();
 
 void main(void) {
 
     DIO_vdInit(&LED0);
+    DIO_vdInit(&LED1);
+    DIO_vdInit(&LED2);
     DIO_vdInit(&BTN0);
-    INT_vdinit();
-    INT_vdSetINT1Callback(callback_INT1);
+    
+    //INT_vdinit();
+    //INT_vdSetINTOnChangeCallback(callback_INTonChange);
+    
+    
+    
     
     while(1){
         /*if(BTN_u8getStatus(&BTN0)){
@@ -40,6 +48,6 @@ void main(void) {
     return;
 }
 
-void callback_INT1(){
+void callback_INTonChange(){
     LED_vdtoggle(&LED0);
 }

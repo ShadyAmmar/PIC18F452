@@ -3967,25 +3967,26 @@ unsigned char BTN_u8getStatus(DEVICE* btn);
 # 16 "main.c" 2
 
 # 1 "./INT.h" 1
-# 31 "./INT.h"
+# 35 "./INT.h"
 void INT_vdinit(void);
 void INT_vdSetINT0Callback(void (*pf)());
 void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
+void INT_vdSetINTOnChangeCallback(void (*pf)());
 # 17 "main.c" 2
 
 
 DEVICE LED0 = {'B',0,0};
 DEVICE BTN0 = {'B',1,1};
 
-void callback_INT1();
+void callback_INTonChange();
 
 void main(void) {
 
     DIO_vdInit(&LED0);
     DIO_vdInit(&BTN0);
     INT_vdinit();
-    INT_vdSetINT1Callback(callback_INT1);
+    INT_vdSetINTOnChangeCallback(callback_INTonChange);
 
     while(1){
 
@@ -3999,6 +4000,6 @@ void main(void) {
     return;
 }
 
-void callback_INT1(){
+void callback_INTonChange(){
     LED_vdtoggle(&LED0);
 }

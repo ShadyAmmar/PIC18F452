@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c LED.c BTN.c DIO.c INT.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c LED.c BTN.c DIO.c INT.c TMR0.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/BTN.p1.d ${OBJECTDIR}/DIO.p1.d ${OBJECTDIR}/INT.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1 ${OBJECTDIR}/TMR0.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/BTN.p1.d ${OBJECTDIR}/DIO.p1.d ${OBJECTDIR}/INT.p1.d ${OBJECTDIR}/TMR0.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1 ${OBJECTDIR}/TMR0.p1
 
 # Source Files
-SOURCEFILES=main.c LED.c BTN.c DIO.c INT.c
+SOURCEFILES=main.c LED.c BTN.c DIO.c INT.c TMR0.c
 
 
 CFLAGS=
@@ -133,6 +133,14 @@ ${OBJECTDIR}/INT.p1: INT.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/INT.d ${OBJECTDIR}/INT.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/INT.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/TMR0.p1: TMR0.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/TMR0.p1.d 
+	@${RM} ${OBJECTDIR}/TMR0.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/TMR0.p1 TMR0.c 
+	@-${MV} ${OBJECTDIR}/TMR0.d ${OBJECTDIR}/TMR0.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/TMR0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -173,6 +181,14 @@ ${OBJECTDIR}/INT.p1: INT.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/INT.p1 INT.c 
 	@-${MV} ${OBJECTDIR}/INT.d ${OBJECTDIR}/INT.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/INT.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/TMR0.p1: TMR0.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/TMR0.p1.d 
+	@${RM} ${OBJECTDIR}/TMR0.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/TMR0.p1 TMR0.c 
+	@-${MV} ${OBJECTDIR}/TMR0.d ${OBJECTDIR}/TMR0.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/TMR0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

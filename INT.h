@@ -27,11 +27,16 @@
 #define INT1_EDGE RISING
 #define INT2_EDGE RISING
 
+/**********Level Change interrupt on PORTB pins:4,5,6,7*********************/
+//Configuration
+#define PORTB_INT_ON_CHANGE ENABLED
+
 /*************************Prototypes*****************************************/
 void INT_vdinit(void);
 void INT_vdSetINT0Callback(void (*pf)());
 void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
+void INT_vdSetINTOnChangeCallback(void (*pf)());
 
 #endif	/* INT_H */
 

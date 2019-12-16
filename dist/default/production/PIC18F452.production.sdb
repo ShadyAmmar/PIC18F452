@@ -39,18 +39,18 @@
 [v _DIO_vdtogglePin DIO_vdtogglePin `(v  1 e 1 0 ]
 "84
 [v _DIO_u8ReadPin DIO_u8ReadPin `(uc  1 e 1 0 ]
-"15 D:\Shady Ammar\PIC18F452\INT.c
+"16 D:\Shady Ammar\PIC18F452\INT.c
 [v _INT_vdinit INT_vdinit `(v  1 e 1 0 ]
-"31
-[v _INT_vdSetINT1Callback INT_vdSetINT1Callback `(v  1 e 1 0 ]
-"38
+"41
+[v _INT_vdSetINTOnChangeCallback INT_vdSetINTOnChangeCallback `(v  1 e 1 0 ]
+"45
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "21 D:\Shady Ammar\PIC18F452\LED.c
 [v _LED_vdtoggle LED_vdtoggle `(v  1 e 1 0 ]
 "24 D:\Shady Ammar\PIC18F452\main.c
 [v _main main `(v  1 e 1 0 ]
 "43
-[v _callback_INT1 callback_INT1 `(v  1 e 1 0 ]
+[v _callback_INTonChange callback_INTonChange `(v  1 e 1 0 ]
 [s S24 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
@@ -74,7 +74,7 @@
 "96
 [u S56 . 1 `VEuc 1 PORT 1 0 `S47 1 . 1 0 ]
 [v _p_PORTBdata p_PORTBdata `*.39VES56  1 e 2 0 ]
-[s S456 . 1 `uc 1 INT1IF 1 0 :1:0 
+[s S457 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -84,7 +84,7 @@
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "5165 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
-[s S465 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S466 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -93,13 +93,13 @@
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S474 . 1 `S456 1 . 1 0 `S465 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES474  1 e 1 @4080 ]
-[s S496 . 1 `uc 1 . 1 0 :7:0 
+[u S475 . 1 `S457 1 . 1 0 `S466 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES475  1 e 1 @4080 ]
+[s S497 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "5257
-[s S499 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S500 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -108,14 +108,14 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S508 . 1 `uc 1 . 1 0 :2:0 
+[s S509 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S513 . 1 `S496 1 . 1 0 `S499 1 . 1 0 `S508 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES513  1 e 1 @4081 ]
-[s S407 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S514 . 1 `S497 1 . 1 0 `S500 1 . 1 0 `S509 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES514  1 e 1 @4081 ]
+[s S408 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -125,7 +125,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "5454
-[s S416 . 1 `uc 1 . 1 0 :1:0 
+[s S417 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -134,24 +134,28 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S425 . 1 `uc 1 . 1 0 :6:0 
+[s S426 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S429 . 1 `S407 1 . 1 0 `S416 1 . 1 0 `S425 1 . 1 0 ]
-[v _INTCON1bits INTCON1bits `VES429  1 e 1 @4082 ]
+[u S430 . 1 `S408 1 . 1 0 `S417 1 . 1 0 `S426 1 . 1 0 ]
+[v _INTCON1bits INTCON1bits `VES430  1 e 1 @4082 ]
 "6092
 [v _INT0IF INT0IF `VEb  1 e 0 @32657 ]
 "6107
 [v _INT1IF INT1IF `VEb  1 e 0 @32640 ]
 "6128
 [v _INT2IF INT2IF `VEb  1 e 0 @32641 ]
+"6587
+[v _RBIF RBIF `VEb  1 e 0 @32656 ]
 "11 D:\Shady Ammar\PIC18F452\INT.c
 [v _callback_INT0 callback_INT0 `*.37(v  1 s 2 callback_INT0 ]
 "12
-[v INT@callback_INT1 callback_INT1 `*.37(v  1 s 2 callback_INT1 ]
+[v _callback_INT1 callback_INT1 `*.37(v  1 s 2 callback_INT1 ]
 "13
 [v _callback_INT2 callback_INT2 `*.37(v  1 s 2 callback_INT2 ]
+"14
+[v INT@callback_INTonChange callback_INTonChange `*.37(v  1 s 2 callback_INTonChange ]
 [s S71 . 7 `uc 1 PORT 1 0 `uc 1 pin 1 1 `uc 1 mode 1 2 `uc 1 status 1 3 `uc 1 temp1 1 4 `i 1 i 2 5 ]
 "19 D:\Shady Ammar\PIC18F452\main.c
 [v _LED0 LED0 `S71  1 e 7 0 ]
@@ -162,16 +166,16 @@
 {
 "41
 } 0
-"15 D:\Shady Ammar\PIC18F452\INT.c
+"16 D:\Shady Ammar\PIC18F452\INT.c
 [v _INT_vdinit INT_vdinit `(v  1 e 1 0 ]
 {
-"26
+"30
 } 0
-"31
-[v _INT_vdSetINT1Callback INT_vdSetINT1Callback `(v  1 e 1 0 ]
+"41
+[v _INT_vdSetINTOnChangeCallback INT_vdSetINTOnChangeCallback `(v  1 e 1 0 ]
 {
-[v INT_vdSetINT1Callback@pf pf `*.37(v  1 p 2 10 ]
-"33
+[v INT_vdSetINTOnChangeCallback@pf pf `*.37(v  1 p 2 10 ]
+"43
 } 0
 "15 D:\Shady Ammar\PIC18F452\DIO.c
 [v _DIO_vdInit DIO_vdInit `(v  1 e 1 0 ]
@@ -190,13 +194,13 @@
 [v DIO_vdWriteDirPin@data data `uc  1 a 1 14 ]
 "55
 } 0
-"38 D:\Shady Ammar\PIC18F452\INT.c
+"45 D:\Shady Ammar\PIC18F452\INT.c
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"52
+"63
 } 0
 "43 D:\Shady Ammar\PIC18F452\main.c
-[v _callback_INT1 callback_INT1 `(v  1 e 1 0 ]
+[v _callback_INTonChange callback_INTonChange `(v  1 e 1 0 ]
 {
 "45
 } 0

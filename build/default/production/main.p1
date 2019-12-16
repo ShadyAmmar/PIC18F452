@@ -39,16 +39,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./DIO.h
 [; ;./DIO.h: 11: void DIO_vdInit(DEVICE* dev);
 [v _DIO_vdInit `(v ~T0 @X0 0 ef1`*S238 ]
-"31 ./INT.h
-[; ;./INT.h: 31: void INT_vdinit(void);
+"35 ./INT.h
+[; ;./INT.h: 35: void INT_vdinit(void);
 [v _INT_vdinit `(v ~T0 @X0 0 ef ]
-[v F2217 `(v ~T0 @X0 0 t? ]
-"33
-[; ;./INT.h: 33: void INT_vdSetINT1Callback(void (*pf)());
-[v _INT_vdSetINT1Callback `(v ~T0 @X0 0 ef1`*F2217 ]
+[v F2225 `(v ~T0 @X0 0 t? ]
+"39
+[; ;./INT.h: 39: void INT_vdSetINTOnChangeCallback(void (*pf)());
+[v _INT_vdSetINTOnChangeCallback `(v ~T0 @X0 0 ef1`*F2225 ]
 "22 main.c
-[; ;main.c: 22: void callback_INT1();
-[v _callback_INT1 `(v ~T0 @X0 0 e? ]
+[; ;main.c: 22: void callback_INTonChange();
+[v _callback_INTonChange `(v ~T0 @X0 0 e? ]
 "13 ./LED.h
 [; ;./LED.h: 13: void LED_vdtoggle(DEVICE* led);
 [v _LED_vdtoggle `(v ~T0 @X0 0 ef1`*S238 ]
@@ -554,8 +554,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 28:     INT_vdinit();
 [e ( _INT_vdinit ..  ]
 "29
-[; ;main.c: 29:     INT_vdSetINT1Callback(callback_INT1);
-[e ( _INT_vdSetINT1Callback (1 &U _callback_INT1 ]
+[; ;main.c: 29:     INT_vdSetINTOnChangeCallback(callback_INTonChange);
+[e ( _INT_vdSetINTOnChangeCallback (1 &U _callback_INTonChange ]
 "31
 [; ;main.c: 31:     while(1){
 [e :U 249 ]
@@ -574,10 +574,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 247 ]
 }
 "43
-[; ;main.c: 43: void callback_INT1(){
-[v _callback_INT1 `(v ~T0 @X0 1 ef ]
+[; ;main.c: 43: void callback_INTonChange(){
+[v _callback_INTonChange `(v ~T0 @X0 1 ef ]
 {
-[e :U _callback_INT1 ]
+[e :U _callback_INTonChange ]
 [f ]
 "44
 [; ;main.c: 44:     LED_vdtoggle(&LED0);

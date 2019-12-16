@@ -25,6 +25,8 @@
       <itemPath>DIO.h</itemPath>
       <itemPath>INT.h</itemPath>
       <itemPath>INT.c</itemPath>
+      <itemPath>TMR0.c</itemPath>
+      <itemPath>TMR0.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
