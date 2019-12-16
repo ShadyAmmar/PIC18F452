@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "INT.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
+# 1 "INT.c" 2
 
 
 
@@ -3810,161 +3809,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-
-
-
-# 1 "./definitions.h" 1
-# 18 "./definitions.h"
-typedef struct{
-    unsigned char PORT;
-    unsigned char pin;
-    unsigned char mode;
-    unsigned char status;
-    unsigned char temp1;
-    int i;
-} DEVICE;
-# 51 "./definitions.h"
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RA0:1;
-        volatile unsigned char RA1:1;
-        volatile unsigned char RA2:1;
-        volatile unsigned char RA3:1;
-        volatile unsigned char RA4:1;
-        volatile unsigned char RA5:1;
-        volatile unsigned char RA6:1;
-    };
-}_PORTAdata;
-volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RA0:1;
-        volatile unsigned char RA1:1;
-        volatile unsigned char RA2:1;
-        volatile unsigned char RA3:1;
-        volatile unsigned char RA4:1;
-        volatile unsigned char RA5:1;
-        volatile unsigned char RA6:1;
-        volatile unsigned char RA7:1;
-    };
-}_PORTAdirection;
-volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
-
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RB0:1;
-        volatile unsigned char RB1:1;
-        volatile unsigned char RB2:1;
-        volatile unsigned char RB3:1;
-        volatile unsigned char RB4:1;
-        volatile unsigned char RB5:1;
-        volatile unsigned char RB6:1;
-        volatile unsigned char RB7:1;
-    };
-}_PORTBdata;
-volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RB0:1;
-        volatile unsigned char RB1:1;
-        volatile unsigned char RB2:1;
-        volatile unsigned char RB3:1;
-        volatile unsigned char RB4:1;
-        volatile unsigned char RB5:1;
-        volatile unsigned char RB6:1;
-        volatile unsigned char RB7:1;
-    };
-}_PORTBdirection;
-volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
-# 12 "main.c" 2
-
-# 1 "./config.h" 1
-# 17 "./config.h"
-#pragma config OSC = XT
-#pragma config OSCS = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOR = ON
-#pragma config BORV = 20
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 128
-
-
-#pragma config CCP2MUX = ON
-
-
-#pragma config STVR = ON
-#pragma config LVP = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
-# 13 "main.c" 2
-
-# 1 "./DIO.h" 1
-# 11 "./DIO.h"
-void DIO_vdInit(DEVICE* dev);
-void DIO_vdWritePin(unsigned char data,unsigned char port,unsigned char pin);
-void DIO_vdWriteDirPin(unsigned char data,unsigned char port,unsigned char pin);
-void DIO_vdWritePort(unsigned char data,unsigned char port);
-void DIO_vdtogglePin(unsigned char port,unsigned char pin);
-unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin);
-unsigned char DIO_u8ReadPort(unsigned char port);
-# 14 "main.c" 2
-
-# 1 "./LED.h" 1
-# 11 "./LED.h"
-void LED_vdOn(DEVICE* led);
-void LED_vdOff(DEVICE* led);
-void LED_vdtoggle(DEVICE* led);
-# 15 "main.c" 2
-
-# 1 "./BTN.h" 1
-# 16 "./BTN.h"
-unsigned char BTN_u8getFilteredStatus(DEVICE* btn);
-void BTN_vdRead(DEVICE* btn);
-unsigned char BTN_u8getStatus(DEVICE* btn);
-# 16 "main.c" 2
+# 8 "INT.c" 2
 
 # 1 "./INT.h" 1
 # 31 "./INT.h"
@@ -3972,33 +3817,48 @@ void INT_vdinit(void);
 void INT_vdSetINT0Callback(void (*pf)());
 void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
-# 17 "main.c" 2
+# 9 "INT.c" 2
 
 
-DEVICE LED0 = {'B',0,0};
-DEVICE BTN0 = {'B',1,1};
+static void (*callback_INT0)();
+static void (*callback_INT1)();
+static void (*callback_INT2)();
 
-void callback_INT1();
-
-void main(void) {
-
-    DIO_vdInit(&LED0);
-    DIO_vdInit(&BTN0);
-    INT_vdinit();
-    INT_vdSetINT1Callback(callback_INT1);
-
-    while(1){
+void INT_vdinit(void){
+    INTCON1bits.GIE = 1;
 
 
+    INTCON1bits.INT0IE = 0;
+    INTCON3bits.INT1IE = 1;
+    INTCON3bits.INT2IE = 0;
 
-
-
-
-    }
-
-    return;
+    INTCON2bits.INTEDG0 = 1;
+    INTCON2bits.INTEDG1 = 1;
+    INTCON2bits.INTEDG2 = 1;
 }
 
-void callback_INT1(){
-    LED_vdtoggle(&LED0);
+void INT_vdSetINT0Callback(void (*pf)()){
+    callback_INT0 = pf;
+}
+void INT_vdSetINT1Callback(void (*pf)()){
+    callback_INT1 = pf;
+}
+void INT_vdSetINT2Callback(void (*pf)()){
+    callback_INT2 = pf;
+}
+
+void __attribute__((picinterrupt(("")))) ISR(){
+
+    if(INT0IF){
+        callback_INT0();
+        INT0IF = 0;
+    }
+    if(INT1IF){
+        callback_INT1();
+        INT1IF = 0;
+    }
+    if(INT2IF){
+        callback_INT2();
+        INT2IF = 0;
+    }
 }

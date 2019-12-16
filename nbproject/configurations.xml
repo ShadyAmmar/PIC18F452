@@ -23,6 +23,8 @@
     <logicalFolder name="f1" displayName="MCAL" projectFiles="true">
       <itemPath>DIO.c</itemPath>
       <itemPath>DIO.h</itemPath>
+      <itemPath>INT.h</itemPath>
+      <itemPath>INT.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"

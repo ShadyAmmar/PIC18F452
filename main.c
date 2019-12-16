@@ -14,23 +14,32 @@
 #include "DIO.h"            
 #include "LED.h"
 #include "BTN.h"
+#include "INT.h"
 
 DEVICE LED0 = {'B',0,OUTPUT};
 DEVICE BTN0 = {'B',1,INPUT};
+
+void callback_INT1();
 
 void main(void) {
 
     DIO_vdInit(&LED0);
     DIO_vdInit(&BTN0);
+    INT_vdinit();
+    INT_vdSetINT1Callback(callback_INT1);
     
     while(1){
-        if(BTN_u8getStatus(&BTN0)){
+        /*if(BTN_u8getStatus(&BTN0)){
             LED_vdOn(&LED0);
         }else{
             LED_vdOff(&LED0);
-        }      
+        }*/      
         
     }
     
     return;
+}
+
+void callback_INT1(){
+    LED_vdtoggle(&LED0);
 }
