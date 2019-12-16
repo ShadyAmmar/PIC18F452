@@ -10,14 +10,14 @@
 #include "DIO.h" 
 #include "LED.h"
 
-void LED_vdOn(DEVICE led){
-	DIO_vdWritePin(HIGH,led.PORT,led.pin);
+void LED_vdOn(DEVICE* led){
+	DIO_vdWritePin(HIGH,led->PORT,led->pin);
 }
 
-void LED_vdOff(DEVICE led){
-	DIO_vdWritePin(LOW,led.PORT,led.pin);
+void LED_vdOff(DEVICE* led){
+	DIO_vdWritePin(LOW,led->PORT,led->pin);
 }
 
-void LED_vdtoggle(DEVICE led){
-	DIO_vdtogglePin(led.PORT,led.pin);
+void LED_vdtoggle(DEVICE* led){
+	DIO_vdtogglePin(led->PORT,led->pin);
 }

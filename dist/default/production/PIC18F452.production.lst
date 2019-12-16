@@ -1,0 +1,1427 @@
+
+
+Microchip MPLAB XC8 Assembler V2.05 build -831301201 
+                                                                                               Mon Dec 16 11:25:07 2019
+
+Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
+     1                           	processor	18F452
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    18                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    19                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    20  0000                     
+    21                           ; Version 2.05
+    22                           ; Generated 20/12/2018 GMT
+    23                           ; 
+    24                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution.
+    38                           ; 
+    39                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    40                           ;        software without specific prior written permission.
+    41                           ; 
+    42                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    43                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    44                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    45                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    46                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    47                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    48                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    49                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    50                           ; 
+    51                           ; 
+    52                           ; Code-generator required, PIC18F452 Definitions
+    53                           ; 
+    54                           ; SFR Addresses
+    55  0000                     
+    56                           	psect	idataCOMRAM
+    57  003CCE                     __pidataCOMRAM:
+    58                           	opt callstack 0
+    59                           
+    60                           ;initializer for _p_PORTBdirection
+    61  003CCE  93                 	db	147
+    62  003CCF  0F                 	db	15
+    63                           
+    64                           ;initializer for _p_PORTBdata
+    65  003CD0  81                 	db	129
+    66  003CD1  0F                 	db	15
+    67                           
+    68                           ;initializer for _p_PORTAdirection
+    69  003CD2  92                 	db	146
+    70  003CD3  0F                 	db	15
+    71                           
+    72                           ;initializer for _p_PORTAdata
+    73  003CD4  80                 	db	128
+    74  003CD5  0F                 	db	15
+    75                           
+    76                           ;initializer for _BTN0
+    77  003CD6  42                 	db	66
+    78  003CD7  01                 	db	1
+    79  003CD8  01                 	db	1
+    80  003CD9  00                 	db	0
+    81  003CDA  00                 	db	0
+    82  003CDB  00                 	db	0
+    83  003CDC  00                 	db	0
+    84                           
+    85                           ;initializer for _LED0
+    86  003CDD  42                 	db	66
+    87  003CDE  00                 	db	0
+    88  003CDF  00                 	db	0
+    89  003CE0  00                 	db	0
+    90  003CE1  00                 	db	0
+    91  003CE2  00                 	db	0
+    92  003CE3  00                 	db	0
+    93                           
+    94                           ; #config settings
+    95  0000                     
+    96                           	psect	cinit
+    97  003D8C                     __pcinit:
+    98                           	opt callstack 0
+    99  003D8C                     start_initialization:
+   100                           	opt callstack 0
+   101  003D8C                     __initialization:
+   102                           	opt callstack 0
+   103                           
+   104                           ; Initialize objects allocated to COMRAM (22 bytes)
+   105                           ; load TBLPTR registers with __pidataCOMRAM
+   106  003D8C  0ECE               	movlw	low __pidataCOMRAM
+   107  003D8E  6EF6               	movwf	tblptrl,c
+   108  003D90  0E3C               	movlw	high __pidataCOMRAM
+   109  003D92  6EF7               	movwf	tblptrh,c
+   110  003D94  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   111  003D96  6EF8               	movwf	tblptru,c
+   112  003D98  EE00  F001         	lfsr	0,__pdataCOMRAM
+   113  003D9C  EE10 F016          	lfsr	1,22
+   114  003DA0                     copy_data0:
+   115  003DA0  0009               	tblrd		*+
+   116  003DA2  CFF5 FFEE          	movff	tablat,postinc0
+   117  003DA6  50E5               	movf	postdec1,w,c
+   118  003DA8  50E1               	movf	fsr1l,w,c
+   119  003DAA  E1FA               	bnz	copy_data0
+   120                           
+   121                           ; Clear objects allocated to COMRAM (8 bytes)
+   122  003DAC  EE00  F017         	lfsr	0,__pbssCOMRAM
+   123  003DB0  0E08               	movlw	8
+   124  003DB2                     clear_0:
+   125  003DB2  6AEE               	clrf	postinc0,c
+   126  003DB4  06E8               	decf	wreg,f,c
+   127  003DB6  E1FD               	bnz	clear_0
+   128  003DB8                     end_of_initialization:
+   129                           	opt callstack 0
+   130  003DB8                     __end_of__initialization:
+   131                           	opt callstack 0
+   132  003DB8  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   133  003DBA  6EF8               	movwf	tblptru,c
+   134  003DBC  0100               	movlb	0
+   135  003DBE  EFE1  F01E         	goto	_main	;jump to C main() function
+   136                           
+   137                           	psect	bssCOMRAM
+   138  000017                     __pbssCOMRAM:
+   139                           	opt callstack 0
+   140  000017                     	ds	8
+   141                           
+   142                           	psect	dataCOMRAM
+   143  000001                     __pdataCOMRAM:
+   144                           	opt callstack 0
+   145  000001                     _p_PORTBdirection:
+   146                           	opt callstack 0
+   147  000001                     	ds	2
+   148  000003                     _p_PORTBdata:
+   149                           	opt callstack 0
+   150  000003                     	ds	2
+   151  000005                     _p_PORTAdirection:
+   152                           	opt callstack 0
+   153  000005                     	ds	2
+   154  000007                     _p_PORTAdata:
+   155                           	opt callstack 0
+   156  000007                     	ds	2
+   157  000009                     _BTN0:
+   158                           	opt callstack 0
+   159  000009                     	ds	7
+   160  000010                     _LED0:
+   161                           	opt callstack 0
+   162  000010                     	ds	7
+   163                           
+   164                           	psect	cstackCOMRAM
+   165  00001F                     __pcstackCOMRAM:
+   166                           	opt callstack 0
+   167  00001F                     DIO_vdWritePin@port:
+   168                           	opt callstack 0
+   169  00001F                     DIO_vdWriteDirPin@port:
+   170                           	opt callstack 0
+   171  00001F                     DIO_u8ReadPin@pin:
+   172                           	opt callstack 0
+   173                           
+   174                           ; 1 bytes @ 0x0
+   175  00001F                     	ds	1
+   176  000020                     ??_DIO_u8ReadPin:
+   177  000020                     DIO_vdWritePin@pin:
+   178                           	opt callstack 0
+   179  000020                     DIO_vdWriteDirPin@pin:
+   180                           	opt callstack 0
+   181                           
+   182                           ; 1 bytes @ 0x1
+   183  000020                     	ds	1
+   184  000021                     ??_DIO_vdWritePin:
+   185  000021                     ??_DIO_vdWriteDirPin:
+   186                           
+   187                           ; 1 bytes @ 0x2
+   188  000021                     	ds	1
+   189  000022                     DIO_u8ReadPin@port:
+   190                           	opt callstack 0
+   191                           
+   192                           ; 1 bytes @ 0x3
+   193  000022                     	ds	1
+   194  000023                     DIO_vdWritePin@data:
+   195                           	opt callstack 0
+   196  000023                     DIO_vdWriteDirPin@data:
+   197                           	opt callstack 0
+   198  000023                     BTN_u8getStatus@btn:
+   199                           	opt callstack 0
+   200                           
+   201                           ; 2 bytes @ 0x4
+   202  000023                     	ds	1
+   203  000024                     LED_vdOn@led:
+   204                           	opt callstack 0
+   205  000024                     LED_vdOff@led:
+   206                           	opt callstack 0
+   207  000024                     DIO_vdInit@dev:
+   208                           	opt callstack 0
+   209                           
+   210                           ; 2 bytes @ 0x5
+   211  000024                     	ds	1
+   212  000025                     
+   213                           ; 1 bytes @ 0x6
+   214  000025                     	ds	1
+   215  000026                     
+   216                           ; 1 bytes @ 0x7
+   217 ;;
+   218 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   219 ;;
+   220 ;; *************** function _main *****************
+   221 ;; Defined at:
+   222 ;;		line 21 in file "main.c"
+   223 ;; Parameters:    Size  Location     Type
+   224 ;;		None
+   225 ;; Auto vars:     Size  Location     Type
+   226 ;;		None
+   227 ;; Return value:  Size  Location     Type
+   228 ;;                  1    wreg      void 
+   229 ;; Registers used:
+   230 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   231 ;; Tracked objects:
+   232 ;;		On entry : 0/0
+   233 ;;		On exit  : 0/0
+   234 ;;		Unchanged: 0/0
+   235 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   236 ;;      Params:         0       0       0       0       0       0       0
+   237 ;;      Locals:         0       0       0       0       0       0       0
+   238 ;;      Temps:          0       0       0       0       0       0       0
+   239 ;;      Totals:         0       0       0       0       0       0       0
+   240 ;;Total ram usage:        0 bytes
+   241 ;; Hardware stack levels required when called:    2
+   242 ;; This function calls:
+   243 ;;		_BTN_u8getStatus
+   244 ;;		_DIO_vdInit
+   245 ;;		_LED_vdOff
+   246 ;;		_LED_vdOn
+   247 ;; This function is called by:
+   248 ;;		Startup code after reset
+   249 ;; This function uses a non-reentrant model
+   250 ;;
+   251                           
+   252                           	psect	text0
+   253  003DC2                     __ptext0:
+   254                           	opt callstack 0
+   255  003DC2                     _main:
+   256                           	opt callstack 0
+   257  003DC2  FFFF               	dw	65535	; assembler added errata NOP
+   258                           
+   259                           ;main.c: 23:     DIO_vdInit(&LED0);
+   260                           
+   261                           ;incstack = 0
+   262  003DC4  0E10               	movlw	low _LED0
+   263  003DC6  6E24               	movwf	DIO_vdInit@dev,c
+   264  003DC8  0E00               	movlw	high _LED0
+   265  003DCA  6E25               	movwf	DIO_vdInit@dev+1,c
+   266  003DCC  ECAC  F01E         	call	_DIO_vdInit	;wreg free
+   267                           
+   268                           ;main.c: 24:     DIO_vdInit(&BTN0);
+   269  003DD0  0E09               	movlw	low _BTN0
+   270  003DD2  6E24               	movwf	DIO_vdInit@dev,c
+   271  003DD4  0E00               	movlw	high _BTN0
+   272  003DD6  6E25               	movwf	DIO_vdInit@dev+1,c
+   273  003DD8  ECAC  F01E         	call	_DIO_vdInit	;wreg free
+   274  003DDC                     l143:
+   275  003DDC  FFFF               	dw	65535	; assembler added errata NOP
+   276                           
+   277                           ;main.c: 30:         if(BTN_u8getStatus(&BTN0)){
+   278  003DDE  0E09               	movlw	low _BTN0
+   279  003DE0  6E23               	movwf	BTN_u8getStatus@btn,c
+   280  003DE2  0E00               	movlw	high _BTN0
+   281  003DE4  6E24               	movwf	BTN_u8getStatus@btn+1,c
+   282  003DE6  EC72  F01E         	call	_BTN_u8getStatus	;wreg free
+   283  003DEA  0900               	iorlw	0
+   284  003DEC  B4D8               	btfsc	status,2,c
+   285  003DEE  D007               	goto	l1080
+   286                           
+   287                           ;main.c: 31:             LED_vdOn(&LED0);
+   288  003DF0  0E10               	movlw	low _LED0
+   289  003DF2  6E24               	movwf	LED_vdOn@led,c
+   290  003DF4  0E00               	movlw	high _LED0
+   291  003DF6  6E25               	movwf	LED_vdOn@led+1,c
+   292  003DF8  EC98  F01E         	call	_LED_vdOn	;wreg free
+   293                           
+   294                           ;main.c: 32:         }else{
+   295  003DFC  D7EF               	goto	l143
+   296  003DFE                     l1080:
+   297  003DFE  FFFF               	dw	65535	; assembler added errata NOP
+   298                           
+   299                           ;main.c: 33:             LED_vdOff(&LED0);
+   300  003E00  0E10               	movlw	low _LED0
+   301  003E02  6E24               	movwf	LED_vdOff@led,c
+   302  003E04  0E00               	movlw	high _LED0
+   303  003E06  6E25               	movwf	LED_vdOff@led+1,c
+   304  003E08  EC84  F01E         	call	_LED_vdOff	;wreg free
+   305  003E0C  D7E7               	goto	l143
+   306  003E0E                     __end_of_main:
+   307                           	opt callstack 0
+   308                           
+   309 ;; *************** function _LED_vdOn *****************
+   310 ;; Defined at:
+   311 ;;		line 13 in file "LED.c"
+   312 ;; Parameters:    Size  Location     Type
+   313 ;;  led             2    5[COMRAM] PTR struct .
+   314 ;;		 -> LED0(7), 
+   315 ;; Auto vars:     Size  Location     Type
+   316 ;;		None
+   317 ;; Return value:  Size  Location     Type
+   318 ;;                  1    wreg      void 
+   319 ;; Registers used:
+   320 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   321 ;; Tracked objects:
+   322 ;;		On entry : 0/0
+   323 ;;		On exit  : 0/0
+   324 ;;		Unchanged: 0/0
+   325 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   326 ;;      Params:         2       0       0       0       0       0       0
+   327 ;;      Locals:         0       0       0       0       0       0       0
+   328 ;;      Temps:          0       0       0       0       0       0       0
+   329 ;;      Totals:         2       0       0       0       0       0       0
+   330 ;;Total ram usage:        2 bytes
+   331 ;; Hardware stack levels used:    1
+   332 ;; Hardware stack levels required when called:    1
+   333 ;; This function calls:
+   334 ;;		_DIO_vdWritePin
+   335 ;; This function is called by:
+   336 ;;		_main
+   337 ;; This function uses a non-reentrant model
+   338 ;;
+   339                           
+   340                           	psect	text1
+   341  003D30                     __ptext1:
+   342                           	opt callstack 0
+   343  003D30                     _LED_vdOn:
+   344                           	opt callstack 0
+   345  003D30  FFFF               	dw	65535	; assembler added errata NOP
+   346                           
+   347                           ;LED.c: 14:  DIO_vdWritePin(1,led->PORT,led->pin);
+   348                           
+   349                           ;incstack = 0
+   350  003D32  C024  FFD9         	movff	LED_vdOn@led,fsr2l
+   351  003D36  C025  FFDA         	movff	LED_vdOn@led+1,fsr2h
+   352  003D3A  50DF               	movf	indf2,w,c
+   353  003D3C  6E1F               	movwf	DIO_vdWritePin@port,c
+   354  003D3E  EE20 F001          	lfsr	2,1
+   355  003D42  5024               	movf	LED_vdOn@led,w,c
+   356  003D44  26D9               	addwf	fsr2l,f,c
+   357  003D46  5025               	movf	LED_vdOn@led+1,w,c
+   358  003D48  22DA               	addwfc	fsr2h,f,c
+   359  003D4A  50DF               	movf	indf2,w,c
+   360  003D4C  6E20               	movwf	DIO_vdWritePin@pin,c
+   361  003D4E  0E01               	movlw	1
+   362  003D50  ECA3  F01F         	call	_DIO_vdWritePin
+   363  003D54  0012               	return		;funcret
+   364  003D56  FFFF               	dw	65535	; errata NOP
+   365  003D58                     __end_of_LED_vdOn:
+   366                           	opt callstack 0
+   367                           
+   368 ;; *************** function _LED_vdOff *****************
+   369 ;; Defined at:
+   370 ;;		line 17 in file "LED.c"
+   371 ;; Parameters:    Size  Location     Type
+   372 ;;  led             2    5[COMRAM] PTR struct .
+   373 ;;		 -> LED0(7), 
+   374 ;; Auto vars:     Size  Location     Type
+   375 ;;		None
+   376 ;; Return value:  Size  Location     Type
+   377 ;;                  1    wreg      void 
+   378 ;; Registers used:
+   379 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   380 ;; Tracked objects:
+   381 ;;		On entry : 0/0
+   382 ;;		On exit  : 0/0
+   383 ;;		Unchanged: 0/0
+   384 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   385 ;;      Params:         2       0       0       0       0       0       0
+   386 ;;      Locals:         0       0       0       0       0       0       0
+   387 ;;      Temps:          0       0       0       0       0       0       0
+   388 ;;      Totals:         2       0       0       0       0       0       0
+   389 ;;Total ram usage:        2 bytes
+   390 ;; Hardware stack levels used:    1
+   391 ;; Hardware stack levels required when called:    1
+   392 ;; This function calls:
+   393 ;;		_DIO_vdWritePin
+   394 ;; This function is called by:
+   395 ;;		_main
+   396 ;; This function uses a non-reentrant model
+   397 ;;
+   398                           
+   399                           	psect	text2
+   400  003D08                     __ptext2:
+   401                           	opt callstack 0
+   402  003D08                     _LED_vdOff:
+   403                           	opt callstack 0
+   404  003D08  FFFF               	dw	65535	; assembler added errata NOP
+   405                           
+   406                           ;LED.c: 18:  DIO_vdWritePin(0,led->PORT,led->pin);
+   407                           
+   408                           ;incstack = 0
+   409  003D0A  C024  FFD9         	movff	LED_vdOff@led,fsr2l
+   410  003D0E  C025  FFDA         	movff	LED_vdOff@led+1,fsr2h
+   411  003D12  50DF               	movf	indf2,w,c
+   412  003D14  6E1F               	movwf	DIO_vdWritePin@port,c
+   413  003D16  EE20 F001          	lfsr	2,1
+   414  003D1A  5024               	movf	LED_vdOff@led,w,c
+   415  003D1C  26D9               	addwf	fsr2l,f,c
+   416  003D1E  5025               	movf	LED_vdOff@led+1,w,c
+   417  003D20  22DA               	addwfc	fsr2h,f,c
+   418  003D22  50DF               	movf	indf2,w,c
+   419  003D24  6E20               	movwf	DIO_vdWritePin@pin,c
+   420  003D26  0E00               	movlw	0
+   421  003D28  ECA3  F01F         	call	_DIO_vdWritePin
+   422  003D2C  0012               	return		;funcret
+   423  003D2E  FFFF               	dw	65535	; errata NOP
+   424  003D30                     __end_of_LED_vdOff:
+   425                           	opt callstack 0
+   426                           
+   427 ;; *************** function _DIO_vdWritePin *****************
+   428 ;; Defined at:
+   429 ;;		line 19 in file "DIO.c"
+   430 ;; Parameters:    Size  Location     Type
+   431 ;;  data            1    wreg     unsigned char 
+   432 ;;  port            1    0[COMRAM] unsigned char 
+   433 ;;  pin             1    1[COMRAM] unsigned char 
+   434 ;; Auto vars:     Size  Location     Type
+   435 ;;  data            1    4[COMRAM] unsigned char 
+   436 ;; Return value:  Size  Location     Type
+   437 ;;                  1    wreg      void 
+   438 ;; Registers used:
+   439 ;;		wreg, status,2, status,0
+   440 ;; Tracked objects:
+   441 ;;		On entry : 0/0
+   442 ;;		On exit  : 0/0
+   443 ;;		Unchanged: 0/0
+   444 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   445 ;;      Params:         2       0       0       0       0       0       0
+   446 ;;      Locals:         1       0       0       0       0       0       0
+   447 ;;      Temps:          2       0       0       0       0       0       0
+   448 ;;      Totals:         5       0       0       0       0       0       0
+   449 ;;Total ram usage:        5 bytes
+   450 ;; Hardware stack levels used:    1
+   451 ;; This function calls:
+   452 ;;		Nothing
+   453 ;; This function is called by:
+   454 ;;		_LED_vdOn
+   455 ;;		_LED_vdOff
+   456 ;; This function uses a non-reentrant model
+   457 ;;
+   458                           
+   459                           	psect	text3
+   460  003F46                     __ptext3:
+   461                           	opt callstack 0
+   462  003F46                     _DIO_vdWritePin:
+   463                           	opt callstack 0
+   464  003F46  FFFF               	dw	65535	; assembler added errata NOP
+   465                           
+   466                           ;incstack = 0
+   467                           ;DIO_vdWritePin@data stored from wreg
+   468  003F48  6E23               	movwf	DIO_vdWritePin@data,c
+   469                           
+   470                           ;DIO.c: 20:  switch(port){
+   471  003F4A  D048               	goto	l1004
+   472  003F4C                     l990:
+   473  003F4C  FFFF               	dw	65535	; assembler added errata NOP
+   474                           
+   475                           ;DIO.c: 22:    if(data){
+   476  003F4E  5023               	movf	DIO_vdWritePin@data,w,c
+   477  003F50  B4D8               	btfsc	status,2,c
+   478  003F52  D00F               	goto	l994
+   479                           
+   480                           ;DIO.c: 23:     (*p_PORTAdata).PORT |= (1<<pin);
+   481  003F54  C020  F021         	movff	DIO_vdWritePin@pin,??_DIO_vdWritePin
+   482  003F58  0E01               	movlw	1
+   483  003F5A  6E22               	movwf	(??_DIO_vdWritePin+1)& (0+255),c
+   484  003F5C  2A21               	incf	??_DIO_vdWritePin,f,c
+   485  003F5E  D003               	goto	u254
+   486  003F60                     u255:
+   487  003F60  FFFF               	dw	65535	; assembler added errata NOP
+   488  003F62  90D8               	bcf	status,0,c
+   489  003F64  3622               	rlcf	??_DIO_vdWritePin+1,f,c
+   490  003F66                     u254:
+   491  003F66  FFFF               	dw	65535	; assembler added errata NOP
+   492  003F68  2E21               	decfsz	??_DIO_vdWritePin,f,c
+   493  003F6A  D7FA               	goto	u255
+   494  003F6C  5022               	movf	??_DIO_vdWritePin+1,w,c
+   495  003F6E  1280               	iorwf	3968,f,c	;volatile
+   496                           
+   497                           ;DIO.c: 24:    }else{
+   498  003F70  D044               	goto	l75
+   499  003F72                     l994:
+   500  003F72  FFFF               	dw	65535	; assembler added errata NOP
+   501                           
+   502                           ;DIO.c: 25:     (*p_PORTAdata).PORT &= ~(1<<pin);
+   503  003F74  C020  F021         	movff	DIO_vdWritePin@pin,??_DIO_vdWritePin
+   504  003F78  0E01               	movlw	1
+   505  003F7A  6E22               	movwf	(??_DIO_vdWritePin+1)& (0+255),c
+   506  003F7C  2A21               	incf	??_DIO_vdWritePin,f,c
+   507  003F7E  D003               	goto	u264
+   508  003F80                     u265:
+   509  003F80  FFFF               	dw	65535	; assembler added errata NOP
+   510  003F82  90D8               	bcf	status,0,c
+   511  003F84  3622               	rlcf	??_DIO_vdWritePin+1,f,c
+   512  003F86                     u264:
+   513  003F86  FFFF               	dw	65535	; assembler added errata NOP
+   514  003F88  2E21               	decfsz	??_DIO_vdWritePin,f,c
+   515  003F8A  D7FA               	goto	u265
+   516  003F8C  5022               	movf	??_DIO_vdWritePin+1,w,c
+   517  003F8E  0AFF               	xorlw	255
+   518  003F90  1680               	andwf	3968,f,c	;volatile
+   519  003F92  D033               	goto	l75
+   520  003F94                     l996:
+   521  003F94  FFFF               	dw	65535	; assembler added errata NOP
+   522                           
+   523                           ;DIO.c: 29:    if(data){
+   524  003F96  5023               	movf	DIO_vdWritePin@data,w,c
+   525  003F98  B4D8               	btfsc	status,2,c
+   526  003F9A  D00F               	goto	l1000
+   527                           
+   528                           ;DIO.c: 30:     (*p_PORTBdata).PORT |= (1<<pin);
+   529  003F9C  C020  F021         	movff	DIO_vdWritePin@pin,??_DIO_vdWritePin
+   530  003FA0  0E01               	movlw	1
+   531  003FA2  6E22               	movwf	(??_DIO_vdWritePin+1)& (0+255),c
+   532  003FA4  2A21               	incf	??_DIO_vdWritePin,f,c
+   533  003FA6  D003               	goto	u284
+   534  003FA8                     u285:
+   535  003FA8  FFFF               	dw	65535	; assembler added errata NOP
+   536  003FAA  90D8               	bcf	status,0,c
+   537  003FAC  3622               	rlcf	??_DIO_vdWritePin+1,f,c
+   538  003FAE                     u284:
+   539  003FAE  FFFF               	dw	65535	; assembler added errata NOP
+   540  003FB0  2E21               	decfsz	??_DIO_vdWritePin,f,c
+   541  003FB2  D7FA               	goto	u285
+   542  003FB4  5022               	movf	??_DIO_vdWritePin+1,w,c
+   543  003FB6  1281               	iorwf	3969,f,c	;volatile
+   544                           
+   545                           ;DIO.c: 31:     }else{
+   546  003FB8  D020               	goto	l75
+   547  003FBA                     l1000:
+   548  003FBA  FFFF               	dw	65535	; assembler added errata NOP
+   549                           
+   550                           ;DIO.c: 32:     (*p_PORTBdata).PORT &= ~(1<<pin);
+   551  003FBC  C020  F021         	movff	DIO_vdWritePin@pin,??_DIO_vdWritePin
+   552  003FC0  0E01               	movlw	1
+   553  003FC2  6E22               	movwf	(??_DIO_vdWritePin+1)& (0+255),c
+   554  003FC4  2A21               	incf	??_DIO_vdWritePin,f,c
+   555  003FC6  D003               	goto	u294
+   556  003FC8                     u295:
+   557  003FC8  FFFF               	dw	65535	; assembler added errata NOP
+   558  003FCA  90D8               	bcf	status,0,c
+   559  003FCC  3622               	rlcf	??_DIO_vdWritePin+1,f,c
+   560  003FCE                     u294:
+   561  003FCE  FFFF               	dw	65535	; assembler added errata NOP
+   562  003FD0  2E21               	decfsz	??_DIO_vdWritePin,f,c
+   563  003FD2  D7FA               	goto	u295
+   564  003FD4  5022               	movf	??_DIO_vdWritePin+1,w,c
+   565  003FD6  0AFF               	xorlw	255
+   566  003FD8  1681               	andwf	3969,f,c	;volatile
+   567  003FDA  D00F               	goto	l75
+   568  003FDC                     l1004:
+   569  003FDC  FFFF               	dw	65535	; assembler added errata NOP
+   570  003FDE  501F               	movf	DIO_vdWritePin@port,w,c
+   571  003FE0  6E21               	movwf	??_DIO_vdWritePin& (0+255),c
+   572  003FE2  6A22               	clrf	(??_DIO_vdWritePin+1)& (0+255),c
+   573                           
+   574                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   575                           ; Switch size 1, requested type "simple"
+   576                           ; Number of cases is 1, Range of values is 0 to 0
+   577                           ; switch strategies available:
+   578                           ; Name         Instructions Cycles
+   579                           ; simple_byte            4     3 (average)
+   580                           ;	Chosen strategy is simple_byte
+   581  003FE4  5022               	movf	??_DIO_vdWritePin+1,w,c
+   582  003FE6  0A00               	xorlw	0	; case 0
+   583  003FE8  A4D8               	btfss	status,2,c
+   584  003FEA  D007               	goto	l75
+   585                           
+   586                           ; Switch size 1, requested type "simple"
+   587                           ; Number of cases is 2, Range of values is 65 to 66
+   588                           ; switch strategies available:
+   589                           ; Name         Instructions Cycles
+   590                           ; simple_byte            7     4 (average)
+   591                           ;	Chosen strategy is simple_byte
+   592  003FEC  5021               	movf	??_DIO_vdWritePin,w,c
+   593  003FEE  0A41               	xorlw	65	; case 65
+   594  003FF0  B4D8               	btfsc	status,2,c
+   595  003FF2  D7AC               	goto	l990
+   596  003FF4  0A03               	xorlw	3	; case 66
+   597  003FF6  B4D8               	btfsc	status,2,c
+   598  003FF8  D7CD               	goto	l996
+   599  003FFA                     l75:
+   600  003FFA  FFFF               	dw	65535	; assembler added errata NOP
+   601  003FFC  0012               	return		;funcret
+   602  003FFE  FFFF               	dw	65535	; errata NOP
+   603  004000                     __end_of_DIO_vdWritePin:
+   604                           	opt callstack 0
+   605                           
+   606 ;; *************** function _DIO_vdInit *****************
+   607 ;; Defined at:
+   608 ;;		line 15 in file "DIO.c"
+   609 ;; Parameters:    Size  Location     Type
+   610 ;;  dev             2    5[COMRAM] PTR struct .
+   611 ;;		 -> BTN0(7), LED0(7), 
+   612 ;; Auto vars:     Size  Location     Type
+   613 ;;		None
+   614 ;; Return value:  Size  Location     Type
+   615 ;;                  1    wreg      void 
+   616 ;; Registers used:
+   617 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   618 ;; Tracked objects:
+   619 ;;		On entry : 0/0
+   620 ;;		On exit  : 0/0
+   621 ;;		Unchanged: 0/0
+   622 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   623 ;;      Params:         2       0       0       0       0       0       0
+   624 ;;      Locals:         0       0       0       0       0       0       0
+   625 ;;      Temps:          0       0       0       0       0       0       0
+   626 ;;      Totals:         2       0       0       0       0       0       0
+   627 ;;Total ram usage:        2 bytes
+   628 ;; Hardware stack levels used:    1
+   629 ;; Hardware stack levels required when called:    1
+   630 ;; This function calls:
+   631 ;;		_DIO_vdWriteDirPin
+   632 ;; This function is called by:
+   633 ;;		_main
+   634 ;; This function uses a non-reentrant model
+   635 ;;
+   636                           
+   637                           	psect	text4
+   638  003D58                     __ptext4:
+   639                           	opt callstack 0
+   640  003D58                     _DIO_vdInit:
+   641                           	opt callstack 0
+   642  003D58  FFFF               	dw	65535	; assembler added errata NOP
+   643                           
+   644                           ;DIO.c: 16:     DIO_vdWriteDirPin(dev->mode,dev->PORT,dev->pin);
+   645                           
+   646                           ;incstack = 0
+   647  003D5A  C024  FFD9         	movff	DIO_vdInit@dev,fsr2l
+   648  003D5E  C025  FFDA         	movff	DIO_vdInit@dev+1,fsr2h
+   649  003D62  50DF               	movf	indf2,w,c
+   650  003D64  6E1F               	movwf	DIO_vdWriteDirPin@port,c
+   651  003D66  EE20 F001          	lfsr	2,1
+   652  003D6A  5024               	movf	DIO_vdInit@dev,w,c
+   653  003D6C  26D9               	addwf	fsr2l,f,c
+   654  003D6E  5025               	movf	DIO_vdInit@dev+1,w,c
+   655  003D70  22DA               	addwfc	fsr2h,f,c
+   656  003D72  50DF               	movf	indf2,w,c
+   657  003D74  6E20               	movwf	DIO_vdWriteDirPin@pin,c
+   658  003D76  EE20 F002          	lfsr	2,2
+   659  003D7A  5024               	movf	DIO_vdInit@dev,w,c
+   660  003D7C  26D9               	addwf	fsr2l,f,c
+   661  003D7E  5025               	movf	DIO_vdInit@dev+1,w,c
+   662  003D80  22DA               	addwfc	fsr2h,f,c
+   663  003D82  50DF               	movf	indf2,w,c
+   664  003D84  EC46  F01F         	call	_DIO_vdWriteDirPin
+   665  003D88  0012               	return		;funcret
+   666  003D8A  FFFF               	dw	65535	; errata NOP
+   667  003D8C                     __end_of_DIO_vdInit:
+   668                           	opt callstack 0
+   669                           
+   670 ;; *************** function _DIO_vdWriteDirPin *****************
+   671 ;; Defined at:
+   672 ;;		line 38 in file "DIO.c"
+   673 ;; Parameters:    Size  Location     Type
+   674 ;;  data            1    wreg     unsigned char 
+   675 ;;  port            1    0[COMRAM] unsigned char 
+   676 ;;  pin             1    1[COMRAM] unsigned char 
+   677 ;; Auto vars:     Size  Location     Type
+   678 ;;  data            1    4[COMRAM] unsigned char 
+   679 ;; Return value:  Size  Location     Type
+   680 ;;                  1    wreg      void 
+   681 ;; Registers used:
+   682 ;;		wreg, status,2, status,0
+   683 ;; Tracked objects:
+   684 ;;		On entry : 0/0
+   685 ;;		On exit  : 0/0
+   686 ;;		Unchanged: 0/0
+   687 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   688 ;;      Params:         2       0       0       0       0       0       0
+   689 ;;      Locals:         1       0       0       0       0       0       0
+   690 ;;      Temps:          2       0       0       0       0       0       0
+   691 ;;      Totals:         5       0       0       0       0       0       0
+   692 ;;Total ram usage:        5 bytes
+   693 ;; Hardware stack levels used:    1
+   694 ;; This function calls:
+   695 ;;		Nothing
+   696 ;; This function is called by:
+   697 ;;		_DIO_vdInit
+   698 ;; This function uses a non-reentrant model
+   699 ;;
+   700                           
+   701                           	psect	text5
+   702  003E8C                     __ptext5:
+   703                           	opt callstack 0
+   704  003E8C                     _DIO_vdWriteDirPin:
+   705                           	opt callstack 0
+   706  003E8C  FFFF               	dw	65535	; assembler added errata NOP
+   707                           
+   708                           ;incstack = 0
+   709                           ;DIO_vdWriteDirPin@data stored from wreg
+   710  003E8E  6E23               	movwf	DIO_vdWriteDirPin@data,c
+   711                           
+   712                           ;DIO.c: 39:  switch(port){
+   713  003E90  D048               	goto	l1048
+   714  003E92                     l1034:
+   715  003E92  FFFF               	dw	65535	; assembler added errata NOP
+   716                           
+   717                           ;DIO.c: 41:    if(data){
+   718  003E94  5023               	movf	DIO_vdWriteDirPin@data,w,c
+   719  003E96  B4D8               	btfsc	status,2,c
+   720  003E98  D00F               	goto	l1038
+   721                           
+   722                           ;DIO.c: 42:     (*p_PORTAdirection).PORT |= (1<<pin);
+   723  003E9A  C020  F021         	movff	DIO_vdWriteDirPin@pin,??_DIO_vdWriteDirPin
+   724  003E9E  0E01               	movlw	1
+   725  003EA0  6E22               	movwf	(??_DIO_vdWriteDirPin+1)& (0+255),c
+   726  003EA2  2A21               	incf	??_DIO_vdWriteDirPin,f,c
+   727  003EA4  D003               	goto	u374
+   728  003EA6                     u375:
+   729  003EA6  FFFF               	dw	65535	; assembler added errata NOP
+   730  003EA8  90D8               	bcf	status,0,c
+   731  003EAA  3622               	rlcf	??_DIO_vdWriteDirPin+1,f,c
+   732  003EAC                     u374:
+   733  003EAC  FFFF               	dw	65535	; assembler added errata NOP
+   734  003EAE  2E21               	decfsz	??_DIO_vdWriteDirPin,f,c
+   735  003EB0  D7FA               	goto	u375
+   736  003EB2  5022               	movf	??_DIO_vdWriteDirPin+1,w,c
+   737  003EB4  1292               	iorwf	3986,f,c	;volatile
+   738                           
+   739                           ;DIO.c: 43:    }else{
+   740  003EB6  D044               	goto	l86
+   741  003EB8                     l1038:
+   742  003EB8  FFFF               	dw	65535	; assembler added errata NOP
+   743                           
+   744                           ;DIO.c: 44:     (*p_PORTAdirection).PORT &= ~(1<<pin);
+   745  003EBA  C020  F021         	movff	DIO_vdWriteDirPin@pin,??_DIO_vdWriteDirPin
+   746  003EBE  0E01               	movlw	1
+   747  003EC0  6E22               	movwf	(??_DIO_vdWriteDirPin+1)& (0+255),c
+   748  003EC2  2A21               	incf	??_DIO_vdWriteDirPin,f,c
+   749  003EC4  D003               	goto	u384
+   750  003EC6                     u385:
+   751  003EC6  FFFF               	dw	65535	; assembler added errata NOP
+   752  003EC8  90D8               	bcf	status,0,c
+   753  003ECA  3622               	rlcf	??_DIO_vdWriteDirPin+1,f,c
+   754  003ECC                     u384:
+   755  003ECC  FFFF               	dw	65535	; assembler added errata NOP
+   756  003ECE  2E21               	decfsz	??_DIO_vdWriteDirPin,f,c
+   757  003ED0  D7FA               	goto	u385
+   758  003ED2  5022               	movf	??_DIO_vdWriteDirPin+1,w,c
+   759  003ED4  0AFF               	xorlw	255
+   760  003ED6  1692               	andwf	3986,f,c	;volatile
+   761  003ED8  D033               	goto	l86
+   762  003EDA                     l1040:
+   763  003EDA  FFFF               	dw	65535	; assembler added errata NOP
+   764                           
+   765                           ;DIO.c: 48:    if(data){
+   766  003EDC  5023               	movf	DIO_vdWriteDirPin@data,w,c
+   767  003EDE  B4D8               	btfsc	status,2,c
+   768  003EE0  D00F               	goto	l1044
+   769                           
+   770                           ;DIO.c: 49:     (*p_PORTBdirection).PORT |= (1<<pin);
+   771  003EE2  C020  F021         	movff	DIO_vdWriteDirPin@pin,??_DIO_vdWriteDirPin
+   772  003EE6  0E01               	movlw	1
+   773  003EE8  6E22               	movwf	(??_DIO_vdWriteDirPin+1)& (0+255),c
+   774  003EEA  2A21               	incf	??_DIO_vdWriteDirPin,f,c
+   775  003EEC  D003               	goto	u404
+   776  003EEE                     u405:
+   777  003EEE  FFFF               	dw	65535	; assembler added errata NOP
+   778  003EF0  90D8               	bcf	status,0,c
+   779  003EF2  3622               	rlcf	??_DIO_vdWriteDirPin+1,f,c
+   780  003EF4                     u404:
+   781  003EF4  FFFF               	dw	65535	; assembler added errata NOP
+   782  003EF6  2E21               	decfsz	??_DIO_vdWriteDirPin,f,c
+   783  003EF8  D7FA               	goto	u405
+   784  003EFA  5022               	movf	??_DIO_vdWriteDirPin+1,w,c
+   785  003EFC  1293               	iorwf	3987,f,c	;volatile
+   786                           
+   787                           ;DIO.c: 50:     }else{
+   788  003EFE  D020               	goto	l86
+   789  003F00                     l1044:
+   790  003F00  FFFF               	dw	65535	; assembler added errata NOP
+   791                           
+   792                           ;DIO.c: 51:     (*p_PORTBdirection).PORT &= ~(1<<pin);
+   793  003F02  C020  F021         	movff	DIO_vdWriteDirPin@pin,??_DIO_vdWriteDirPin
+   794  003F06  0E01               	movlw	1
+   795  003F08  6E22               	movwf	(??_DIO_vdWriteDirPin+1)& (0+255),c
+   796  003F0A  2A21               	incf	??_DIO_vdWriteDirPin,f,c
+   797  003F0C  D003               	goto	u414
+   798  003F0E                     u415:
+   799  003F0E  FFFF               	dw	65535	; assembler added errata NOP
+   800  003F10  90D8               	bcf	status,0,c
+   801  003F12  3622               	rlcf	??_DIO_vdWriteDirPin+1,f,c
+   802  003F14                     u414:
+   803  003F14  FFFF               	dw	65535	; assembler added errata NOP
+   804  003F16  2E21               	decfsz	??_DIO_vdWriteDirPin,f,c
+   805  003F18  D7FA               	goto	u415
+   806  003F1A  5022               	movf	??_DIO_vdWriteDirPin+1,w,c
+   807  003F1C  0AFF               	xorlw	255
+   808  003F1E  1693               	andwf	3987,f,c	;volatile
+   809  003F20  D00F               	goto	l86
+   810  003F22                     l1048:
+   811  003F22  FFFF               	dw	65535	; assembler added errata NOP
+   812  003F24  501F               	movf	DIO_vdWriteDirPin@port,w,c
+   813  003F26  6E21               	movwf	??_DIO_vdWriteDirPin& (0+255),c
+   814  003F28  6A22               	clrf	(??_DIO_vdWriteDirPin+1)& (0+255),c
+   815                           
+   816                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   817                           ; Switch size 1, requested type "simple"
+   818                           ; Number of cases is 1, Range of values is 0 to 0
+   819                           ; switch strategies available:
+   820                           ; Name         Instructions Cycles
+   821                           ; simple_byte            4     3 (average)
+   822                           ;	Chosen strategy is simple_byte
+   823  003F2A  5022               	movf	??_DIO_vdWriteDirPin+1,w,c
+   824  003F2C  0A00               	xorlw	0	; case 0
+   825  003F2E  A4D8               	btfss	status,2,c
+   826  003F30  D007               	goto	l86
+   827                           
+   828                           ; Switch size 1, requested type "simple"
+   829                           ; Number of cases is 2, Range of values is 65 to 66
+   830                           ; switch strategies available:
+   831                           ; Name         Instructions Cycles
+   832                           ; simple_byte            7     4 (average)
+   833                           ;	Chosen strategy is simple_byte
+   834  003F32  5021               	movf	??_DIO_vdWriteDirPin,w,c
+   835  003F34  0A41               	xorlw	65	; case 65
+   836  003F36  B4D8               	btfsc	status,2,c
+   837  003F38  D7AC               	goto	l1034
+   838  003F3A  0A03               	xorlw	3	; case 66
+   839  003F3C  B4D8               	btfsc	status,2,c
+   840  003F3E  D7CD               	goto	l1040
+   841  003F40                     l86:
+   842  003F40  FFFF               	dw	65535	; assembler added errata NOP
+   843  003F42  0012               	return		;funcret
+   844  003F44  FFFF               	dw	65535	; errata NOP
+   845  003F46                     __end_of_DIO_vdWriteDirPin:
+   846                           	opt callstack 0
+   847                           
+   848 ;; *************** function _BTN_u8getStatus *****************
+   849 ;; Defined at:
+   850 ;;		line 57 in file "BTN.c"
+   851 ;; Parameters:    Size  Location     Type
+   852 ;;  btn             2    4[COMRAM] PTR struct .
+   853 ;;		 -> BTN0(7), 
+   854 ;; Auto vars:     Size  Location     Type
+   855 ;;		None
+   856 ;; Return value:  Size  Location     Type
+   857 ;;                  1    wreg      unsigned char 
+   858 ;; Registers used:
+   859 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   860 ;; Tracked objects:
+   861 ;;		On entry : 0/0
+   862 ;;		On exit  : 0/0
+   863 ;;		Unchanged: 0/0
+   864 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   865 ;;      Params:         2       0       0       0       0       0       0
+   866 ;;      Locals:         0       0       0       0       0       0       0
+   867 ;;      Temps:          0       0       0       0       0       0       0
+   868 ;;      Totals:         2       0       0       0       0       0       0
+   869 ;;Total ram usage:        2 bytes
+   870 ;; Hardware stack levels used:    1
+   871 ;; Hardware stack levels required when called:    1
+   872 ;; This function calls:
+   873 ;;		_DIO_u8ReadPin
+   874 ;; This function is called by:
+   875 ;;		_main
+   876 ;; This function uses a non-reentrant model
+   877 ;;
+   878                           
+   879                           	psect	text6
+   880  003CE4                     __ptext6:
+   881                           	opt callstack 0
+   882  003CE4                     _BTN_u8getStatus:
+   883                           	opt callstack 0
+   884  003CE4  FFFF               	dw	65535	; assembler added errata NOP
+   885                           
+   886                           ;BTN.c: 58:  return DIO_u8ReadPin(btn->PORT,btn->pin);
+   887                           
+   888                           ;incstack = 0
+   889  003CE6  EE20 F001          	lfsr	2,1
+   890  003CEA  5023               	movf	BTN_u8getStatus@btn,w,c
+   891  003CEC  26D9               	addwf	fsr2l,f,c
+   892  003CEE  5024               	movf	BTN_u8getStatus@btn+1,w,c
+   893  003CF0  22DA               	addwfc	fsr2h,f,c
+   894  003CF2  50DF               	movf	indf2,w,c
+   895  003CF4  6E1F               	movwf	DIO_u8ReadPin@pin,c
+   896  003CF6  C023  FFD9         	movff	BTN_u8getStatus@btn,fsr2l
+   897  003CFA  C024  FFDA         	movff	BTN_u8getStatus@btn+1,fsr2h
+   898  003CFE  50DF               	movf	indf2,w,c
+   899  003D00  EC07  F01F         	call	_DIO_u8ReadPin
+   900  003D04  0012               	return		;funcret
+   901  003D06  FFFF               	dw	65535	; errata NOP
+   902  003D08                     __end_of_BTN_u8getStatus:
+   903                           	opt callstack 0
+   904                           
+   905 ;; *************** function _DIO_u8ReadPin *****************
+   906 ;; Defined at:
+   907 ;;		line 84 in file "DIO.c"
+   908 ;; Parameters:    Size  Location     Type
+   909 ;;  port            1    wreg     unsigned char 
+   910 ;;  pin             1    0[COMRAM] unsigned char 
+   911 ;; Auto vars:     Size  Location     Type
+   912 ;;  port            1    3[COMRAM] unsigned char 
+   913 ;; Return value:  Size  Location     Type
+   914 ;;                  1    wreg      unsigned char 
+   915 ;; Registers used:
+   916 ;;		wreg, status,2, status,0
+   917 ;; Tracked objects:
+   918 ;;		On entry : 0/0
+   919 ;;		On exit  : 0/0
+   920 ;;		Unchanged: 0/0
+   921 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   922 ;;      Params:         1       0       0       0       0       0       0
+   923 ;;      Locals:         1       0       0       0       0       0       0
+   924 ;;      Temps:          2       0       0       0       0       0       0
+   925 ;;      Totals:         4       0       0       0       0       0       0
+   926 ;;Total ram usage:        4 bytes
+   927 ;; Hardware stack levels used:    1
+   928 ;; This function calls:
+   929 ;;		Nothing
+   930 ;; This function is called by:
+   931 ;;		_BTN_u8getStatus
+   932 ;;		_BTN_vdRead
+   933 ;; This function uses a non-reentrant model
+   934 ;;
+   935                           
+   936                           	psect	text7
+   937  003E0E                     __ptext7:
+   938                           	opt callstack 0
+   939  003E0E                     _DIO_u8ReadPin:
+   940                           	opt callstack 0
+   941  003E0E  FFFF               	dw	65535	; assembler added errata NOP
+   942                           
+   943                           ;incstack = 0
+   944                           ;DIO_u8ReadPin@port stored from wreg
+   945  003E10  6E22               	movwf	DIO_u8ReadPin@port,c
+   946                           
+   947                           ;DIO.c: 85:  switch(port){
+   948  003E12  D027               	goto	l1022
+   949  003E14                     l1012:
+   950  003E14  FFFF               	dw	65535	; assembler added errata NOP
+   951                           
+   952                           ;DIO.c: 87:    return ((*p_PORTAdata).PORT & (1<<pin))?1:0;
+   953  003E16  C01F  F020         	movff	DIO_u8ReadPin@pin,??_DIO_u8ReadPin
+   954  003E1A  0E01               	movlw	1
+   955  003E1C  6E21               	movwf	(??_DIO_u8ReadPin+1)& (0+255),c
+   956  003E1E  2A20               	incf	??_DIO_u8ReadPin,f,c
+   957  003E20  D003               	goto	u304
+   958  003E22                     u305:
+   959  003E22  FFFF               	dw	65535	; assembler added errata NOP
+   960  003E24  90D8               	bcf	status,0,c
+   961  003E26  3621               	rlcf	??_DIO_u8ReadPin+1,f,c
+   962  003E28                     u304:
+   963  003E28  FFFF               	dw	65535	; assembler added errata NOP
+   964  003E2A  2E20               	decfsz	??_DIO_u8ReadPin,f,c
+   965  003E2C  D7FA               	goto	u305
+   966  003E2E  5021               	movf	??_DIO_u8ReadPin+1,w,c
+   967  003E30  1480               	andwf	3968,w,c	;volatile
+   968  003E32  D012               	goto	L1
+   969  003E34                     u311:
+   970  003E34  FFFF               	dw	65535	; assembler added errata NOP
+   971  003E36  0E01               	movlw	1
+   972  003E38  D025               	goto	l109
+   973  003E3A                     l1016:
+   974  003E3A  FFFF               	dw	65535	; assembler added errata NOP
+   975                           
+   976                           ;DIO.c: 89:    return ((*p_PORTBdata).PORT & (1<<pin))?1:0;
+   977  003E3C  C01F  F020         	movff	DIO_u8ReadPin@pin,??_DIO_u8ReadPin
+   978  003E40  0E01               	movlw	1
+   979  003E42  6E21               	movwf	(??_DIO_u8ReadPin+1)& (0+255),c
+   980  003E44  2A20               	incf	??_DIO_u8ReadPin,f,c
+   981  003E46  D003               	goto	u334
+   982  003E48                     u335:
+   983  003E48  FFFF               	dw	65535	; assembler added errata NOP
+   984  003E4A  90D8               	bcf	status,0,c
+   985  003E4C  3621               	rlcf	??_DIO_u8ReadPin+1,f,c
+   986  003E4E                     u334:
+   987  003E4E  FFFF               	dw	65535	; assembler added errata NOP
+   988  003E50  2E20               	decfsz	??_DIO_u8ReadPin,f,c
+   989  003E52  D7FA               	goto	u335
+   990  003E54  5021               	movf	??_DIO_u8ReadPin+1,w,c
+   991  003E56  1481               	andwf	3969,w,c	;volatile
+   992  003E58                     L1:
+   993  003E58  FFFF               	dw	65535	; assembler added errata NOP
+   994  003E5A  0900               	iorlw	0
+   995  003E5C  A4D8               	btfss	status,2,c
+   996  003E5E  D7EA               	goto	u311
+   997  003E60  D00F               	goto	l1024
+   998  003E62                     l1022:
+   999  003E62  FFFF               	dw	65535	; assembler added errata NOP
+  1000  003E64  5022               	movf	DIO_u8ReadPin@port,w,c
+  1001  003E66  6E20               	movwf	??_DIO_u8ReadPin& (0+255),c
+  1002  003E68  6A21               	clrf	(??_DIO_u8ReadPin+1)& (0+255),c
+  1003                           
+  1004                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1005                           ; Switch size 1, requested type "simple"
+  1006                           ; Number of cases is 1, Range of values is 0 to 0
+  1007                           ; switch strategies available:
+  1008                           ; Name         Instructions Cycles
+  1009                           ; simple_byte            4     3 (average)
+  1010                           ;	Chosen strategy is simple_byte
+  1011  003E6A  5021               	movf	??_DIO_u8ReadPin+1,w,c
+  1012  003E6C  0A00               	xorlw	0	; case 0
+  1013  003E6E  A4D8               	btfss	status,2,c
+  1014  003E70  D007               	goto	l1024
+  1015                           
+  1016                           ; Switch size 1, requested type "simple"
+  1017                           ; Number of cases is 2, Range of values is 65 to 66
+  1018                           ; switch strategies available:
+  1019                           ; Name         Instructions Cycles
+  1020                           ; simple_byte            7     4 (average)
+  1021                           ;	Chosen strategy is simple_byte
+  1022  003E72  5020               	movf	??_DIO_u8ReadPin,w,c
+  1023  003E74  0A41               	xorlw	65	; case 65
+  1024  003E76  B4D8               	btfsc	status,2,c
+  1025  003E78  D7CD               	goto	l1012
+  1026  003E7A  0A03               	xorlw	3	; case 66
+  1027  003E7C  B4D8               	btfsc	status,2,c
+  1028  003E7E  D7DD               	goto	l1016
+  1029  003E80                     l1024:
+  1030  003E80  FFFF               	dw	65535	; assembler added errata NOP
+  1031                           
+  1032                           ;DIO.c: 91:  return 0;
+  1033  003E82  0E00               	movlw	0
+  1034  003E84                     l109:
+  1035  003E84  FFFF               	dw	65535	; assembler added errata NOP
+  1036  003E86  0012               	return		;funcret
+  1037  003E88  FFFF               	dw	65535	; errata NOP
+  1038  003E8A                     __end_of_DIO_u8ReadPin:
+  1039                           	opt callstack 0
+  1040  003E8A  FFFF               	dw	65535	; assembler added errata NOP
+  1041                           
+  1042                           	psect	rparam
+  1043  0000                     tosu	equ	0xFFF
+  1044                           tosh	equ	0xFFE
+  1045                           tosl	equ	0xFFD
+  1046                           stkptr	equ	0xFFC
+  1047                           pclatu	equ	0xFFB
+  1048                           pclath	equ	0xFFA
+  1049                           pcl	equ	0xFF9
+  1050                           tblptru	equ	0xFF8
+  1051                           tblptrh	equ	0xFF7
+  1052                           tblptrl	equ	0xFF6
+  1053                           tablat	equ	0xFF5
+  1054                           prodh	equ	0xFF4
+  1055                           prodl	equ	0xFF3
+  1056                           indf0	equ	0xFEF
+  1057                           postinc0	equ	0xFEE
+  1058                           postdec0	equ	0xFED
+  1059                           preinc0	equ	0xFEC
+  1060                           plusw0	equ	0xFEB
+  1061                           fsr0h	equ	0xFEA
+  1062                           fsr0l	equ	0xFE9
+  1063                           wreg	equ	0xFE8
+  1064                           indf1	equ	0xFE7
+  1065                           postinc1	equ	0xFE6
+  1066                           postdec1	equ	0xFE5
+  1067                           preinc1	equ	0xFE4
+  1068                           plusw1	equ	0xFE3
+  1069                           fsr1h	equ	0xFE2
+  1070                           fsr1l	equ	0xFE1
+  1071                           bsr	equ	0xFE0
+  1072                           indf2	equ	0xFDF
+  1073                           postinc2	equ	0xFDE
+  1074                           postdec2	equ	0xFDD
+  1075                           preinc2	equ	0xFDC
+  1076                           plusw2	equ	0xFDB
+  1077                           fsr2h	equ	0xFDA
+  1078                           fsr2l	equ	0xFD9
+  1079                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        22
+    BSS         8
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127      7      37
+    BANK0           128      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    DIO_vdInit@dev	PTR struct . size(2) Largest target is 7
+		 -> BTN0(COMRAM[7]), LED0(COMRAM[7]), 
+
+    BTN_u8getStatus@btn	PTR struct . size(2) Largest target is 7
+		 -> BTN0(COMRAM[7]), 
+
+    LED_vdOff@led	PTR struct . size(2) Largest target is 7
+		 -> LED0(COMRAM[7]), 
+
+    LED_vdOn@led	PTR struct . size(2) Largest target is 7
+		 -> LED0(COMRAM[7]), 
+
+    p_PORTBdirection	PTR volatile struct . size(2) Largest target is 1535
+		 -> RAM(DATA[1535]), 
+
+    p_PORTBdata	PTR volatile struct . size(2) Largest target is 1535
+		 -> RAM(DATA[1535]), 
+
+    p_PORTAdirection	PTR volatile struct . size(2) Largest target is 1535
+		 -> RAM(DATA[1535]), 
+
+    p_PORTAdata	PTR volatile struct . size(2) Largest target is 1535
+		 -> RAM(DATA[1535]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_DIO_vdInit
+    _main->_LED_vdOff
+    _main->_LED_vdOn
+    _LED_vdOn->_DIO_vdWritePin
+    _LED_vdOff->_DIO_vdWritePin
+    _DIO_vdInit->_DIO_vdWriteDirPin
+    _BTN_u8getStatus->_DIO_u8ReadPin
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    2018
+                    _BTN_u8getStatus
+                         _DIO_vdInit
+                          _LED_vdOff
+                           _LED_vdOn
+ ---------------------------------------------------------------------------------
+ (1) _LED_vdOn                                             2     0      2     578
+                                              5 COMRAM     2     0      2
+                     _DIO_vdWritePin
+ ---------------------------------------------------------------------------------
+ (1) _LED_vdOff                                            2     0      2     578
+                                              5 COMRAM     2     0      2
+                     _DIO_vdWritePin
+ ---------------------------------------------------------------------------------
+ (2) _DIO_vdWritePin                                       5     3      2     458
+                                              0 COMRAM     5     3      2
+ ---------------------------------------------------------------------------------
+ (1) _DIO_vdInit                                           2     0      2     524
+                                              5 COMRAM     2     0      2
+                  _DIO_vdWriteDirPin
+ ---------------------------------------------------------------------------------
+ (2) _DIO_vdWriteDirPin                                    5     3      2     306
+                                              0 COMRAM     5     3      2
+ ---------------------------------------------------------------------------------
+ (1) _BTN_u8getStatus                                      2     0      2     338
+                                              4 COMRAM     2     0      2
+                      _DIO_u8ReadPin
+ ---------------------------------------------------------------------------------
+ (2) _DIO_u8ReadPin                                        4     3      1     218
+                                              0 COMRAM     4     3      1
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _BTN_u8getStatus
+     _DIO_u8ReadPin
+   _DIO_vdInit
+     _DIO_vdWriteDirPin
+   _LED_vdOff
+     _DIO_vdWritePin
+   _LED_vdOn
+     _DIO_vdWritePin
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             5FF      0       0      17        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK5           100      0       0      16        0.0%
+BANK5              100      0       0      14        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            80      0       0       4        0.0%
+BANK0               80      0       0       5        0.0%
+BITCOMRAM           7F      0       0       0        0.0%
+COMRAM              7F      7      25       1       29.1%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      25      15        0.0%
+DATA                 0      0      25       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
+Symbol Table                                                                                   Mon Dec 16 11:25:07 2019
+
+                                              _DIO_vdWritePin 3F46  
+                                                 ?_DIO_vdInit 0024  
+                                                          l75 3FFA  
+                                                          l86 3F40  
+                                                 __CFG_BOR$ON 000000  
+                                           _DIO_vdWriteDirPin 3E8C  
+                                                __CFG_CP0$OFF 000000  
+                                                __CFG_CP1$OFF 000000  
+                                                __CFG_CP2$OFF 000000  
+                                                __CFG_CP3$OFF 000000  
+                                                 __CFG_OSC$XT 000000  
+                                          ?_DIO_vdWriteDirPin 001F  
+                                                         l109 3E84  
+                                                         l143 3DDC  
+                                                         l990 3F4C  
+                                                         l994 3F72  
+                                                         l996 3F94  
+                                                __CFG_CPB$OFF 000000  
+                                                         u311 3E34  
+                                                         u304 3E28  
+                                                         u305 3E22  
+                                                         u404 3EF4  
+                                                         u405 3EEE  
+                                                         u334 3E4E  
+                                                         u414 3F14  
+                                                         u254 3F66  
+                                                         u335 3E48  
+                                                         u415 3F0E  
+                                                         u255 3F60  
+                                                         u264 3F86  
+                                                         u265 3F80  
+                                                __CFG_CPD$OFF 000000  
+                                                         u284 3FAE  
+                                                         u285 3FA8  
+                                                         u374 3EAC  
+                                                         u294 3FCE  
+                                                         u375 3EA6  
+                                                         u295 3FC8  
+                                                         u384 3ECC  
+                                                         u385 3EC6  
+                                                __CFG_BORV$20 000000  
+                                                         wreg 000FE8  
+                                         ??_DIO_vdWriteDirPin 0021  
+                                                __CFG_LVP$OFF 000000  
+                                                __CFG_WDT$OFF 000000  
+                                                        l1000 3FBA  
+                                                        l1012 3E14  
+                                                        l1004 3FDC  
+                                                        l1022 3E62  
+                                                        l1024 3E80  
+                                                        l1016 3E3A  
+                                                        l1040 3EDA  
+                                                        l1034 3E92  
+                                                        l1044 3F00  
+                                                        l1038 3EB8  
+                                                        l1048 3F22  
+                                                        l1080 3DFE  
+                                                        _LED0 0010  
+                                                        _BTN0 0009  
+                                                __CFG_STVR$ON 000000  
+                                                        _main 3DC2  
+                                                        fsr2h 000FDA  
+                                                        indf2 000FDF  
+                                                        fsr1l 000FE1  
+                                                        fsr2l 000FD9  
+                                                        start 0002  
+                                      __end_of_DIO_vdWritePin 4000  
+                                                ___param_bank 000000  
+                                          __size_of_LED_vdOff 0028  
+                                   __end_of_DIO_vdWriteDirPin 3F46  
+                                             ??_DIO_u8ReadPin 0020  
+                                               __CFG_OSCS$OFF 000000  
+                                            __end_of_LED_vdOn 3D58  
+                                                       ?_main 001F  
+                                               __CFG_PWRT$OFF 000000  
+                                               __CFG_WRT0$OFF 000000  
+                                               __CFG_WRT1$OFF 000000  
+                                               __CFG_WRT2$OFF 000000  
+                                               __CFG_WRT3$OFF 000000  
+                                              __CFG_EBTR0$OFF 000000  
+                                              __CFG_EBTR1$OFF 000000  
+                                              __CFG_EBTR2$OFF 000000  
+                                              __CFG_EBTR3$OFF 000000  
+                                               __CFG_WRTB$OFF 000000  
+                                               __CFG_WRTC$OFF 000000  
+                                               __CFG_WRTD$OFF 000000  
+                                              __CFG_EBTRB$OFF 000000  
+                                         __size_of_DIO_vdInit 0034  
+                                                       tablat 000FF5  
+                                                       status 000FD8  
+                                            _p_PORTAdirection 0005  
+                                             ?_DIO_vdWritePin 001F  
+                                            _p_PORTBdirection 0001  
+                                             __initialization 3D8C  
+                                                __end_of_main 3E0E  
+                                    __size_of_BTN_u8getStatus 0024  
+                                                      ??_main 0026  
+                                               __activetblptr 000002  
+                                                 LED_vdOn@led 0024  
+                                             __CFG_CCP2MUX$ON 000000  
+                                           __end_of_LED_vdOff 3D30  
+                                              __CFG_WDTPS$128 000000  
+                                  __size_of_DIO_vdWriteDirPin 00BA  
+                                                      clear_0 3DB2  
+                                                __pdataCOMRAM 0001  
+                                                      tblptrh 000FF7  
+                                                      tblptrl 000FF6  
+                                                      tblptru 000FF8  
+                                               DIO_vdInit@dev 0024  
+                                          BTN_u8getStatus@btn 0023  
+                                                  __accesstop 0080  
+                                     __end_of__initialization 3DB8  
+                                               ___rparam_used 000001  
+                                                   ?_LED_vdOn 0024  
+                                              __pcstackCOMRAM 001F  
+                                                ??_DIO_vdInit 0026  
+                                           ??_BTN_u8getStatus 0025  
+                                          __end_of_DIO_vdInit 3D8C  
+                                                  ??_LED_vdOn 0026  
+                                                LED_vdOff@led 0024  
+                                            DIO_u8ReadPin@pin 001F  
+                                           DIO_vdWritePin@pin 0020  
+                                            ??_DIO_vdWritePin 0021  
+                                                     __Hparam 0000  
+                                                     __Lparam 0000  
+                                                     __pcinit 3D8C  
+                                       __end_of_DIO_u8ReadPin 3E8A  
+                                                     __ramtop 0600  
+                                                     __ptext0 3DC2  
+                                                     __ptext1 3D30  
+                                                     __ptext2 3D08  
+                                                     __ptext3 3F46  
+                                                     __ptext4 3D58  
+                                                     __ptext5 3E8C  
+                                                     __ptext6 3CE4  
+                                                     __ptext7 3E0E  
+                                        end_of_initialization 3DB8  
+                                                   _LED_vdOff 3D08  
+                                               __Lmediumconst 0000  
+                                                   _BTNstatus 0017  
+                                                     postdec1 000FE5  
+                                                     postinc0 000FEE  
+                                                  ?_LED_vdOff 0024  
+                                           __size_of_LED_vdOn 0028  
+                                             _BTN_u8getStatus 3CE4  
+                                       DIO_vdWriteDirPin@data 0023  
+                                               __pidataCOMRAM 3CCE  
+                                       DIO_vdWriteDirPin@port 001F  
+                                         start_initialization 3D8C  
+                                                 _p_PORTAdata 0007  
+                                                 _p_PORTBdata 0003  
+                                                 __pbssCOMRAM 0017  
+                                                 ??_LED_vdOff 0026  
+                                     __end_of_BTN_u8getStatus 3D08  
+                                           DIO_u8ReadPin@port 0022  
+                                          DIO_vdWritePin@data 0023  
+                                          DIO_vdWritePin@port 001F  
+                                                    _LED_vdOn 3D30  
+                                        DIO_vdWriteDirPin@pin 0020  
+                                                   copy_data0 3DA0  
+                                      __size_of_DIO_u8ReadPin 007C  
+                                            ?_BTN_u8getStatus 0023  
+                                                    __Hrparam 0000  
+                                                    __Lrparam 0000  
+                                     __size_of_DIO_vdWritePin 00BA  
+                                               __size_of_main 004C  
+                                                  _DIO_vdInit 3D58  
+                                               _DIO_u8ReadPin 3E0E  
+                                              ?_DIO_u8ReadPin 001F  

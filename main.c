@@ -23,12 +23,13 @@ void main(void) {
     DIO_vdInit(&LED0);
     DIO_vdInit(&BTN0);
     
-      while(1){
+    while(1){
         if(BTN_u8getStatus(&BTN0)){
-            LED_vdOn(LED0);
+            LED_vdOn(&LED0);
         }else{
-            LED_vdOff(LED0);
-        }
+            LED_vdOff(&LED0);
+        }      
+        
     }
     
     return;
