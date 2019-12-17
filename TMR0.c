@@ -9,6 +9,7 @@
 
 #include "TMR0.h"
 
+
 TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
     switch(mode){
         case COUNTER:
@@ -47,3 +48,4 @@ TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned ch
     
     T0CONbits.TMR0ON = 1;
 }
+

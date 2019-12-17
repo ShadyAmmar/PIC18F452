@@ -12,6 +12,7 @@ static void (*callback_INT0)();
 static void (*callback_INT1)();
 static void (*callback_INT2)();
 static void (*callback_INTonChange)();
+static void (*callback_TMR0)();
 
 void INT_vdinit(void){
     INTCON1bits.GIE = ENABLED;
@@ -27,6 +28,9 @@ void INT_vdinit(void){
     
     /*Level Change interrupt*/
     INTCON1bits.RBIE = PORTB_INT_ON_CHANGE;
+    
+    /*Timer0 overflow interrupt*/
+    INTCON1bits.TMR0IE = TMR0_INT;
 }
 
 void INT_vdSetINT0Callback(void (*pf)()){
@@ -40,6 +44,9 @@ void INT_vdSetINT2Callback(void (*pf)()){
 }
 void INT_vdSetINTOnChangeCallback(void (*pf)()){
     callback_INTonChange = pf;
+}
+void INT_vdSetTMR0Callback(void (*pf)()){
+    callback_TMR0 = pf;
 }
 
 void __interrupt () ISR(){
@@ -59,5 +66,11 @@ void __interrupt () ISR(){
     if(RBIF){
         callback_INTonChange();
         RBIF = 0;
+    }
+    
+    /*Timer0 Overflow interrupt*/
+    if(TMR0IF){
+        callback_TMR0();
+        TMR0IF = 0;
     }
 }

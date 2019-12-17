@@ -33,8 +33,11 @@ void main(void) {
     DIO_vdInit(&BTN0);
     
     INT_vdinit();
-       
-    TMR0_vdInit(COUNTER,BIT8,LOW_TO_HIGH,PRE_SCALER_OFF,0);
+    //INT_vdSetINTOnChangeCallback(callback_INTonChange);
+    INT_vdSetTMR0Callback(callback_TMR0);
+    
+    TMR0_vdInit(TIMER,BIT8,0,PRE_SCALER_ON,SCALE_16);
+    //TMR0_vdInit(COUNTER,BIT8,LOW_TO_HIGH,PRE_SCALER_OFF,0);
     
     
     while(1){
@@ -42,8 +45,7 @@ void main(void) {
             LED_vdOn(&LED0);
         }else{
             LED_vdOff(&LED0);
-        }*/
-        PORTB = TMR0L;
+        }*/      
         
     }
     

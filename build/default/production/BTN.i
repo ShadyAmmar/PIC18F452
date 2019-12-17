@@ -89,6 +89,39 @@ typedef union{
     };
 }_PORTBdirection;
 volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
+
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RD0:1;
+        volatile unsigned char RD1:1;
+        volatile unsigned char RD2:1;
+        volatile unsigned char RD3:1;
+        volatile unsigned char RD4:1;
+        volatile unsigned char RD5:1;
+        volatile unsigned char RD6:1;
+        volatile unsigned char RD7:1;
+    };
+}_PORTDdata;
+volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RD0:1;
+        volatile unsigned char RD1:1;
+        volatile unsigned char RD2:1;
+        volatile unsigned char RD3:1;
+        volatile unsigned char RD4:1;
+        volatile unsigned char RD5:1;
+        volatile unsigned char RD6:1;
+        volatile unsigned char RD7:1;
+    };
+}_PORTDdirection;
+volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
 # 11 "./BTN.h" 2
 
 

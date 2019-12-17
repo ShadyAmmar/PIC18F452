@@ -31,6 +31,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./definitions.h: 99: typedef union{
 [u S245 `Vuc 1 `S246 1 ]
 [n S245 . PORT . ]
+"118
+[; ;./definitions.h: 118:     struct{
+[s S248 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S248 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"116
+[; ;./definitions.h: 116: typedef union{
+[u S247 `Vuc 1 `S248 1 ]
+[n S247 . PORT . ]
+"134
+[; ;./definitions.h: 134:     struct{
+[s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S250 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"132
+[; ;./definitions.h: 132: typedef union{
+[u S249 `Vuc 1 `S250 1 ]
+[n S249 . PORT . ]
 "18
 [; ;./definitions.h: 18: typedef struct{
 [s S238 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
@@ -39,16 +55,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./DIO.h
 [; ;./DIO.h: 11: void DIO_vdInit(DEVICE* dev);
 [v _DIO_vdInit `(v ~T0 @X0 0 ef1`*S238 ]
-"35 ./INT.h
-[; ;./INT.h: 35: void INT_vdinit(void);
+"39 ./INT.h
+[; ;./INT.h: 39: void INT_vdinit(void);
 [v _INT_vdinit `(v ~T0 @X0 0 ef ]
-[v F2225 `(v ~T0 @X0 0 t? ]
-"39
-[; ;./INT.h: 39: void INT_vdSetINTOnChangeCallback(void (*pf)());
-[v _INT_vdSetINTOnChangeCallback `(v ~T0 @X0 0 ef1`*F2225 ]
-"22 main.c
-[; ;main.c: 22: void callback_INTonChange();
-[v _callback_INTonChange `(v ~T0 @X0 0 e? ]
+"30 ./TMR0.h
+[; ;./TMR0.h: 30: TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);
+[v _TMR0_vdInit `(i ~T0 @X0 0 ef5`uc`uc`uc`uc`uc ]
+"197 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 197: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"4866
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4866: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
 "13 ./LED.h
 [; ;./LED.h: 13: void LED_vdtoggle(DEVICE* led);
 [v _LED_vdtoggle `(v ~T0 @X0 0 ef1`*S238 ]
@@ -457,6 +475,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _p_PORTBdirection
 -> -> -> 3987 `i `*S245 `*VS245
 ]
+"129
+[; ;./definitions.h: 129: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+[v _p_PORTDdata `*VS247 ~T0 @X0 1 e ]
+[i _p_PORTDdata
+-> -> -> 3971 `i `*S247 `*VS247
+]
+"145
+[; ;./definitions.h: 145: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+[v _p_PORTDdirection `*VS249 ~T0 @X0 1 e ]
+[i _p_PORTDdirection
+-> -> -> 3989 `i `*S249 `*VS249
+]
 "17 ./config.h
 [p x OSC = XT ]
 "18
@@ -513,8 +543,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "64
 [p x EBTRB = OFF ]
-"19 main.c
-[; ;main.c: 19: DEVICE LED0 = {'B',0,0};
+"20 main.c
+[; ;main.c: 20: DEVICE LED0 = {'B',0,0};
 [v _LED0 `S238 ~T0 @X0 1 e ]
 [i _LED0
 :U ..
@@ -525,64 +555,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"20
-[; ;main.c: 20: DEVICE BTN0 = {'B',1,1};
-[v _BTN0 `S238 ~T0 @X0 1 e ]
-[i _BTN0
+"21
+[; ;main.c: 21: DEVICE LED1 = {'B',1,0};
+[v _LED1 `S238 ~T0 @X0 1 e ]
+[i _LED1
 :U ..
 :U ..
 -> -> 66 `ui `uc
 -> -> 1 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+"22
+[; ;main.c: 22: DEVICE LED2 = {'B',2,0};
+[v _LED2 `S238 ~T0 @X0 1 e ]
+[i _LED2
+:U ..
+:U ..
+-> -> 66 `ui `uc
+-> -> 2 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+"23
+[; ;main.c: 23: DEVICE BTN0 = {'A',4,1};
+[v _BTN0 `S238 ~T0 @X0 1 e ]
+[i _BTN0
+:U ..
+:U ..
+-> -> 65 `ui `uc
+-> -> 4 `i `uc
 -> -> 1 `i `uc
 ..
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"24
-[; ;main.c: 24: void main(void) {
+"28
+[; ;main.c: 28: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"26
-[; ;main.c: 26:     DIO_vdInit(&LED0);
+"30
+[; ;main.c: 30:     DIO_vdInit(&LED0);
 [e ( _DIO_vdInit (1 &U _LED0 ]
-"27
-[; ;main.c: 27:     DIO_vdInit(&BTN0);
-[e ( _DIO_vdInit (1 &U _BTN0 ]
-"28
-[; ;main.c: 28:     INT_vdinit();
-[e ( _INT_vdinit ..  ]
-"29
-[; ;main.c: 29:     INT_vdSetINTOnChangeCallback(callback_INTonChange);
-[e ( _INT_vdSetINTOnChangeCallback (1 &U _callback_INTonChange ]
 "31
-[; ;main.c: 31:     while(1){
-[e :U 249 ]
-{
-"38
-[; ;main.c: 38:     }
-}
-[e :U 248 ]
-[e $U 249  ]
-[e :U 250 ]
+[; ;main.c: 31:     DIO_vdInit(&LED1);
+[e ( _DIO_vdInit (1 &U _LED1 ]
+"32
+[; ;main.c: 32:     DIO_vdInit(&LED2);
+[e ( _DIO_vdInit (1 &U _LED2 ]
+"33
+[; ;main.c: 33:     DIO_vdInit(&BTN0);
+[e ( _DIO_vdInit (1 &U _BTN0 ]
+"35
+[; ;main.c: 35:     INT_vdinit();
+[e ( _INT_vdinit ..  ]
+"37
+[; ;main.c: 37:     TMR0_vdInit(1,0,0,0,0);
+[e ( _TMR0_vdInit (4 , , , , -> -> 1 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
 "40
-[; ;main.c: 40:     return;
-[e $UE 247  ]
-"41
-[; ;main.c: 41: }
-[e :UE 247 ]
+[; ;main.c: 40:     while(1){
+[e :U 253 ]
+{
+"46
+[; ;main.c: 46:         PORTB = TMR0L;
+[e = _PORTB _TMR0L ]
+"48
+[; ;main.c: 48:     }
 }
-"43
-[; ;main.c: 43: void callback_INTonChange(){
+[e :U 252 ]
+[e $U 253  ]
+[e :U 254 ]
+"50
+[; ;main.c: 50:     return;
+[e $UE 251  ]
+"51
+[; ;main.c: 51: }
+[e :UE 251 ]
+}
+"53
+[; ;main.c: 53: void callback_INTonChange(){
 [v _callback_INTonChange `(v ~T0 @X0 1 ef ]
 {
 [e :U _callback_INTonChange ]
 [f ]
-"44
-[; ;main.c: 44:     LED_vdtoggle(&LED0);
+"54
+[; ;main.c: 54:     LED_vdtoggle(&LED0);
 [e ( _LED_vdtoggle (1 &U _LED0 ]
-"45
-[; ;main.c: 45: }
-[e :UE 251 ]
+"55
+[; ;main.c: 55: }
+[e :UE 255 ]
+}
+"57
+[; ;main.c: 57: void callback_TMR0(){
+[v _callback_TMR0 `(v ~T0 @X0 1 ef ]
+{
+[e :U _callback_TMR0 ]
+[f ]
+"58
+[; ;main.c: 58:     static unsigned char counter = 0;
+[v F2275 `uc ~T0 @X0 1 s counter ]
+[i F2275
+-> -> 0 `i `uc
+]
+"59
+[; ;main.c: 59:     counter++;
+[e ++ F2275 -> -> 1 `i `uc ]
+"60
+[; ;main.c: 60:     if(counter == 245){
+[e $ ! == -> F2275 `i -> 245 `i 257  ]
+{
+"61
+[; ;main.c: 61:         counter =0;
+[e = F2275 -> -> 0 `i `uc ]
+"62
+[; ;main.c: 62:         LED_vdtoggle(&LED0);
+[e ( _LED_vdtoggle (1 &U _LED0 ]
+"63
+[; ;main.c: 63:     }
+}
+[e :U 257 ]
+"64
+[; ;main.c: 64: }
+[e :UE 256 ]
 }

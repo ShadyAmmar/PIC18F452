@@ -3885,6 +3885,39 @@ typedef union{
     };
 }_PORTBdirection;
 volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
+
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RD0:1;
+        volatile unsigned char RD1:1;
+        volatile unsigned char RD2:1;
+        volatile unsigned char RD3:1;
+        volatile unsigned char RD4:1;
+        volatile unsigned char RD5:1;
+        volatile unsigned char RD6:1;
+        volatile unsigned char RD7:1;
+    };
+}_PORTDdata;
+volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RD0:1;
+        volatile unsigned char RD1:1;
+        volatile unsigned char RD2:1;
+        volatile unsigned char RD3:1;
+        volatile unsigned char RD4:1;
+        volatile unsigned char RD5:1;
+        volatile unsigned char RD6:1;
+        volatile unsigned char RD7:1;
+    };
+}_PORTDdirection;
+volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
 # 10 "DIO.c" 2
 
 # 1 "./DIO.h" 1
@@ -3921,6 +3954,13 @@ void DIO_vdWritePin(unsigned char data,unsigned char port,unsigned char pin){
     (*p_PORTBdata).PORT &= ~(1<<pin);
    }
             break;
+        case 'D':
+   if(data){
+    (*p_PORTDdata).PORT |= (1<<pin);
+    }else{
+    (*p_PORTDdata).PORT &= ~(1<<pin);
+   }
+            break;
  }
 }
 
@@ -3940,6 +3980,13 @@ void DIO_vdWriteDirPin(unsigned char data,unsigned char port,unsigned char pin){
     (*p_PORTBdirection).PORT &= ~(1<<pin);
    }
             break;
+        case 'D':
+   if(data){
+    (*p_PORTDdirection).PORT |= (1<<pin);
+    }else{
+    (*p_PORTDdirection).PORT &= ~(1<<pin);
+   }
+            break;
  }
 }
 
@@ -3951,12 +3998,21 @@ void DIO_vdWritePort(unsigned char data,unsigned char port){
    }else{
     (*p_PORTAdata).PORT = 0;
    }
+            break;
   case 'B':
    if(data){
     (*p_PORTBdata).PORT = data;
    }else{
     (*p_PORTBdata).PORT = 0;
    }
+            break;
+        case 'D':
+   if(data){
+    (*p_PORTDdata).PORT = data;
+   }else{
+    (*p_PORTDdata).PORT = 0;
+   }
+            break;
     }
 }
 
@@ -3964,8 +4020,13 @@ void DIO_vdtogglePin(unsigned char port,unsigned char pin){
  switch(port){
   case 'A':
    (*p_PORTAdata).PORT ^= (1<<pin);
+            break;
   case 'B':
    (*p_PORTBdata).PORT ^= (1<<pin);
+            break;
+        case 'D':
+   (*p_PORTDdata).PORT ^= (1<<pin);
+            break;
  }
 
 }
@@ -3976,6 +4037,8 @@ unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin){
    return ((*p_PORTAdata).PORT & (1<<pin))?1:0;
   case 'B':
    return ((*p_PORTBdata).PORT & (1<<pin))?1:0;
+        case 'D':
+   return ((*p_PORTDdata).PORT & (1<<pin))?1:0;
  }
  return 0;
 }
@@ -3986,6 +4049,8 @@ unsigned char DIO_u8ReadPort(unsigned char port){
             return ((*p_PORTAdata).PORT);
   case 'B':
             return ((*p_PORTBdata).PORT);
+        case 'D':
+            return ((*p_PORTDdata).PORT);
  }
  return 0;
 }

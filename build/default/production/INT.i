@@ -3812,12 +3812,13 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 8 "INT.c" 2
 
 # 1 "./INT.h" 1
-# 35 "./INT.h"
+# 39 "./INT.h"
 void INT_vdinit(void);
 void INT_vdSetINT0Callback(void (*pf)());
 void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
 void INT_vdSetINTOnChangeCallback(void (*pf)());
+void INT_vdSetTMR0Callback(void (*pf)());
 # 9 "INT.c" 2
 
 
@@ -3825,13 +3826,14 @@ static void (*callback_INT0)();
 static void (*callback_INT1)();
 static void (*callback_INT2)();
 static void (*callback_INTonChange)();
+static void (*callback_TMR0)();
 
 void INT_vdinit(void){
     INTCON1bits.GIE = 1;
 
 
     INTCON1bits.INT0IE = 0;
-    INTCON3bits.INT1IE = 1;
+    INTCON3bits.INT1IE = 0;
     INTCON3bits.INT2IE = 0;
 
     INTCON2bits.INTEDG0 = 1;
@@ -3840,6 +3842,9 @@ void INT_vdinit(void){
 
 
     INTCON1bits.RBIE = 1;
+
+
+    INTCON1bits.TMR0IE = 1;
 }
 
 void INT_vdSetINT0Callback(void (*pf)()){
@@ -3853,6 +3858,9 @@ void INT_vdSetINT2Callback(void (*pf)()){
 }
 void INT_vdSetINTOnChangeCallback(void (*pf)()){
     callback_INTonChange = pf;
+}
+void INT_vdSetTMR0Callback(void (*pf)()){
+    callback_TMR0 = pf;
 }
 
 void __attribute__((picinterrupt(("")))) ISR(){
@@ -3872,5 +3880,11 @@ void __attribute__((picinterrupt(("")))) ISR(){
     if(RBIF){
         callback_INTonChange();
         RBIF = 0;
+    }
+
+
+    if(TMR0IF){
+        callback_TMR0();
+        TMR0IF = 0;
     }
 }

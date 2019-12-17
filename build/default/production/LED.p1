@@ -31,6 +31,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./definitions.h: 99: typedef union{
 [u S245 `Vuc 1 `S246 1 ]
 [n S245 . PORT . ]
+"118
+[; ;./definitions.h: 118:     struct{
+[s S248 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S248 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"116
+[; ;./definitions.h: 116: typedef union{
+[u S247 `Vuc 1 `S248 1 ]
+[n S247 . PORT . ]
+"134
+[; ;./definitions.h: 134:     struct{
+[s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S250 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"132
+[; ;./definitions.h: 132: typedef union{
+[u S249 `Vuc 1 `S250 1 ]
+[n S249 . PORT . ]
 "18
 [; ;./definitions.h: 18: typedef struct{
 [s S238 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
@@ -446,6 +462,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _p_PORTBdirection
 -> -> -> 3987 `i `*S245 `*VS245
 ]
+"129
+[; ;./definitions.h: 129: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+[v _p_PORTDdata `*VS247 ~T0 @X0 1 e ]
+[i _p_PORTDdata
+-> -> -> 3971 `i `*S247 `*VS247
+]
+"145
+[; ;./definitions.h: 145: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+[v _p_PORTDdirection `*VS249 ~T0 @X0 1 e ]
+[i _p_PORTDdirection
+-> -> -> 3989 `i `*S249 `*VS249
+]
 "13 LED.c
 [; ;LED.c: 13: void LED_vdOn(DEVICE* led){
 [v _LED_vdOn `(v ~T0 @X0 1 ef1`*S238 ]
@@ -458,7 +486,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _DIO_vdWritePin (3 , , -> -> 1 `i `uc . *U _led 0 . *U _led 1 ]
 "15
 [; ;LED.c: 15: }
-[e :UE 247 ]
+[e :UE 251 ]
 }
 "17
 [; ;LED.c: 17: void LED_vdOff(DEVICE* led){
@@ -472,7 +500,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _DIO_vdWritePin (3 , , -> -> 0 `i `uc . *U _led 0 . *U _led 1 ]
 "19
 [; ;LED.c: 19: }
-[e :UE 248 ]
+[e :UE 252 ]
 }
 "21
 [; ;LED.c: 21: void LED_vdtoggle(DEVICE* led){
@@ -486,5 +514,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _DIO_vdtogglePin (2 , . *U _led 0 . *U _led 1 ]
 "23
 [; ;LED.c: 23: }
-[e :UE 249 ]
+[e :UE 253 ]
 }

@@ -31,6 +31,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./definitions.h: 99: typedef union{
 [u S8 `Vuc 1 `S9 1 ]
 [n S8 . PORT . ]
+"118
+[; ;./definitions.h: 118:     struct{
+[s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S11 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"116
+[; ;./definitions.h: 116: typedef union{
+[u S10 `Vuc 1 `S11 1 ]
+[n S10 . PORT . ]
+"134
+[; ;./definitions.h: 134:     struct{
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"132
+[; ;./definitions.h: 132: typedef union{
+[u S12 `Vuc 1 `S13 1 ]
+[n S12 . PORT . ]
 "18
 [; ;./definitions.h: 18: typedef struct{
 [s S1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
@@ -62,6 +78,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _p_PORTBdirection
 -> -> -> 3987 `i `*S8 `*VS8
 ]
+"129
+[; ;./definitions.h: 129: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+[v _p_PORTDdata `*VS10 ~T0 @X0 1 e ]
+[i _p_PORTDdata
+-> -> -> 3971 `i `*S10 `*VS10
+]
+"145
+[; ;./definitions.h: 145: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+[v _p_PORTDdirection `*VS12 ~T0 @X0 1 e ]
+[i _p_PORTDdirection
+-> -> -> 3989 `i `*S12 `*VS12
+]
 "12 BTN.c
 [; ;BTN.c: 12: static unsigned char BTNstatus[] = {0,0,0,0,0,0,0,0};
 [v _BTNstatus `uc ~T0 @X0 -> 8 `i s ]
@@ -86,57 +114,57 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "15
 [; ;BTN.c: 15:  switch( btn->status )
-[e $U 12  ]
+[e $U 16  ]
 "16
 [; ;BTN.c: 16:  {
 {
 "17
 [; ;BTN.c: 17:   case 1 :
-[e :U 13 ]
+[e :U 17 ]
 "18
 [; ;BTN.c: 18:   return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 10  ]
+[e $UE 14  ]
 "19
 [; ;BTN.c: 19:   break;
-[e $U 11  ]
+[e $U 15  ]
 "20
 [; ;BTN.c: 20:   case 0 :
-[e :U 14 ]
+[e :U 18 ]
 "21
 [; ;BTN.c: 21:   return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 10  ]
+[e $UE 14  ]
 "22
 [; ;BTN.c: 22:   break;
-[e $U 11  ]
+[e $U 15  ]
 "23
 [; ;BTN.c: 23:   case 3 :
-[e :U 15 ]
+[e :U 19 ]
 "24
 [; ;BTN.c: 24:   return 3;
 [e ) -> -> 3 `i `uc ]
-[e $UE 10  ]
+[e $UE 14  ]
 "25
 [; ;BTN.c: 25:   break;
-[e $U 11  ]
+[e $U 15  ]
 "26
 [; ;BTN.c: 26:  }
 }
-[e $U 11  ]
-[e :U 12 ]
-[e [\ -> . *U _btn 3 `i , $ -> 1 `i 13
- , $ -> 0 `i 14
- , $ -> 3 `i 15
- 11 ]
-[e :U 11 ]
+[e $U 15  ]
+[e :U 16 ]
+[e [\ -> . *U _btn 3 `i , $ -> 1 `i 17
+ , $ -> 0 `i 18
+ , $ -> 3 `i 19
+ 15 ]
+[e :U 15 ]
 "27
 [; ;BTN.c: 27:  return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 10  ]
+[e $UE 14  ]
 "28
 [; ;BTN.c: 28: }
-[e :UE 10 ]
+[e :UE 14 ]
 }
 "36
 [; ;BTN.c: 36: void BTN_vdRead(DEVICE* btn){
@@ -151,7 +179,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _temp2 ( _DIO_u8ReadPin (2 , . *U _btn 0 . *U _btn 1 ]
 "39
 [; ;BTN.c: 39:  if(btn->temp1 == temp2){
-[e $ ! == -> . *U _btn 4 `i -> _temp2 `i 17  ]
+[e $ ! == -> . *U _btn 4 `i -> _temp2 `i 21  ]
 {
 "40
 [; ;BTN.c: 40:   (btn->i)++;
@@ -159,8 +187,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "41
 [; ;BTN.c: 41:  }else{
 }
-[e $U 18  ]
-[e :U 17 ]
+[e $U 22  ]
+[e :U 21 ]
 {
 "42
 [; ;BTN.c: 42:   btn->temp1 = temp2;
@@ -171,10 +199,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44
 [; ;BTN.c: 44:  }
 }
-[e :U 18 ]
+[e :U 22 ]
 "46
 [; ;BTN.c: 46:  if(btn->i % 3 == 0){
-[e $ ! == % . *U _btn 5 -> 3 `i -> 0 `i 19  ]
+[e $ ! == % . *U _btn 5 -> 3 `i -> 0 `i 23  ]
 {
 "47
 [; ;BTN.c: 47:   btn->status = temp2;
@@ -185,10 +213,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49
 [; ;BTN.c: 49:  }
 }
-[e :U 19 ]
+[e :U 23 ]
 "51
 [; ;BTN.c: 51:  if(btn->i == 400 && btn->status==1){
-[e $ ! && == . *U _btn 5 -> 400 `i == -> . *U _btn 3 `i -> 1 `i 20  ]
+[e $ ! && == . *U _btn 5 -> 400 `i == -> . *U _btn 3 `i -> 1 `i 24  ]
 {
 "52
 [; ;BTN.c: 52:   btn->status = 3;
@@ -199,10 +227,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54
 [; ;BTN.c: 54:  }
 }
-[e :U 20 ]
+[e :U 24 ]
 "55
 [; ;BTN.c: 55: }
-[e :UE 16 ]
+[e :UE 20 ]
 }
 "57
 [; ;BTN.c: 57: unsigned char BTN_u8getStatus(DEVICE* btn){
@@ -214,8 +242,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "58
 [; ;BTN.c: 58:  return DIO_u8ReadPin(btn->PORT,btn->pin);
 [e ) ( _DIO_u8ReadPin (2 , . *U _btn 0 . *U _btn 1 ]
-[e $UE 21  ]
+[e $UE 25  ]
 "59
 [; ;BTN.c: 59: }
-[e :UE 21 ]
+[e :UE 25 ]
 }

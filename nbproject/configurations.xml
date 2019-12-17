@@ -27,6 +27,10 @@
       <itemPath>INT.c</itemPath>
       <itemPath>TMR0.c</itemPath>
       <itemPath>TMR0.h</itemPath>
+      <itemPath>CCP1.h</itemPath>
+      <itemPath>CCP1.c</itemPath>
+      <itemPath>CCP2.h</itemPath>
+      <itemPath>CCP2.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
