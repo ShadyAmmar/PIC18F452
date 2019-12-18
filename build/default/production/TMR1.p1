@@ -1,69 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"54 ./definitions.h
-[; ;./definitions.h: 54:     struct{
-[s S240 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S240 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
-"52
-[; ;./definitions.h: 52: typedef union{
-[u S239 `Vuc 1 `S240 1 ]
-[n S239 . PORT . ]
-"69
-[; ;./definitions.h: 69:     struct{
-[s S242 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S242 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"67
-[; ;./definitions.h: 67: typedef union{
-[u S241 `Vuc 1 `S242 1 ]
-[n S241 . PORT . ]
-"86
-[; ;./definitions.h: 86:     struct{
-[s S244 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S244 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"84
-[; ;./definitions.h: 84: typedef union{
-[u S243 `Vuc 1 `S244 1 ]
-[n S243 . PORT . ]
-"102
-[; ;./definitions.h: 102:     struct{
-[s S246 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S246 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"100
-[; ;./definitions.h: 100: typedef union{
-[u S245 `Vuc 1 `S246 1 ]
-[n S245 . PORT . ]
-"119
-[; ;./definitions.h: 119:     struct{
-[s S248 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S248 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"117
-[; ;./definitions.h: 117: typedef union{
-[u S247 `Vuc 1 `S248 1 ]
-[n S247 . PORT . ]
-"135
-[; ;./definitions.h: 135:     struct{
-[s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S250 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"133
-[; ;./definitions.h: 133: typedef union{
-[u S249 `Vuc 1 `S250 1 ]
-[n S249 . PORT . ]
-"19
-[; ;./definitions.h: 19: typedef struct{
-[s S238 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
-[n S238 . PORT pin mode status temp1 i ]
-[p mainexit ]
-"11 ./DIO.h
-[; ;./DIO.h: 11: void DIO_vdInit(DEVICE* dev);
-[v _DIO_vdInit `(v ~T0 @X0 0 ef1`*S238 ]
-"39 ./INT.h
-[; ;./INT.h: 39: void INT_vdinit(void);
-[v _INT_vdinit `(v ~T0 @X0 0 ef ]
-"37 ./CCP1.h
-[; ;./CCP1.h: 37: void CCP1_vdInit(unsigned char mode,unsigned char TMR2_prescale,unsigned long int PWM_freq);
-[v _CCP1_vdInit `(v ~T0 @X0 0 ef3`uc`uc`ul ]
-"41
-[; ;./CCP1.h: 41: void CCP1_vdSetDutyCycle(unsigned char duty);
-[v _CCP1_vdSetDutyCycle `(v ~T0 @X0 0 ef1`uc ]
+"4418 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4418:     struct {
+[s S186 :2 `uc 1 :1 `uc 1 ]
+[n S186 . . NOT_T1SYNC ]
+"4422
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4422:     struct {
+[s S187 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S187 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS . RD16 ]
+"4431
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4431:     struct {
+[s S188 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S188 . . T1SYNC . T1CKPS0 T1CKPS1 ]
+"4438
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4438:     struct {
+[s S189 :2 `uc 1 :1 `uc 1 ]
+[n S189 . . T1INSYNC ]
+"4442
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4442:     struct {
+[s S190 :3 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S190 . . SOSCEN . T1RD16 ]
+"4417
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4417: typedef union {
+[u S185 `S186 1 `S187 1 `S188 1 `S189 1 `S190 1 ]
+[n S185 . . . . . . ]
+"4449
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4449: extern volatile T1CONbits_t T1CONbits __attribute__((address(0xFCD)));
+[v _T1CONbits `VS185 ~T0 @X0 0 e@4045 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -445,188 +407,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5763
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5763: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"64 ./definitions.h
-[; ;./definitions.h: 64: volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
-[v _p_PORTAdata `*VS239 ~T0 @X0 1 e ]
-[i _p_PORTAdata
--> -> -> 3968 `i `*S239 `*VS239
-]
-"80
-[; ;./definitions.h: 80: volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
-[v _p_PORTAdirection `*VS241 ~T0 @X0 1 e ]
-[i _p_PORTAdirection
--> -> -> 3986 `i `*S241 `*VS241
-]
-"97
-[; ;./definitions.h: 97: volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
-[v _p_PORTBdata `*VS243 ~T0 @X0 1 e ]
-[i _p_PORTBdata
--> -> -> 3969 `i `*S243 `*VS243
-]
-"113
-[; ;./definitions.h: 113: volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
-[v _p_PORTBdirection `*VS245 ~T0 @X0 1 e ]
-[i _p_PORTBdirection
--> -> -> 3987 `i `*S245 `*VS245
-]
-"130
-[; ;./definitions.h: 130: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
-[v _p_PORTDdata `*VS247 ~T0 @X0 1 e ]
-[i _p_PORTDdata
--> -> -> 3971 `i `*S247 `*VS247
-]
-"146
-[; ;./definitions.h: 146: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
-[v _p_PORTDdirection `*VS249 ~T0 @X0 1 e ]
-[i _p_PORTDdirection
--> -> -> 3989 `i `*S249 `*VS249
-]
-"17 ./config.h
-[p x OSC = XT ]
-"18
-[p x OSCS = OFF ]
-"21
-[p x PWRT = OFF ]
-"22
-[p x BOR = ON ]
-"23
-[p x BORV = 20 ]
-"26
-[p x WDT = OFF ]
-"27
-[p x WDTPS = 128 ]
-"30
-[p x CCP2MUX = ON ]
-"33
-[p x STVR = ON ]
-"34
-[p x LVP = OFF ]
-"37
-[p x CP0 = OFF ]
-"38
-[p x CP1 = OFF ]
-"39
-[p x CP2 = OFF ]
-"40
-[p x CP3 = OFF ]
-"43
-[p x CPB = OFF ]
-"44
-[p x CPD = OFF ]
-"47
-[p x WRT0 = OFF ]
-"48
-[p x WRT1 = OFF ]
-"49
-[p x WRT2 = OFF ]
-"50
-[p x WRT3 = OFF ]
-"53
-[p x WRTC = OFF ]
-"54
-[p x WRTB = OFF ]
-"55
-[p x WRTD = OFF ]
-"58
-[p x EBTR0 = OFF ]
-"59
-[p x EBTR1 = OFF ]
-"60
-[p x EBTR2 = OFF ]
-"61
-[p x EBTR3 = OFF ]
-"64
-[p x EBTRB = OFF ]
-"22 main.c
-[; ;main.c: 22: DEVICE LED0 = {'B',0,0};
-[v _LED0 `S238 ~T0 @X0 1 e ]
-[i _LED0
-:U ..
-:U ..
--> -> 66 `ui `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-..
-]
-"23
-[; ;main.c: 23: DEVICE LED1 = {'B',1,0};
-[v _LED1 `S238 ~T0 @X0 1 e ]
-[i _LED1
-:U ..
-:U ..
--> -> 66 `ui `uc
--> -> 1 `i `uc
--> -> 0 `i `uc
-..
-..
-]
-"24
-[; ;main.c: 24: DEVICE LED2 = {'B',2,0};
-[v _LED2 `S238 ~T0 @X0 1 e ]
-[i _LED2
-:U ..
-:U ..
--> -> 66 `ui `uc
--> -> 2 `i `uc
--> -> 0 `i `uc
-..
-..
-]
-"25
-[; ;main.c: 25: DEVICE BTN0 = {'A',4,1};
-[v _BTN0 `S238 ~T0 @X0 1 e ]
-[i _BTN0
-:U ..
-:U ..
--> -> 65 `ui `uc
--> -> 4 `i `uc
--> -> 1 `i `uc
-..
-..
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"28
-[; ;main.c: 28: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"12 TMR1.c
+[; ;TMR1.c: 12: TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value){
+[v _TMR1_vdInit `(i ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 {
-[e :U _main ]
+[e :U _TMR1_vdInit ]
+[v _mode `uc ~T0 @X0 1 r1 ]
+[v _bits `uc ~T0 @X0 1 r2 ]
+[v _prescaler `uc ~T0 @X0 1 r3 ]
+[v _prescaler_value `uc ~T0 @X0 1 r4 ]
 [f ]
-"30
-[; ;main.c: 30:     DIO_vdInit(&LED0);
-[e ( _DIO_vdInit (1 &U _LED0 ]
-"31
-[; ;main.c: 31:     DIO_vdInit(&LED1);
-[e ( _DIO_vdInit (1 &U _LED1 ]
-"32
-[; ;main.c: 32:     DIO_vdInit(&LED2);
-[e ( _DIO_vdInit (1 &U _LED2 ]
-"33
-[; ;main.c: 33:     DIO_vdInit(&BTN0);
-[e ( _DIO_vdInit (1 &U _BTN0 ]
-"35
-[; ;main.c: 35:     INT_vdinit();
-[e ( _INT_vdinit ..  ]
-"36
-[; ;main.c: 36:     CCP1_vdInit(0b1100,0b10,500);
-[e ( _CCP1_vdInit (3 , , -> -> 12 `i `uc -> -> 2 `i `uc -> -> -> 500 `i `l `ul ]
-"37
-[; ;main.c: 37:     CCP1_vdSetDutyCycle(50);
-[e ( _CCP1_vdSetDutyCycle (1 -> -> 50 `i `uc ]
-"38
-[; ;main.c: 38:     while(1){
-[e :U 253 ]
+"13
+[; ;TMR1.c: 13:     switch(mode){
+[e $U 235  ]
 {
-"40
-[; ;main.c: 40:     }
+"14
+[; ;TMR1.c: 14:         case 1:
+[e :U 236 ]
+"15
+[; ;TMR1.c: 15:             T1CONbits.TMR1CS = 1;
+[e = . . _T1CONbits 1 1 -> -> 1 `i `uc ]
+"16
+[; ;TMR1.c: 16:             break;
+[e $U 234  ]
+"17
+[; ;TMR1.c: 17:         case 0:
+[e :U 237 ]
+"18
+[; ;TMR1.c: 18:             T1CONbits.TMR1CS = 0;
+[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
+"19
+[; ;TMR1.c: 19:             break;
+[e $U 234  ]
+"20
+[; ;TMR1.c: 20:     }
 }
-[e :U 252 ]
-[e $U 253  ]
-[e :U 254 ]
-"42
-[; ;main.c: 42:     return;
-[e $UE 251  ]
-"43
-[; ;main.c: 43: }
-[e :UE 251 ]
+[e $U 234  ]
+[e :U 235 ]
+[e [\ -> _mode `i , $ -> 1 `i 236
+ , $ -> 0 `i 237
+ 234 ]
+[e :U 234 ]
+"22
+[; ;TMR1.c: 22:     T1CONbits.RD16 = bits;
+[e = . . _T1CONbits 1 6 _bits ]
+"24
+[; ;TMR1.c: 24:     switch(prescaler){
+[e $U 239  ]
+{
+"25
+[; ;TMR1.c: 25:         case 0:
+[e :U 240 ]
+"26
+[; ;TMR1.c: 26:             T1CONbits.T1CKPS = 0;
+[e = . . _T1CONbits 1 4 -> -> 0 `i `uc ]
+"27
+[; ;TMR1.c: 27:             break;
+[e $U 238  ]
+"28
+[; ;TMR1.c: 28:         case 1:
+[e :U 241 ]
+"29
+[; ;TMR1.c: 29:             T1CONbits.T1CKPS = prescaler_value;
+[e = . . _T1CONbits 1 4 _prescaler_value ]
+"30
+[; ;TMR1.c: 30:             break;
+[e $U 238  ]
+"31
+[; ;TMR1.c: 31:     }
+}
+[e $U 238  ]
+[e :U 239 ]
+[e [\ -> _prescaler `i , $ -> 0 `i 240
+ , $ -> 1 `i 241
+ 238 ]
+[e :U 238 ]
+"33
+[; ;TMR1.c: 33:     T1CONbits.T1OSCEN = 0;
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+"34
+[; ;TMR1.c: 34:     T1CONbits.TMR1ON = 1;
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+"35
+[; ;TMR1.c: 35: }
+[e :UE 233 ]
 }

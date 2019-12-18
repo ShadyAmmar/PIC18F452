@@ -42,6 +42,7 @@ void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
 void INT_vdSetINTOnChangeCallback(void (*pf)());
 void INT_vdSetTMR0Callback(void (*pf)());
+void INT_vdSetCCP1Callback(void (*pf)());
 
 #endif	/* INT_H */
 

@@ -13,6 +13,7 @@
 #define OUTPUT 0
 #define HIGH 1
 #define LOW 0
+#define _XTAL_FREQ 4000000
 
 //External Devices
 typedef struct{

@@ -7,6 +7,7 @@
 
 
 #include <xc.h>
+#define _XTAL_FREQ 4000000
 
 #include "definitions.h"    //registers and their accessing structures + general definitions
 #include "config.h"         //Fuse bits
@@ -33,10 +34,12 @@ void main(void) {
     DIO_vdInit(&BTN0);
     
     INT_vdinit();
-    CCP1_vdInit(PWM_MODE,TMR2_PRESCALE_16,500);
-    CCP1_vdSetDutyCycle(50);
+    TMR1_vdInit(COUNTER,R_W_8BIT,PRE_SCALER_OFF,0);
+    CCP1_vdSetCCPR(3);
+    CCP1_vdInit(COMPARE_HIGH_ON_MATCH);
+    
     while(1){
-        
+        PORTB = TMR1L; 
     }
     
     return;

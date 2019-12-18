@@ -3813,9 +3813,8 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 9 "main.c" 2
 
 
-
 # 1 "./definitions.h" 1
-# 18 "./definitions.h"
+# 19 "./definitions.h"
 typedef struct{
     unsigned char PORT;
     unsigned char pin;
@@ -3824,7 +3823,7 @@ typedef struct{
     unsigned char temp1;
     int i;
 } DEVICE;
-# 51 "./definitions.h"
+# 52 "./definitions.h"
 typedef union{
     volatile unsigned char PORT;
     struct{
@@ -3920,7 +3919,7 @@ typedef union{
     };
 }_PORTDdirection;
 volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
-# 12 "main.c" 2
+# 11 "main.c" 2
 
 # 1 "./config.h" 1
 # 17 "./config.h"
@@ -3972,7 +3971,7 @@ volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
 
 
 #pragma config EBTRB = OFF
-# 13 "main.c" 2
+# 12 "main.c" 2
 
 # 1 "./DIO.h" 1
 # 11 "./DIO.h"
@@ -3983,21 +3982,21 @@ void DIO_vdWritePort(unsigned char data,unsigned char port);
 void DIO_vdtogglePin(unsigned char port,unsigned char pin);
 unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin);
 unsigned char DIO_u8ReadPort(unsigned char port);
-# 14 "main.c" 2
+# 13 "main.c" 2
 
 # 1 "./LED.h" 1
 # 11 "./LED.h"
 void LED_vdOn(DEVICE* led);
 void LED_vdOff(DEVICE* led);
 void LED_vdtoggle(DEVICE* led);
-# 15 "main.c" 2
+# 14 "main.c" 2
 
 # 1 "./BTN.h" 1
 # 16 "./BTN.h"
 unsigned char BTN_u8getFilteredStatus(DEVICE* btn);
 void BTN_vdRead(DEVICE* btn);
 unsigned char BTN_u8getStatus(DEVICE* btn);
-# 16 "main.c" 2
+# 15 "main.c" 2
 
 # 1 "./INT.h" 1
 # 39 "./INT.h"
@@ -4007,12 +4006,28 @@ void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
 void INT_vdSetINTOnChangeCallback(void (*pf)());
 void INT_vdSetTMR0Callback(void (*pf)());
-# 17 "main.c" 2
+void INT_vdSetCCP1Callback(void (*pf)());
+# 16 "main.c" 2
 
 # 1 "./TMR0.h" 1
 # 30 "./TMR0.h"
 TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);
+# 17 "main.c" 2
+
+# 1 "./TMR1.h" 1
+# 28 "./TMR1.h"
+TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
 # 18 "main.c" 2
+
+# 1 "./CCP1.h" 1
+# 37 "./CCP1.h"
+void CCP1_vdInit(unsigned char mode,unsigned char TMR2_prescale,unsigned long int PWM_freq);
+unsigned short int CCP1_u16getCCPR();
+unsigned char CCP1_u8getCCPR();
+void CCP1_vdSetCCPR(unsigned short int value);
+void CCP1_vdSetDutyCycle(unsigned char duty);
+# 19 "main.c" 2
+
 
 
 DEVICE LED0 = {'B',0,0};
@@ -4020,8 +4035,6 @@ DEVICE LED1 = {'B',1,0};
 DEVICE LED2 = {'B',2,0};
 DEVICE BTN0 = {'A',4,1};
 
-void callback_INTonChange();
-void callback_TMR0();
 
 void main(void) {
 
@@ -4031,32 +4044,11 @@ void main(void) {
     DIO_vdInit(&BTN0);
 
     INT_vdinit();
-
-    TMR0_vdInit(1,0,0,0,0);
-
-
+    CCP1_vdInit(0b1100,0b10,500);
+    CCP1_vdSetDutyCycle(50);
     while(1){
-
-
-
-
-
-        PORTB = TMR0L;
 
     }
 
     return;
-}
-
-void callback_INTonChange(){
-    LED_vdtoggle(&LED0);
-}
-
-void callback_TMR0(){
-    static unsigned char counter = 0;
-    counter++;
-    if(counter == 245){
-        counter =0;
-        LED_vdtoggle(&LED0);
-    }
 }

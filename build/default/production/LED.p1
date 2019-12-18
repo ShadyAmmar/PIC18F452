@@ -1,54 +1,54 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"53 ./definitions.h
-[; ;./definitions.h: 53:     struct{
+"54 ./definitions.h
+[; ;./definitions.h: 54:     struct{
 [s S240 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S240 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
-"51
-[; ;./definitions.h: 51: typedef union{
+"52
+[; ;./definitions.h: 52: typedef union{
 [u S239 `Vuc 1 `S240 1 ]
 [n S239 . PORT . ]
-"68
-[; ;./definitions.h: 68:     struct{
+"69
+[; ;./definitions.h: 69:     struct{
 [s S242 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S242 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"66
-[; ;./definitions.h: 66: typedef union{
+"67
+[; ;./definitions.h: 67: typedef union{
 [u S241 `Vuc 1 `S242 1 ]
 [n S241 . PORT . ]
-"85
-[; ;./definitions.h: 85:     struct{
+"86
+[; ;./definitions.h: 86:     struct{
 [s S244 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S244 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"83
-[; ;./definitions.h: 83: typedef union{
+"84
+[; ;./definitions.h: 84: typedef union{
 [u S243 `Vuc 1 `S244 1 ]
 [n S243 . PORT . ]
-"101
-[; ;./definitions.h: 101:     struct{
+"102
+[; ;./definitions.h: 102:     struct{
 [s S246 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S246 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"99
-[; ;./definitions.h: 99: typedef union{
+"100
+[; ;./definitions.h: 100: typedef union{
 [u S245 `Vuc 1 `S246 1 ]
 [n S245 . PORT . ]
-"118
-[; ;./definitions.h: 118:     struct{
+"119
+[; ;./definitions.h: 119:     struct{
 [s S248 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S248 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"116
-[; ;./definitions.h: 116: typedef union{
+"117
+[; ;./definitions.h: 117: typedef union{
 [u S247 `Vuc 1 `S248 1 ]
 [n S247 . PORT . ]
-"134
-[; ;./definitions.h: 134:     struct{
+"135
+[; ;./definitions.h: 135:     struct{
 [s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S250 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"132
-[; ;./definitions.h: 132: typedef union{
+"133
+[; ;./definitions.h: 133: typedef union{
 [u S249 `Vuc 1 `S250 1 ]
 [n S249 . PORT . ]
-"18
-[; ;./definitions.h: 18: typedef struct{
+"19
+[; ;./definitions.h: 19: typedef struct{
 [s S238 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
 [n S238 . PORT pin mode status temp1 i ]
 "12 ./DIO.h
@@ -438,38 +438,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5763
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5763: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"63 ./definitions.h
-[; ;./definitions.h: 63: volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
+"64 ./definitions.h
+[; ;./definitions.h: 64: volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
 [v _p_PORTAdata `*VS239 ~T0 @X0 1 e ]
 [i _p_PORTAdata
 -> -> -> 3968 `i `*S239 `*VS239
 ]
-"79
-[; ;./definitions.h: 79: volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
+"80
+[; ;./definitions.h: 80: volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
 [v _p_PORTAdirection `*VS241 ~T0 @X0 1 e ]
 [i _p_PORTAdirection
 -> -> -> 3986 `i `*S241 `*VS241
 ]
-"96
-[; ;./definitions.h: 96: volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
+"97
+[; ;./definitions.h: 97: volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
 [v _p_PORTBdata `*VS243 ~T0 @X0 1 e ]
 [i _p_PORTBdata
 -> -> -> 3969 `i `*S243 `*VS243
 ]
-"112
-[; ;./definitions.h: 112: volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
+"113
+[; ;./definitions.h: 113: volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
 [v _p_PORTBdirection `*VS245 ~T0 @X0 1 e ]
 [i _p_PORTBdirection
 -> -> -> 3987 `i `*S245 `*VS245
 ]
-"129
-[; ;./definitions.h: 129: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+"130
+[; ;./definitions.h: 130: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
 [v _p_PORTDdata `*VS247 ~T0 @X0 1 e ]
 [i _p_PORTDdata
 -> -> -> 3971 `i `*S247 `*VS247
 ]
-"145
-[; ;./definitions.h: 145: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+"146
+[; ;./definitions.h: 146: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
 [v _p_PORTDdirection `*VS249 ~T0 @X0 1 e ]
 [i _p_PORTDdirection
 -> -> -> 3989 `i `*S249 `*VS249

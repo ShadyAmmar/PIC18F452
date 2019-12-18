@@ -1,91 +1,91 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"53 ./definitions.h
-[; ;./definitions.h: 53:     struct{
+"54 ./definitions.h
+[; ;./definitions.h: 54:     struct{
 [s S3 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S3 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
-"51
-[; ;./definitions.h: 51: typedef union{
+"52
+[; ;./definitions.h: 52: typedef union{
 [u S2 `Vuc 1 `S3 1 ]
 [n S2 . PORT . ]
-"68
-[; ;./definitions.h: 68:     struct{
+"69
+[; ;./definitions.h: 69:     struct{
 [s S5 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S5 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"66
-[; ;./definitions.h: 66: typedef union{
+"67
+[; ;./definitions.h: 67: typedef union{
 [u S4 `Vuc 1 `S5 1 ]
 [n S4 . PORT . ]
-"85
-[; ;./definitions.h: 85:     struct{
+"86
+[; ;./definitions.h: 86:     struct{
 [s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S7 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"83
-[; ;./definitions.h: 83: typedef union{
+"84
+[; ;./definitions.h: 84: typedef union{
 [u S6 `Vuc 1 `S7 1 ]
 [n S6 . PORT . ]
-"101
-[; ;./definitions.h: 101:     struct{
+"102
+[; ;./definitions.h: 102:     struct{
 [s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S9 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"99
-[; ;./definitions.h: 99: typedef union{
+"100
+[; ;./definitions.h: 100: typedef union{
 [u S8 `Vuc 1 `S9 1 ]
 [n S8 . PORT . ]
-"118
-[; ;./definitions.h: 118:     struct{
+"119
+[; ;./definitions.h: 119:     struct{
 [s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S11 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"116
-[; ;./definitions.h: 116: typedef union{
+"117
+[; ;./definitions.h: 117: typedef union{
 [u S10 `Vuc 1 `S11 1 ]
 [n S10 . PORT . ]
-"134
-[; ;./definitions.h: 134:     struct{
+"135
+[; ;./definitions.h: 135:     struct{
 [s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S13 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"132
-[; ;./definitions.h: 132: typedef union{
+"133
+[; ;./definitions.h: 133: typedef union{
 [u S12 `Vuc 1 `S13 1 ]
 [n S12 . PORT . ]
-"18
-[; ;./definitions.h: 18: typedef struct{
+"19
+[; ;./definitions.h: 19: typedef struct{
 [s S1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
 [n S1 . PORT pin mode status temp1 i ]
 "16 ./DIO.h
 [; ;./DIO.h: 16: unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin);
 [v _DIO_u8ReadPin `(uc ~T0 @X0 0 ef2`uc`uc ]
-"63 ./definitions.h
-[; ;./definitions.h: 63: volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
+"64 ./definitions.h
+[; ;./definitions.h: 64: volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
 [v _p_PORTAdata `*VS2 ~T0 @X0 1 e ]
 [i _p_PORTAdata
 -> -> -> 3968 `i `*S2 `*VS2
 ]
-"79
-[; ;./definitions.h: 79: volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
+"80
+[; ;./definitions.h: 80: volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
 [v _p_PORTAdirection `*VS4 ~T0 @X0 1 e ]
 [i _p_PORTAdirection
 -> -> -> 3986 `i `*S4 `*VS4
 ]
-"96
-[; ;./definitions.h: 96: volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
+"97
+[; ;./definitions.h: 97: volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
 [v _p_PORTBdata `*VS6 ~T0 @X0 1 e ]
 [i _p_PORTBdata
 -> -> -> 3969 `i `*S6 `*VS6
 ]
-"112
-[; ;./definitions.h: 112: volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
+"113
+[; ;./definitions.h: 113: volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
 [v _p_PORTBdirection `*VS8 ~T0 @X0 1 e ]
 [i _p_PORTBdirection
 -> -> -> 3987 `i `*S8 `*VS8
 ]
-"129
-[; ;./definitions.h: 129: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+"130
+[; ;./definitions.h: 130: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
 [v _p_PORTDdata `*VS10 ~T0 @X0 1 e ]
 [i _p_PORTDdata
 -> -> -> 3971 `i `*S10 `*VS10
 ]
-"145
-[; ;./definitions.h: 145: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+"146
+[; ;./definitions.h: 146: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
 [v _p_PORTDdirection `*VS12 ~T0 @X0 1 e ]
 [i _p_PORTDdirection
 -> -> -> 3989 `i `*S12 `*VS12

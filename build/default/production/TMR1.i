@@ -1,4 +1,4 @@
-# 1 "LED.c"
+# 1 "TMR1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LED.c" 2
+# 1 "TMR1.c" 2
 
 
 
@@ -14,128 +14,6 @@
 
 
 
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
-# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\xc8debug.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
-# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 176 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 212 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 2 3
-
-
-int atoi (const char *);
-long atol (const char *);
-long long atoll (const char *);
-double atof (const char *);
-
-float strtof (const char *restrict, char **restrict);
-double strtod (const char *restrict, char **restrict);
-long double strtold (const char *restrict, char **restrict);
-
-
-
-
-
-long strtol (const char *restrict, char **restrict, int);
-unsigned long strtoul (const char *restrict, char **restrict, int);
-long long strtoll (const char *restrict, char **restrict, int);
-unsigned long long strtoull (const char *restrict, char **restrict, int);
-
-int rand (void);
-void srand (unsigned);
-# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-          void abort (void);
-int atexit (void (*) (void));
-          void exit (int);
-          void _Exit (int);
-# 65 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-
-
-
-
-__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-int abs (int);
-long labs (long);
-long long llabs (long long);
-
-typedef struct { int quot, rem; } div_t;
-typedef struct { long quot, rem; } ldiv_t;
-typedef struct { long long quot, rem; } lldiv_t;
-
-div_t div (int, int);
-ldiv_t ldiv (long, long);
-lldiv_t lldiv (long long, long long);
-
-
-typedef struct { unsigned int quot, rem; } udiv_t;
-typedef struct { unsigned long quot, rem; } uldiv_t;
-udiv_t udiv (unsigned int, unsigned int);
-uldiv_t uldiv (unsigned long, unsigned long);
-# 104 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\xc8debug.h" 2 3
-
-
-
-
-
-
-
-
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 23 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\htc.h" 2 3
-# 5 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 2 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18_chip_select.h" 1 3
-# 604 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18_chip_select.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18f452.h" 1 3
 # 44 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18f452.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\__at.h" 1 3
@@ -3772,180 +3650,36 @@ extern volatile __bit nW __attribute__((address(0x7E3A)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 604 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18_chip_select.h" 2 3
-# 8 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 2 3
-# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+# 8 "TMR1.c" 2
 
 
+# 1 "./TMR1.h" 1
+# 28 "./TMR1.h"
+TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
+# 10 "TMR1.c" 2
 
 
+TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value){
+    switch(mode){
+        case 1:
+            T1CONbits.TMR1CS = 1;
+            break;
+        case 0:
+            T1CONbits.TMR1CS = 0;
+            break;
+    }
 
+    T1CONbits.RD16 = bits;
 
+    switch(prescaler){
+        case 0:
+            T1CONbits.T1CKPS = 0;
+            break;
+        case 1:
+            T1CONbits.T1CKPS = prescaler_value;
+            break;
+    }
 
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\errata.h" 1 3
-# 26 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 2 3
-# 49 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-#pragma intrinsic(__nop)
-extern void __nop(void);
-# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
-__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
-__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
-# 174 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-unsigned char __t1rd16on(void);
-unsigned char __t3rd16on(void);
-
-
-
-
-
-
-#pragma intrinsic(_delay)
-extern __attribute__((nonreentrant)) void _delay(unsigned long);
-#pragma intrinsic(_delaywdt)
-extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
-#pragma intrinsic(_delay3)
-extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 8 "LED.c" 2
-
-# 1 "./definitions.h" 1
-# 19 "./definitions.h"
-typedef struct{
-    unsigned char PORT;
-    unsigned char pin;
-    unsigned char mode;
-    unsigned char status;
-    unsigned char temp1;
-    int i;
-} DEVICE;
-# 52 "./definitions.h"
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RA0:1;
-        volatile unsigned char RA1:1;
-        volatile unsigned char RA2:1;
-        volatile unsigned char RA3:1;
-        volatile unsigned char RA4:1;
-        volatile unsigned char RA5:1;
-        volatile unsigned char RA6:1;
-    };
-}_PORTAdata;
-volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RA0:1;
-        volatile unsigned char RA1:1;
-        volatile unsigned char RA2:1;
-        volatile unsigned char RA3:1;
-        volatile unsigned char RA4:1;
-        volatile unsigned char RA5:1;
-        volatile unsigned char RA6:1;
-        volatile unsigned char RA7:1;
-    };
-}_PORTAdirection;
-volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
-
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RB0:1;
-        volatile unsigned char RB1:1;
-        volatile unsigned char RB2:1;
-        volatile unsigned char RB3:1;
-        volatile unsigned char RB4:1;
-        volatile unsigned char RB5:1;
-        volatile unsigned char RB6:1;
-        volatile unsigned char RB7:1;
-    };
-}_PORTBdata;
-volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RB0:1;
-        volatile unsigned char RB1:1;
-        volatile unsigned char RB2:1;
-        volatile unsigned char RB3:1;
-        volatile unsigned char RB4:1;
-        volatile unsigned char RB5:1;
-        volatile unsigned char RB6:1;
-        volatile unsigned char RB7:1;
-    };
-}_PORTBdirection;
-volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
-
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RD0:1;
-        volatile unsigned char RD1:1;
-        volatile unsigned char RD2:1;
-        volatile unsigned char RD3:1;
-        volatile unsigned char RD4:1;
-        volatile unsigned char RD5:1;
-        volatile unsigned char RD6:1;
-        volatile unsigned char RD7:1;
-    };
-}_PORTDdata;
-volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
-
-
-typedef union{
-    volatile unsigned char PORT;
-    struct{
-        volatile unsigned char RD0:1;
-        volatile unsigned char RD1:1;
-        volatile unsigned char RD2:1;
-        volatile unsigned char RD3:1;
-        volatile unsigned char RD4:1;
-        volatile unsigned char RD5:1;
-        volatile unsigned char RD6:1;
-        volatile unsigned char RD7:1;
-    };
-}_PORTDdirection;
-volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
-# 9 "LED.c" 2
-
-# 1 "./DIO.h" 1
-# 11 "./DIO.h"
-void DIO_vdInit(DEVICE* dev);
-void DIO_vdWritePin(unsigned char data,unsigned char port,unsigned char pin);
-void DIO_vdWriteDirPin(unsigned char data,unsigned char port,unsigned char pin);
-void DIO_vdWritePort(unsigned char data,unsigned char port);
-void DIO_vdtogglePin(unsigned char port,unsigned char pin);
-unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin);
-unsigned char DIO_u8ReadPort(unsigned char port);
-# 10 "LED.c" 2
-
-# 1 "./LED.h" 1
-# 11 "./LED.h"
-void LED_vdOn(DEVICE* led);
-void LED_vdOff(DEVICE* led);
-void LED_vdtoggle(DEVICE* led);
-# 11 "LED.c" 2
-
-
-void LED_vdOn(DEVICE* led){
- DIO_vdWritePin(1,led->PORT,led->pin);
-}
-
-void LED_vdOff(DEVICE* led){
- DIO_vdWritePin(0,led->PORT,led->pin);
-}
-
-void LED_vdtoggle(DEVICE* led){
- DIO_vdtogglePin(led->PORT,led->pin);
+    T1CONbits.T1OSCEN = 0;
+    T1CONbits.TMR1ON = 1;
 }

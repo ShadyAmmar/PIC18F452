@@ -31,6 +31,8 @@
       <itemPath>CCP1.c</itemPath>
       <itemPath>CCP2.h</itemPath>
       <itemPath>CCP2.c</itemPath>
+      <itemPath>TMR1.h</itemPath>
+      <itemPath>TMR1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"

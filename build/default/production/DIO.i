@@ -3813,7 +3813,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 9 "DIO.c" 2
 
 # 1 "./definitions.h" 1
-# 18 "./definitions.h"
+# 19 "./definitions.h"
 typedef struct{
     unsigned char PORT;
     unsigned char pin;
@@ -3822,7 +3822,7 @@ typedef struct{
     unsigned char temp1;
     int i;
 } DEVICE;
-# 51 "./definitions.h"
+# 52 "./definitions.h"
 typedef union{
     volatile unsigned char PORT;
     struct{

@@ -17,7 +17,7 @@
 # 1 "./BTN.h" 1
 # 11 "./BTN.h"
 # 1 "./definitions.h" 1
-# 18 "./definitions.h"
+# 19 "./definitions.h"
 typedef struct{
     unsigned char PORT;
     unsigned char pin;
@@ -26,7 +26,7 @@ typedef struct{
     unsigned char temp1;
     int i;
 } DEVICE;
-# 51 "./definitions.h"
+# 52 "./definitions.h"
 typedef union{
     volatile unsigned char PORT;
     struct{

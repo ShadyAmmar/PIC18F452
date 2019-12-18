@@ -17,14 +17,14 @@
 #define HIGH_TO_LOW 1
 #define PRE_SCALER_OFF 0
 #define PRE_SCALER_ON 1
-#define SCALE_2   0b000
-#define SCALE_4   0b001
-#define SCALE_8   0b010
-#define SCALE_16  0b011
-#define SCALE_32  0b100
-#define SCALE_64  0b101
-#define SCALE_128 0b110
-#define SCALE_256 0b111
+#define TMR0_SCALE_2   0b000
+#define TMR0_SCALE_4   0b001
+#define TMR0_SCALE_8   0b010
+#define TMR0_SCALE_16  0b011
+#define TMR0_SCALE_32  0b100
+#define TMR0_SCALE_64  0b101
+#define TMR0_SCALE_128 0b110
+#define TMR0_SCALE_256 0b111
 
 /*Prototypes*/
 TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);

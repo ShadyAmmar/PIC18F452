@@ -6,4 +6,6 @@ DIO.h  \
 LED.h  \
 BTN.h  \
 INT.h  \
-TMR0.h 
+TMR0.h  \
+TMR1.h  \
+CCP1.h 
