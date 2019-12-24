@@ -48,3 +48,43 @@ void UART_vdSendu8asASCI(unsigned char data){
 	}
 	
 }
+
+void UART_vdSendu16asASCI(unsigned short int data){
+	unsigned char temp[5]; unsigned char i; unsigned short int temp2 = data;
+	for(i=0;i<5;i++){
+		temp[i] = temp2%10;
+		temp2 /= 10;
+	} 
+	if(temp[4]==0){
+		if(temp[3]==0){
+			if(temp[2]==0){
+                if(temp[1]==0){
+                    if(temp[0]==0){
+                        UART_vdSendByte(temp[0]+48);
+                    }else{
+                        UART_vdSendByte(temp[0]+48);
+                    }
+                }else{
+                    UART_vdSendByte(temp[1]+48);
+                    UART_vdSendByte(temp[0]+48);
+                }
+            }else{
+                UART_vdSendByte(temp[2]+48);
+                UART_vdSendByte(temp[1]+48);
+                UART_vdSendByte(temp[0]+48);
+            }
+		}else{
+            UART_vdSendByte(temp[3]+48);
+            UART_vdSendByte(temp[2]+48);
+			UART_vdSendByte(temp[1]+48);
+			UART_vdSendByte(temp[0]+48);
+		}		
+	}else{
+        UART_vdSendByte(temp[4]+48);
+        UART_vdSendByte(temp[3]+48);
+		UART_vdSendByte(temp[2]+48);
+		UART_vdSendByte(temp[1]+48);
+		UART_vdSendByte(temp[0]+48);
+	}
+	
+}

@@ -19,6 +19,7 @@
 void UART_vdInit(unsigned short int baud);
 void UART_vdSendByte(unsigned char data);
 void UART_vdSendu8asASCI(unsigned char data);
+void UART_vdSendu16asASCI(unsigned short int data);
 
 #endif	/* UART_H */
 

@@ -80,16 +80,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 ./UART.h
 [; ;./UART.h: 19: void UART_vdInit(unsigned short int baud);
 [v _UART_vdInit `(v ~T0 @X0 0 ef1`us ]
-"21
-[; ;./UART.h: 21: void UART_vdSendu8asASCI(unsigned char data);
-[v _UART_vdSendu8asASCI `(v ~T0 @X0 0 ef1`uc ]
-"20
+"22
+[; ;./UART.h: 22: void UART_vdSendu16asASCI(unsigned short int data);
+[v _UART_vdSendu16asASCI `(v ~T0 @X0 0 ef1`us ]
+"25 ./ADC.h
+[; ;./ADC.h: 25: unsigned short int ADC_u16getValue(unsigned char pin);
+[v _ADC_u16getValue `(us ~T0 @X0 0 ef1`uc ]
+"20 ./UART.h
 [; ;./UART.h: 20: void UART_vdSendByte(unsigned char data);
 [v _UART_vdSendByte `(v ~T0 @X0 0 ef1`uc ]
-[v F2107 `(v ~T0 @X0 1 tf1`ul ]
-"183 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18.h
-[v __delay `JF2107 ~T0 @X0 0 e ]
-[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -671,24 +670,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 257 ]
 {
 "43
-[; ;main.c: 43:         UART_vdSendu8asASCI(254);
-[e ( _UART_vdSendu8asASCI (1 -> -> 254 `i `uc ]
+[; ;main.c: 43:         UART_vdSendu16asASCI(ADC_u16getValue(0));
+[e ( _UART_vdSendu16asASCI (1 ( _ADC_u16getValue (1 -> -> 0 `i `uc ]
 "44
 [; ;main.c: 44:         UART_vdSendByte('  ');
 [e ( _UART_vdSendByte (1 -> -> 8224 `ui `uc ]
 "45
-[; ;main.c: 45:         _delay(5000);
-[e ( __delay (1 -> -> -> 5000 `i `l `ul ]
-"46
-[; ;main.c: 46:     }
+[; ;main.c: 45:     }
 }
 [e :U 256 ]
 [e $U 257  ]
 [e :U 258 ]
-"48
-[; ;main.c: 48:     return;
+"47
+[; ;main.c: 47:     return;
 [e $UE 255  ]
-"49
-[; ;main.c: 49: }
+"48
+[; ;main.c: 48: }
 [e :UE 255 ]
 }

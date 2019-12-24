@@ -40,9 +40,8 @@ void main(void) {
     UART_vdInit(9600);
     
     while(1){
-        UART_vdSendu8asASCI(254);   
+        UART_vdSendu16asASCI(ADC_u16getValue(AN0));   
         UART_vdSendByte('  ');
-        _delay(5000);
     }
     
     return;

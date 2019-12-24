@@ -4072,6 +4072,7 @@ unsigned short int ADC_u16getValue(unsigned char pin);
 void UART_vdInit(unsigned short int baud);
 void UART_vdSendByte(unsigned char data);
 void UART_vdSendu8asASCI(unsigned char data);
+void UART_vdSendu16asASCI(unsigned short int data);
 # 21 "main.c" 2
 
 
@@ -4095,9 +4096,8 @@ void main(void) {
     UART_vdInit(9600);
 
     while(1){
-        UART_vdSendu8asASCI(254);
+        UART_vdSendu16asASCI(ADC_u16getValue(0));
         UART_vdSendByte('  ');
-        _delay(5000);
     }
 
     return;

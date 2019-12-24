@@ -699,3 +699,159 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;UART.c: 50: }
 [e :UE 255 ]
 }
+"52
+[; ;UART.c: 52: void UART_vdSendu16asASCI(unsigned short int data){
+[v _UART_vdSendu16asASCI `(v ~T0 @X0 1 ef1`us ]
+{
+[e :U _UART_vdSendu16asASCI ]
+[v _data `us ~T0 @X0 1 r1 ]
+[f ]
+"53
+[; ;UART.c: 53:  unsigned char temp[5]; unsigned char i; unsigned short int temp2 = data;
+[v _temp `uc ~T0 @X0 -> 5 `i a ]
+[v _i `uc ~T0 @X0 1 a ]
+[v _temp2 `us ~T0 @X0 1 a ]
+[e = _temp2 _data ]
+"54
+[; ;UART.c: 54:  for(i=0;i<5;i++){
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 5 `i 264  ]
+[e $U 265  ]
+[e :U 264 ]
+{
+"55
+[; ;UART.c: 55:   temp[i] = temp2%10;
+[e = *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux -> % -> _temp2 `ui -> -> 10 `i `ui `uc ]
+"56
+[; ;UART.c: 56:   temp2 /= 10;
+[e =/ _temp2 -> -> 10 `i `ui ]
+"57
+[; ;UART.c: 57:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 5 `i 264  ]
+[e :U 265 ]
+}
+"58
+[; ;UART.c: 58:  if(temp[4]==0){
+[e $ ! == -> *U + &U _temp * -> -> -> 4 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 0 `i 267  ]
+{
+"59
+[; ;UART.c: 59:   if(temp[3]==0){
+[e $ ! == -> *U + &U _temp * -> -> -> 3 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 0 `i 268  ]
+{
+"60
+[; ;UART.c: 60:    if(temp[2]==0){
+[e $ ! == -> *U + &U _temp * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 0 `i 269  ]
+{
+"61
+[; ;UART.c: 61:                 if(temp[1]==0){
+[e $ ! == -> *U + &U _temp * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 0 `i 270  ]
+{
+"62
+[; ;UART.c: 62:                     if(temp[0]==0){
+[e $ ! == -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 0 `i 271  ]
+{
+"63
+[; ;UART.c: 63:                         UART_vdSendByte(temp[0]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"64
+[; ;UART.c: 64:                     }else{
+}
+[e $U 272  ]
+[e :U 271 ]
+{
+"65
+[; ;UART.c: 65:                         UART_vdSendByte(temp[0]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"66
+[; ;UART.c: 66:                     }
+}
+[e :U 272 ]
+"67
+[; ;UART.c: 67:                 }else{
+}
+[e $U 273  ]
+[e :U 270 ]
+{
+"68
+[; ;UART.c: 68:                     UART_vdSendByte(temp[1]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"69
+[; ;UART.c: 69:                     UART_vdSendByte(temp[0]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"70
+[; ;UART.c: 70:                 }
+}
+[e :U 273 ]
+"71
+[; ;UART.c: 71:             }else{
+}
+[e $U 274  ]
+[e :U 269 ]
+{
+"72
+[; ;UART.c: 72:                 UART_vdSendByte(temp[2]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"73
+[; ;UART.c: 73:                 UART_vdSendByte(temp[1]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"74
+[; ;UART.c: 74:                 UART_vdSendByte(temp[0]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"75
+[; ;UART.c: 75:             }
+}
+[e :U 274 ]
+"76
+[; ;UART.c: 76:   }else{
+}
+[e $U 275  ]
+[e :U 268 ]
+{
+"77
+[; ;UART.c: 77:             UART_vdSendByte(temp[3]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 3 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"78
+[; ;UART.c: 78:             UART_vdSendByte(temp[2]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"79
+[; ;UART.c: 79:    UART_vdSendByte(temp[1]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"80
+[; ;UART.c: 80:    UART_vdSendByte(temp[0]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"81
+[; ;UART.c: 81:   }
+}
+[e :U 275 ]
+"82
+[; ;UART.c: 82:  }else{
+}
+[e $U 276  ]
+[e :U 267 ]
+{
+"83
+[; ;UART.c: 83:         UART_vdSendByte(temp[4]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 4 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"84
+[; ;UART.c: 84:         UART_vdSendByte(temp[3]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 3 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"85
+[; ;UART.c: 85:   UART_vdSendByte(temp[2]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 2 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"86
+[; ;UART.c: 86:   UART_vdSendByte(temp[1]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"87
+[; ;UART.c: 87:   UART_vdSendByte(temp[0]+48);
+[e ( _UART_vdSendByte (1 -> + -> *U + &U _temp * -> -> -> 0 `i `ui `ux -> -> # *U &U _temp `ui `ux `i -> 48 `i `uc ]
+"88
+[; ;UART.c: 88:  }
+}
+[e :U 276 ]
+"90
+[; ;UART.c: 90: }
+[e :UE 263 ]
+}
