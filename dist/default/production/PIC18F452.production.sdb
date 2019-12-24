@@ -5,7 +5,7 @@
 [d frameptr 4065 ]
 "13 D:\Shady Ammar\PIC18F452\ADC.c
 [v _ADC_vdInit ADC_vdInit `(v  1 e 1 0 ]
-"24
+"21
 [v _ADC_u16getValue ADC_u16getValue `(us  1 e 2 0 ]
 "7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -91,7 +91,7 @@
 ]
 [u S1106 . 1 `S1085 1 . 1 0 `S71 1 . 1 0 `S1103 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES1106  1 e 1 @3988 ]
-[s S1557 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1684 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -101,25 +101,25 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "2755
-[s S1566 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1693 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1570 . 1 `uc 1 . 1 0 :6:0 
+[s S1697 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S1573 . 1 `uc 1 . 1 0 :6:0 
+[s S1700 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S1576 . 1 `uc 1 . 1 0 :6:0 
+[s S1703 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1579 . 1 `uc 1 . 1 0 :5:0 
+[s S1706 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S1582 . 1 `S1557 1 . 1 0 `S1566 1 . 1 0 `S1570 1 . 1 0 `S1573 1 . 1 0 `S1576 1 . 1 0 `S1579 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES1582  1 e 1 @4011 ]
-[s S1494 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S1709 . 1 `S1684 1 . 1 0 `S1693 1 . 1 0 `S1697 1 . 1 0 `S1700 1 . 1 0 `S1703 1 . 1 0 `S1706 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES1709  1 e 1 @4011 ]
+[s S1621 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -129,17 +129,17 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2981
-[s S1503 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S1630 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S1507 . 1 `uc 1 . 1 0 :6:0 
+[s S1634 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_TX8 1 0 :1:6 
 ]
-[s S1510 . 1 `uc 1 . 1 0 :6:0 
+[s S1637 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S1513 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S1640 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -148,8 +148,8 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[u S1522 . 1 `S1494 1 . 1 0 `S1503 1 . 1 0 `S1507 1 . 1 0 `S1510 1 . 1 0 `S1513 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES1522  1 e 1 @4012 ]
+[u S1649 . 1 `S1621 1 . 1 0 `S1630 1 . 1 0 `S1634 1 . 1 0 `S1637 1 . 1 0 `S1640 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1649  1 e 1 @4012 ]
 "3204
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3228
@@ -206,10 +206,60 @@
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "3584
 [v _CCPR1H CCPR1H `VEuc  1 e 1 @4031 ]
-"3591
-[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"3659
-[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S1374 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 . 1 0 :2:4 
+`uc 1 ADCS2 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"3614
+[s S1379 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+]
+[s S1384 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+]
+[u S1387 . 1 `S1374 1 . 1 0 `S1379 1 . 1 0 `S1384 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES1387  1 e 1 @4033 ]
+[s S1405 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO_NOT_DONE 1 0 :1:2 
+]
+"3710
+[s S1408 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 GO_nDONE 1 0 :1:2 
+`uc 1 CHS 1 0 :3:3 
+`uc 1 ADCS 1 0 :2:6 
+]
+[s S1414 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO 1 0 :1:2 
+`uc 1 CHS0 1 0 :1:3 
+`uc 1 CHS1 1 0 :1:4 
+`uc 1 CHS2 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
+]
+[s S1422 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_DONE 1 0 :1:2 
+]
+[s S1425 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nDONE 1 0 :1:2 
+]
+[s S1428 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 DONE 1 0 :1:2 
+]
+[s S1431 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GO_DONE 1 0 :1:2 
+]
+[s S1434 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 ADCAL 1 0 :1:7 
+]
+[s S1437 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GODONE 1 0 :1:2 
+]
+[u S1440 . 1 `S1405 1 . 1 0 `S1408 1 . 1 0 `S1414 1 . 1 0 `S1422 1 . 1 0 `S1425 1 . 1 0 `S1428 1 . 1 0 `S1431 1 . 1 0 `S1434 1 . 1 0 `S1437 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1440  1 e 1 @4034 ]
 "3807
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "3814
@@ -339,12 +389,12 @@
 ]
 [u S669 . 1 `S647 1 . 1 0 `S656 1 . 1 0 `S665 1 . 1 0 ]
 [v _INTCON1bits INTCON1bits `VES669  1 e 1 @4082 ]
+"5804
+[v _ADIF ADIF `VEb  1 e 0 @31990 ]
 "5852
 [v _BRGH BRGH `VEb  1 e 0 @32098 ]
 "5870
 [v _CCP1IF CCP1IF `VEb  1 e 0 @31986 ]
-"6056
-[v _GO_nDONE GO_nDONE `VEb  1 e 0 @32274 ]
 "6092
 [v _INT0IF INT0IF `VEb  1 e 0 @32657 ]
 "6107
@@ -476,16 +526,18 @@
 "13 D:\Shady Ammar\PIC18F452\ADC.c
 [v _ADC_vdInit ADC_vdInit `(v  1 e 1 0 ]
 {
-"22
+"19
 } 0
-"24
+"21
 [v _ADC_u16getValue ADC_u16getValue `(us  1 e 2 0 ]
 {
 [v ADC_u16getValue@pin pin `uc  1 a 1 wreg ]
+"27
+[v ADC_u16getValue@data data `us  1 a 2 4 ]
+"21
 [v ADC_u16getValue@pin pin `uc  1 a 1 wreg ]
-"33
-[v ADC_u16getValue@pin pin `uc  1 a 1 4 ]
-"40
+[v ADC_u16getValue@pin pin `uc  1 a 1 6 ]
+"30
 } 0
 "56 D:\Shady Ammar\PIC18F452\INT.c
 [v _ISR ISR `IIH(v  1 e 1 0 ]

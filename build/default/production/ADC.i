@@ -3961,23 +3961,20 @@ unsigned short int ADC_u16getValue(unsigned char pin);
 
 
 void ADC_vdInit(){
-
-
-
-
-
-    ADCON0 = 0x41;
-   ADCON1 = 0xC0;
-
+    ADCON1bits.PCFG = 0b0000;
+    ADCON1bits.ADFM = 1;
+    ADCON0bits.ADCS = 0b001;
+    ADCON1bits.ADCS2 = (0b001>>2);
+    ADCON0bits.ADON = 1;
 }
 
 unsigned short int ADC_u16getValue(unsigned char pin){
-# 33 "ADC.c"
-    ADCON0 &= 0xC5;
-    ADCON0 |= pin<<3;
+    ADCON0bits.CHS = pin;
     TRISA |= (1<<pin);
     _delay((unsigned long)((2)*(4000000/4000.0)));
-    GO_nDONE = 1;
-    while(GO_nDONE);
-    return ((ADRESH<<8)+ADRESL);
+    ADCON0bits.GO = 1;
+    while(!ADIF);
+    unsigned short int data = ( (ADRESH<<8)|(ADRESL) );
+    ADIF = 0;
+    return data;
 }

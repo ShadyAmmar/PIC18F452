@@ -9,7 +9,7 @@
 #define	ADC_H
 
 #define ADC_CLK_SRC 0b001
-#define PORT_CONFIG 0b1001  //AN0:5 only - VDD & VSS used as reference
+#define PORT_CONFIG 0b0000  //pins0:7 are analog  - VDD & VSS used as reference
 
 #define AN0 0
 #define AN1 1

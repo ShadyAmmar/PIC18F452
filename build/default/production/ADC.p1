@@ -63,12 +63,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./definitions.h: 166: typedef union{
 [u S16 `Vuc 1 `S17 1 ]
 [n S16 . PORT . ]
-"3659 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3659: extern volatile unsigned char ADCON0 __attribute__((address(0xFC2)));
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"3591
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3591: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"3597 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3597:     struct {
+[s S159 :4 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S159 . PCFG . ADCS2 ADFM ]
+"3603
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3603:     struct {
+[s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S160 . PCFG0 PCFG1 PCFG2 PCFG3 ]
+"3609
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3609:     struct {
+[s S161 :3 `uc 1 :1 `uc 1 ]
+[n S161 . . CHSN3 ]
+"3596
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3596: typedef union {
+[u S158 `S159 1 `S160 1 `S161 1 ]
+[n S158 . . . . ]
+"3614
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3614: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0xFC1)));
+[v _ADCON1bits `VS158 ~T0 @X0 0 e@4033 ]
+"3665
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3665:     struct {
+[s S163 :2 `uc 1 :1 `uc 1 ]
+[n S163 . . GO_NOT_DONE ]
+"3669
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3669:     struct {
+[s S164 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 ]
+[n S164 . ADON . GO_nDONE CHS ADCS ]
+"3676
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3676:     struct {
+[s S165 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S165 . . GO CHS0 CHS1 CHS2 ADCS0 ADCS1 ]
+"3685
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3685:     struct {
+[s S166 :2 `uc 1 :1 `uc 1 ]
+[n S166 . . NOT_DONE ]
+"3689
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3689:     struct {
+[s S167 :2 `uc 1 :1 `uc 1 ]
+[n S167 . . nDONE ]
+"3693
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3693:     struct {
+[s S168 :2 `uc 1 :1 `uc 1 ]
+[n S168 . . DONE ]
+"3697
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3697:     struct {
+[s S169 :2 `uc 1 :1 `uc 1 ]
+[n S169 . . GO_DONE ]
+"3701
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3701:     struct {
+[s S170 :7 `uc 1 :1 `uc 1 ]
+[n S170 . . ADCAL ]
+"3705
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3705:     struct {
+[s S171 :2 `uc 1 :1 `uc 1 ]
+[n S171 . . GODONE ]
+"3664
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3664: typedef union {
+[u S162 `S163 1 `S164 1 `S165 1 `S166 1 `S167 1 `S168 1 `S169 1 `S170 1 `S171 1 ]
+[n S162 . . . . . . . . . . ]
+"3710
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3710: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
+[v _ADCON0bits `VS162 ~T0 @X0 0 e@4034 ]
 "1210
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 1210: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
@@ -76,9 +132,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "183 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18.h
 [v __delay `JF2226 ~T0 @X0 0 e ]
 [p i __delay ]
-"6056 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 6056: extern volatile __bit GO_nDONE __attribute__((address(0x7E12)));
-[v _GO_nDONE `Vb ~T0 @X0 0 e@32274 ]
+"5804 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5804: extern volatile __bit ADIF __attribute__((address(0x7CF6)));
+[v _ADIF `Vb ~T0 @X0 0 e@31990 ]
 "3814
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 3814: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
@@ -520,50 +576,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _ADC_vdInit ]
 [f ]
+"14
+[; ;ADC.c: 14:     ADCON1bits.PCFG = 0b0000;
+[e = . . _ADCON1bits 0 0 -> -> 0 `i `uc ]
+"15
+[; ;ADC.c: 15:     ADCON1bits.ADFM = 1;
+[e = . . _ADCON1bits 0 3 -> -> 1 `i `uc ]
+"16
+[; ;ADC.c: 16:     ADCON0bits.ADCS = 0b001;
+[e = . . _ADCON0bits 1 4 -> -> 1 `i `uc ]
+"17
+[; ;ADC.c: 17:     ADCON1bits.ADCS2 = (0b001>>2);
+[e = . . _ADCON1bits 0 2 -> >> -> 1 `i -> 2 `i `uc ]
+"18
+[; ;ADC.c: 18:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
 "19
-[; ;ADC.c: 19:     ADCON0 = 0x41;
-[e = _ADCON0 -> -> 65 `i `uc ]
-"20
-[; ;ADC.c: 20:    ADCON1 = 0xC0;
-[e = _ADCON1 -> -> 192 `i `uc ]
-"22
-[; ;ADC.c: 22: }
+[; ;ADC.c: 19: }
 [e :UE 255 ]
 }
-"24
-[; ;ADC.c: 24: unsigned short int ADC_u16getValue(unsigned char pin){
+"21
+[; ;ADC.c: 21: unsigned short int ADC_u16getValue(unsigned char pin){
 [v _ADC_u16getValue `(us ~T0 @X0 1 ef1`uc ]
 {
 [e :U _ADC_u16getValue ]
 [v _pin `uc ~T0 @X0 1 r1 ]
 [f ]
-"33
-[; ;ADC.c: 33:     ADCON0 &= 0xC5;
-[e =& _ADCON0 -> -> 197 `i `Vuc ]
-"34
-[; ;ADC.c: 34:     ADCON0 |= pin<<3;
-[e =| _ADCON0 -> << -> _pin `i -> 3 `i `Vuc ]
-"35
-[; ;ADC.c: 35:     TRISA |= (1<<pin);
+"22
+[; ;ADC.c: 22:     ADCON0bits.CHS = pin;
+[e = . . _ADCON0bits 1 3 _pin ]
+"23
+[; ;ADC.c: 23:     TRISA |= (1<<pin);
 [e =| _TRISA -> << -> 1 `i -> _pin `i `Vuc ]
-"36
-[; ;ADC.c: 36:     _delay((unsigned long)((2)*(4000000/4000.0)));
+"24
+[; ;ADC.c: 24:     _delay((unsigned long)((2)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"37
-[; ;ADC.c: 37:     GO_nDONE = 1;
-[e = _GO_nDONE -> -> 1 `i `b ]
-"38
-[; ;ADC.c: 38:     while(GO_nDONE);
+"25
+[; ;ADC.c: 25:     ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+"26
+[; ;ADC.c: 26:     while(!ADIF);
 [e $U 257  ]
 [e :U 258 ]
 [e :U 257 ]
-[e $ _GO_nDONE 258  ]
+[e $ ! _ADIF 258  ]
 [e :U 259 ]
-"39
-[; ;ADC.c: 39:     return ((ADRESH<<8)+ADRESL);
-[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+"27
+[; ;ADC.c: 27:     unsigned short int data = ( (ADRESH<<8)|(ADRESL) );
+[v _data `us ~T0 @X0 1 a ]
+[e = _data -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+"28
+[; ;ADC.c: 28:     ADIF = 0;
+[e = _ADIF -> -> 0 `i `b ]
+"29
+[; ;ADC.c: 29:     return data;
+[e ) _data ]
 [e $UE 256  ]
-"40
-[; ;ADC.c: 40: }
+"30
+[; ;ADC.c: 30: }
 [e :UE 256 ]
 }
