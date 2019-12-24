@@ -3890,6 +3890,39 @@ volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
 typedef union{
     volatile unsigned char PORT;
     struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdata;
+volatile _PORTCdata* p_PORTCdata = (_PORTCdata*)(0xF82);
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdirection;
+volatile _PORTCdirection* p_PORTCdirection = (_PORTCdirection*)(0xF94);
+
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
         volatile unsigned char RD0:1;
         volatile unsigned char RD1:1;
         volatile unsigned char RD2:1;

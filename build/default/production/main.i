@@ -3892,6 +3892,39 @@ volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
 typedef union{
     volatile unsigned char PORT;
     struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdata;
+volatile _PORTCdata* p_PORTCdata = (_PORTCdata*)(0xF82);
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdirection;
+volatile _PORTCdirection* p_PORTCdirection = (_PORTCdirection*)(0xF94);
+
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
         volatile unsigned char RD0:1;
         volatile unsigned char RD1:1;
         volatile unsigned char RD2:1;
@@ -4011,12 +4044,12 @@ void INT_vdSetCCP1Callback(void (*pf)());
 
 # 1 "./TMR0.h" 1
 # 30 "./TMR0.h"
-TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);
+void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);
 # 17 "main.c" 2
 
 # 1 "./TMR1.h" 1
 # 28 "./TMR1.h"
-TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
+void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
 # 18 "main.c" 2
 
 # 1 "./CCP1.h" 1
@@ -4028,11 +4061,24 @@ void CCP1_vdSetCCPR(unsigned short int value);
 void CCP1_vdSetDutyCycle(unsigned char duty);
 # 19 "main.c" 2
 
+# 1 "./ADC.h" 1
+# 24 "./ADC.h"
+void ADC_vdInit();
+unsigned short int ADC_u16getValue(unsigned char pin);
+# 20 "main.c" 2
+
+# 1 "./UART.h" 1
+# 19 "./UART.h"
+void UART_vdInit(unsigned short int baud);
+void UART_vdSendByte(unsigned char data);
+void UART_vdSendu8asASCI(unsigned char data);
+# 21 "main.c" 2
 
 
 DEVICE LED0 = {'B',0,0};
 DEVICE LED1 = {'B',1,0};
 DEVICE LED2 = {'B',2,0};
+DEVICE LED3 = {'C',2,0};
 DEVICE BTN0 = {'A',4,1};
 
 
@@ -4041,13 +4087,17 @@ void main(void) {
     DIO_vdInit(&LED0);
     DIO_vdInit(&LED1);
     DIO_vdInit(&LED2);
+    DIO_vdInit(&LED3);
     DIO_vdInit(&BTN0);
 
     INT_vdinit();
-    CCP1_vdInit(0b1100,0b10,500);
-    CCP1_vdSetDutyCycle(50);
-    while(1){
+    ADC_vdInit();
+    UART_vdInit(9600);
 
+    while(1){
+        UART_vdSendu8asASCI(254);
+        UART_vdSendByte('  ');
+        _delay(5000);
     }
 
     return;

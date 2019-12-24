@@ -1,27 +1,28 @@
 ### HEXMate logfile and output summary ###
 ### OP Code find / replace / delete results ###
  Search results for     \Movlb_15\ (0000h & FFFFFFFFh):
-  found (0000h) at address 5C8h
-  found (0000h) at address 5CAh
-  found (0000h) at address 5CEh
-  found (0000h) at address 5D0h
-  found (0000h) at address 5D6h
-  found (0000h) at address 5D8h
-  found (0000h) at address 5DCh
-  found (0000h) at address 5DEh
+  found (0000h) at address 4DEh
+  found (0000h) at address 4E0h
+  found (0000h) at address 4E4h
+  found (0000h) at address 4E6h
+  found (0000h) at address 4ECh
+  found (0000h) at address 4EEh
+  found (0000h) at address 4F2h
+  found (0000h) at address 4F4h
+  found (0000h) at address 4F8h
+  found (0000h) at address 4FAh
+  found (0000h) at address 4FCh
 
 ### Memory Usage ###
  Unused memory ranges:
   6h - 7h
-  5E1h - 5E1h
-  5FCh - 1FFFFFh
+  5AEh - 1FFFFFh
   200008h - 2FFFFFh
   30000Eh - 30003Fh
   
  dist/default/production\PIC18F452.production.hex ranges:
   0h - 5h
-  8h - 5E0h
-  5E2h - 5FBh
+  8h - 5ADh
   200000h - 200007h
   300000h - 30000Dh
   
@@ -59,7 +60,6 @@
 000004C0: 1111111111111111111111111111111111111111111111111111111111111111
 00000500: 1111111111111111111111111111111111111111111111111111111111111111
 00000540: 1111111111111111111111111111111111111111111111111111111111111111
-00000580: 1111111111111111111111111111111111111111111111111111111111111111
-000005C0: 111111111111111111111111111111111-11111111111111111111111111----
+00000580: 1111111111111111111111111111111111111111111111------------------
 00200000: 11111111--------------------------------------------------------
 00300000: 11111111111111--------------------------------------------------

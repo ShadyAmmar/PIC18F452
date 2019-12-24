@@ -34,7 +34,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "119
 [; ;./definitions.h: 119:     struct{
 [s S248 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S248 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[n S248 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
 "117
 [; ;./definitions.h: 117: typedef union{
 [u S247 `Vuc 1 `S248 1 ]
@@ -42,11 +42,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "135
 [; ;./definitions.h: 135:     struct{
 [s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S250 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[n S250 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
 "133
 [; ;./definitions.h: 133: typedef union{
 [u S249 `Vuc 1 `S250 1 ]
 [n S249 . PORT . ]
+"152
+[; ;./definitions.h: 152:     struct{
+[s S252 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S252 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"150
+[; ;./definitions.h: 150: typedef union{
+[u S251 `Vuc 1 `S252 1 ]
+[n S251 . PORT . ]
+"168
+[; ;./definitions.h: 168:     struct{
+[s S254 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S254 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"166
+[; ;./definitions.h: 166: typedef union{
+[u S253 `Vuc 1 `S254 1 ]
+[n S253 . PORT . ]
 "19
 [; ;./definitions.h: 19: typedef struct{
 [s S238 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
@@ -460,16 +476,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> -> 3987 `i `*S245 `*VS245
 ]
 "130
-[; ;./definitions.h: 130: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
-[v _p_PORTDdata `*VS247 ~T0 @X0 1 e ]
-[i _p_PORTDdata
--> -> -> 3971 `i `*S247 `*VS247
+[; ;./definitions.h: 130: volatile _PORTCdata* p_PORTCdata = (_PORTCdata*)(0xF82);
+[v _p_PORTCdata `*VS247 ~T0 @X0 1 e ]
+[i _p_PORTCdata
+-> -> -> 3970 `i `*S247 `*VS247
 ]
 "146
-[; ;./definitions.h: 146: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
-[v _p_PORTDdirection `*VS249 ~T0 @X0 1 e ]
+[; ;./definitions.h: 146: volatile _PORTCdirection* p_PORTCdirection = (_PORTCdirection*)(0xF94);
+[v _p_PORTCdirection `*VS249 ~T0 @X0 1 e ]
+[i _p_PORTCdirection
+-> -> -> 3988 `i `*S249 `*VS249
+]
+"163
+[; ;./definitions.h: 163: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+[v _p_PORTDdata `*VS251 ~T0 @X0 1 e ]
+[i _p_PORTDdata
+-> -> -> 3971 `i `*S251 `*VS251
+]
+"179
+[; ;./definitions.h: 179: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+[v _p_PORTDdirection `*VS253 ~T0 @X0 1 e ]
 [i _p_PORTDdirection
--> -> -> 3989 `i `*S249 `*VS249
+-> -> -> 3989 `i `*S253 `*VS253
 ]
 "15 DIO.c
 [; ;DIO.c: 15: void DIO_vdInit(DEVICE* dev){
@@ -483,7 +511,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _DIO_vdWriteDirPin (3 , , . *U _dev 2 . *U _dev 0 . *U _dev 1 ]
 "17
 [; ;DIO.c: 17: }
-[e :UE 251 ]
+[e :UE 255 ]
 }
 "19
 [; ;DIO.c: 19: void DIO_vdWritePin(unsigned char data,unsigned char port,unsigned char pin){
@@ -496,14 +524,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "20
 [; ;DIO.c: 20:  switch(port){
-[e $U 254  ]
+[e $U 258  ]
 {
 "21
 [; ;DIO.c: 21:   case 'A':
-[e :U 255 ]
+[e :U 259 ]
 "22
 [; ;DIO.c: 22:    if(data){
-[e $ ! != -> _data `i -> 0 `i 256  ]
+[e $ ! != -> _data `i -> 0 `i 260  ]
 {
 "23
 [; ;DIO.c: 23:     (*p_PORTAdata).PORT |= (1<<pin);
@@ -511,8 +539,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24
 [; ;DIO.c: 24:    }else{
 }
-[e $U 257  ]
-[e :U 256 ]
+[e $U 261  ]
+[e :U 260 ]
 {
 "25
 [; ;DIO.c: 25:     (*p_PORTAdata).PORT &= ~(1<<pin);
@@ -520,16 +548,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;DIO.c: 26:    }
 }
-[e :U 257 ]
+[e :U 261 ]
 "27
 [; ;DIO.c: 27:             break;
-[e $U 253  ]
+[e $U 257  ]
 "28
 [; ;DIO.c: 28:   case 'B':
-[e :U 258 ]
+[e :U 262 ]
 "29
 [; ;DIO.c: 29:    if(data){
-[e $ ! != -> _data `i -> 0 `i 259  ]
+[e $ ! != -> _data `i -> 0 `i 263  ]
 {
 "30
 [; ;DIO.c: 30:     (*p_PORTBdata).PORT |= (1<<pin);
@@ -537,8 +565,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31
 [; ;DIO.c: 31:     }else{
 }
-[e $U 260  ]
-[e :U 259 ]
+[e $U 264  ]
+[e :U 263 ]
 {
 "32
 [; ;DIO.c: 32:     (*p_PORTBdata).PORT &= ~(1<<pin);
@@ -546,52 +574,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;DIO.c: 33:    }
 }
-[e :U 260 ]
+[e :U 264 ]
 "34
 [; ;DIO.c: 34:             break;
-[e $U 253  ]
+[e $U 257  ]
 "35
-[; ;DIO.c: 35:         case 'D':
-[e :U 261 ]
+[; ;DIO.c: 35:         case 'C':
+[e :U 265 ]
 "36
 [; ;DIO.c: 36:    if(data){
-[e $ ! != -> _data `i -> 0 `i 262  ]
+[e $ ! != -> _data `i -> 0 `i 266  ]
 {
 "37
-[; ;DIO.c: 37:     (*p_PORTDdata).PORT |= (1<<pin);
-[e =| . *U _p_PORTDdata 0 -> << -> 1 `i -> _pin `i `Vuc ]
+[; ;DIO.c: 37:     (*p_PORTCdata).PORT |= (1<<pin);
+[e =| . *U _p_PORTCdata 0 -> << -> 1 `i -> _pin `i `Vuc ]
 "38
 [; ;DIO.c: 38:     }else{
 }
-[e $U 263  ]
-[e :U 262 ]
+[e $U 267  ]
+[e :U 266 ]
 {
 "39
-[; ;DIO.c: 39:     (*p_PORTDdata).PORT &= ~(1<<pin);
-[e =& . *U _p_PORTDdata 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
+[; ;DIO.c: 39:     (*p_PORTCdata).PORT &= ~(1<<pin);
+[e =& . *U _p_PORTCdata 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
 "40
 [; ;DIO.c: 40:    }
 }
-[e :U 263 ]
+[e :U 267 ]
 "41
 [; ;DIO.c: 41:             break;
-[e $U 253  ]
+[e $U 257  ]
 "42
-[; ;DIO.c: 42:  }
-}
-[e $U 253  ]
-[e :U 254 ]
-[e [\ -> _port `i , $ -> -> 65 `ui `i 255
- , $ -> -> 66 `ui `i 258
- , $ -> -> 68 `ui `i 261
- 253 ]
-[e :U 253 ]
+[; ;DIO.c: 42:         case 'D':
+[e :U 268 ]
 "43
-[; ;DIO.c: 43: }
-[e :UE 252 ]
-}
+[; ;DIO.c: 43:    if(data){
+[e $ ! != -> _data `i -> 0 `i 269  ]
+{
+"44
+[; ;DIO.c: 44:     (*p_PORTDdata).PORT |= (1<<pin);
+[e =| . *U _p_PORTDdata 0 -> << -> 1 `i -> _pin `i `Vuc ]
 "45
-[; ;DIO.c: 45: void DIO_vdWriteDirPin(unsigned char data,unsigned char port,unsigned char pin){
+[; ;DIO.c: 45:     }else{
+}
+[e $U 270  ]
+[e :U 269 ]
+{
+"46
+[; ;DIO.c: 46:     (*p_PORTDdata).PORT &= ~(1<<pin);
+[e =& . *U _p_PORTDdata 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
+"47
+[; ;DIO.c: 47:    }
+}
+[e :U 270 ]
+"48
+[; ;DIO.c: 48:             break;
+[e $U 257  ]
+"49
+[; ;DIO.c: 49:  }
+}
+[e $U 257  ]
+[e :U 258 ]
+[e [\ -> _port `i , $ -> -> 65 `ui `i 259
+ , $ -> -> 66 `ui `i 262
+ , $ -> -> 67 `ui `i 265
+ , $ -> -> 68 `ui `i 268
+ 257 ]
+[e :U 257 ]
+"50
+[; ;DIO.c: 50: }
+[e :UE 256 ]
+}
+"52
+[; ;DIO.c: 52: void DIO_vdWriteDirPin(unsigned char data,unsigned char port,unsigned char pin){
 [v _DIO_vdWriteDirPin `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _DIO_vdWriteDirPin ]
@@ -599,357 +654,411 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _port `uc ~T0 @X0 1 r2 ]
 [v _pin `uc ~T0 @X0 1 r3 ]
 [f ]
-"46
-[; ;DIO.c: 46:  switch(port){
-[e $U 266  ]
-{
-"47
-[; ;DIO.c: 47:   case 'A':
-[e :U 267 ]
-"48
-[; ;DIO.c: 48:    if(data){
-[e $ ! != -> _data `i -> 0 `i 268  ]
-{
-"49
-[; ;DIO.c: 49:     (*p_PORTAdirection).PORT |= (1<<pin);
-[e =| . *U _p_PORTAdirection 0 -> << -> 1 `i -> _pin `i `Vuc ]
-"50
-[; ;DIO.c: 50:    }else{
-}
-[e $U 269  ]
-[e :U 268 ]
-{
-"51
-[; ;DIO.c: 51:     (*p_PORTAdirection).PORT &= ~(1<<pin);
-[e =& . *U _p_PORTAdirection 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
-"52
-[; ;DIO.c: 52:    }
-}
-[e :U 269 ]
 "53
-[; ;DIO.c: 53:             break;
-[e $U 265  ]
+[; ;DIO.c: 53:  switch(port){
+[e $U 273  ]
+{
 "54
-[; ;DIO.c: 54:   case 'B':
-[e :U 270 ]
+[; ;DIO.c: 54:   case 'A':
+[e :U 274 ]
 "55
 [; ;DIO.c: 55:    if(data){
-[e $ ! != -> _data `i -> 0 `i 271  ]
+[e $ ! != -> _data `i -> 0 `i 275  ]
 {
 "56
-[; ;DIO.c: 56:     (*p_PORTBdirection).PORT |= (1<<pin);
-[e =| . *U _p_PORTBdirection 0 -> << -> 1 `i -> _pin `i `Vuc ]
+[; ;DIO.c: 56:     (*p_PORTAdirection).PORT |= (1<<pin);
+[e =| . *U _p_PORTAdirection 0 -> << -> 1 `i -> _pin `i `Vuc ]
 "57
-[; ;DIO.c: 57:     }else{
+[; ;DIO.c: 57:    }else{
 }
-[e $U 272  ]
-[e :U 271 ]
+[e $U 276  ]
+[e :U 275 ]
 {
 "58
-[; ;DIO.c: 58:     (*p_PORTBdirection).PORT &= ~(1<<pin);
-[e =& . *U _p_PORTBdirection 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
+[; ;DIO.c: 58:     (*p_PORTAdirection).PORT &= ~(1<<pin);
+[e =& . *U _p_PORTAdirection 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
 "59
 [; ;DIO.c: 59:    }
 }
-[e :U 272 ]
+[e :U 276 ]
 "60
 [; ;DIO.c: 60:             break;
-[e $U 265  ]
+[e $U 272  ]
 "61
-[; ;DIO.c: 61:         case 'D':
-[e :U 273 ]
+[; ;DIO.c: 61:   case 'B':
+[e :U 277 ]
 "62
 [; ;DIO.c: 62:    if(data){
-[e $ ! != -> _data `i -> 0 `i 274  ]
+[e $ ! != -> _data `i -> 0 `i 278  ]
 {
 "63
-[; ;DIO.c: 63:     (*p_PORTDdirection).PORT |= (1<<pin);
-[e =| . *U _p_PORTDdirection 0 -> << -> 1 `i -> _pin `i `Vuc ]
+[; ;DIO.c: 63:     (*p_PORTBdirection).PORT |= (1<<pin);
+[e =| . *U _p_PORTBdirection 0 -> << -> 1 `i -> _pin `i `Vuc ]
 "64
 [; ;DIO.c: 64:     }else{
 }
-[e $U 275  ]
-[e :U 274 ]
+[e $U 279  ]
+[e :U 278 ]
 {
 "65
-[; ;DIO.c: 65:     (*p_PORTDdirection).PORT &= ~(1<<pin);
-[e =& . *U _p_PORTDdirection 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
+[; ;DIO.c: 65:     (*p_PORTBdirection).PORT &= ~(1<<pin);
+[e =& . *U _p_PORTBdirection 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
 "66
 [; ;DIO.c: 66:    }
 }
-[e :U 275 ]
+[e :U 279 ]
 "67
 [; ;DIO.c: 67:             break;
-[e $U 265  ]
+[e $U 272  ]
 "68
-[; ;DIO.c: 68:  }
-}
-[e $U 265  ]
-[e :U 266 ]
-[e [\ -> _port `i , $ -> -> 65 `ui `i 267
- , $ -> -> 66 `ui `i 270
- , $ -> -> 68 `ui `i 273
- 265 ]
-[e :U 265 ]
+[; ;DIO.c: 68:         case 'C':
+[e :U 280 ]
 "69
-[; ;DIO.c: 69: }
-[e :UE 264 ]
-}
+[; ;DIO.c: 69:    if(data){
+[e $ ! != -> _data `i -> 0 `i 281  ]
+{
+"70
+[; ;DIO.c: 70:     (*p_PORTCdirection).PORT |= (1<<pin);
+[e =| . *U _p_PORTCdirection 0 -> << -> 1 `i -> _pin `i `Vuc ]
 "71
-[; ;DIO.c: 71: void DIO_vdWritePort(unsigned char data,unsigned char port){
+[; ;DIO.c: 71:     }else{
+}
+[e $U 282  ]
+[e :U 281 ]
+{
+"72
+[; ;DIO.c: 72:     (*p_PORTCdirection).PORT &= ~(1<<pin);
+[e =& . *U _p_PORTCdirection 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
+"73
+[; ;DIO.c: 73:    }
+}
+[e :U 282 ]
+"74
+[; ;DIO.c: 74:             break;
+[e $U 272  ]
+"75
+[; ;DIO.c: 75:         case 'D':
+[e :U 283 ]
+"76
+[; ;DIO.c: 76:    if(data){
+[e $ ! != -> _data `i -> 0 `i 284  ]
+{
+"77
+[; ;DIO.c: 77:     (*p_PORTDdirection).PORT |= (1<<pin);
+[e =| . *U _p_PORTDdirection 0 -> << -> 1 `i -> _pin `i `Vuc ]
+"78
+[; ;DIO.c: 78:     }else{
+}
+[e $U 285  ]
+[e :U 284 ]
+{
+"79
+[; ;DIO.c: 79:     (*p_PORTDdirection).PORT &= ~(1<<pin);
+[e =& . *U _p_PORTDdirection 0 -> ~ << -> 1 `i -> _pin `i `Vuc ]
+"80
+[; ;DIO.c: 80:    }
+}
+[e :U 285 ]
+"81
+[; ;DIO.c: 81:             break;
+[e $U 272  ]
+"82
+[; ;DIO.c: 82:  }
+}
+[e $U 272  ]
+[e :U 273 ]
+[e [\ -> _port `i , $ -> -> 65 `ui `i 274
+ , $ -> -> 66 `ui `i 277
+ , $ -> -> 67 `ui `i 280
+ , $ -> -> 68 `ui `i 283
+ 272 ]
+[e :U 272 ]
+"83
+[; ;DIO.c: 83: }
+[e :UE 271 ]
+}
+"85
+[; ;DIO.c: 85: void DIO_vdWritePort(unsigned char data,unsigned char port){
 [v _DIO_vdWritePort `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _DIO_vdWritePort ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [v _port `uc ~T0 @X0 1 r2 ]
 [f ]
-"72
-[; ;DIO.c: 72:  switch(port){
-[e $U 278  ]
-{
-"73
-[; ;DIO.c: 73:   case 'A':
-[e :U 279 ]
-"74
-[; ;DIO.c: 74:    if(data){
-[e $ ! != -> _data `i -> 0 `i 280  ]
-{
-"75
-[; ;DIO.c: 75:     (*p_PORTAdata).PORT = data;
-[e = . *U _p_PORTAdata 0 _data ]
-"76
-[; ;DIO.c: 76:    }else{
-}
-[e $U 281  ]
-[e :U 280 ]
-{
-"77
-[; ;DIO.c: 77:     (*p_PORTAdata).PORT = 0;
-[e = . *U _p_PORTAdata 0 -> -> 0 `i `uc ]
-"78
-[; ;DIO.c: 78:    }
-}
-[e :U 281 ]
-"79
-[; ;DIO.c: 79:             break;
-[e $U 277  ]
-"80
-[; ;DIO.c: 80:   case 'B':
-[e :U 282 ]
-"81
-[; ;DIO.c: 81:    if(data){
-[e $ ! != -> _data `i -> 0 `i 283  ]
-{
-"82
-[; ;DIO.c: 82:     (*p_PORTBdata).PORT = data;
-[e = . *U _p_PORTBdata 0 _data ]
-"83
-[; ;DIO.c: 83:    }else{
-}
-[e $U 284  ]
-[e :U 283 ]
-{
-"84
-[; ;DIO.c: 84:     (*p_PORTBdata).PORT = 0;
-[e = . *U _p_PORTBdata 0 -> -> 0 `i `uc ]
-"85
-[; ;DIO.c: 85:    }
-}
-[e :U 284 ]
 "86
-[; ;DIO.c: 86:             break;
-[e $U 277  ]
+[; ;DIO.c: 86:  switch(port){
+[e $U 288  ]
+{
 "87
-[; ;DIO.c: 87:         case 'D':
-[e :U 285 ]
+[; ;DIO.c: 87:   case 'A':
+[e :U 289 ]
 "88
 [; ;DIO.c: 88:    if(data){
-[e $ ! != -> _data `i -> 0 `i 286  ]
+[e $ ! != -> _data `i -> 0 `i 290  ]
 {
 "89
-[; ;DIO.c: 89:     (*p_PORTDdata).PORT = data;
-[e = . *U _p_PORTDdata 0 _data ]
+[; ;DIO.c: 89:     (*p_PORTAdata).PORT = data;
+[e = . *U _p_PORTAdata 0 _data ]
 "90
 [; ;DIO.c: 90:    }else{
 }
-[e $U 287  ]
-[e :U 286 ]
+[e $U 291  ]
+[e :U 290 ]
 {
 "91
-[; ;DIO.c: 91:     (*p_PORTDdata).PORT = 0;
-[e = . *U _p_PORTDdata 0 -> -> 0 `i `uc ]
+[; ;DIO.c: 91:     (*p_PORTAdata).PORT = 0;
+[e = . *U _p_PORTAdata 0 -> -> 0 `i `uc ]
 "92
 [; ;DIO.c: 92:    }
 }
-[e :U 287 ]
+[e :U 291 ]
 "93
 [; ;DIO.c: 93:             break;
-[e $U 277  ]
+[e $U 287  ]
 "94
-[; ;DIO.c: 94:     }
-}
-[e $U 277  ]
-[e :U 278 ]
-[e [\ -> _port `i , $ -> -> 65 `ui `i 279
- , $ -> -> 66 `ui `i 282
- , $ -> -> 68 `ui `i 285
- 277 ]
-[e :U 277 ]
+[; ;DIO.c: 94:   case 'B':
+[e :U 292 ]
 "95
-[; ;DIO.c: 95: }
-[e :UE 276 ]
-}
+[; ;DIO.c: 95:    if(data){
+[e $ ! != -> _data `i -> 0 `i 293  ]
+{
+"96
+[; ;DIO.c: 96:     (*p_PORTBdata).PORT = data;
+[e = . *U _p_PORTBdata 0 _data ]
 "97
-[; ;DIO.c: 97: void DIO_vdtogglePin(unsigned char port,unsigned char pin){
+[; ;DIO.c: 97:    }else{
+}
+[e $U 294  ]
+[e :U 293 ]
+{
+"98
+[; ;DIO.c: 98:     (*p_PORTBdata).PORT = 0;
+[e = . *U _p_PORTBdata 0 -> -> 0 `i `uc ]
+"99
+[; ;DIO.c: 99:    }
+}
+[e :U 294 ]
+"100
+[; ;DIO.c: 100:             break;
+[e $U 287  ]
+"101
+[; ;DIO.c: 101:         case 'C':
+[e :U 295 ]
+"102
+[; ;DIO.c: 102:    if(data){
+[e $ ! != -> _data `i -> 0 `i 296  ]
+{
+"103
+[; ;DIO.c: 103:     (*p_PORTCdata).PORT = data;
+[e = . *U _p_PORTCdata 0 _data ]
+"104
+[; ;DIO.c: 104:    }else{
+}
+[e $U 297  ]
+[e :U 296 ]
+{
+"105
+[; ;DIO.c: 105:     (*p_PORTCdata).PORT = 0;
+[e = . *U _p_PORTCdata 0 -> -> 0 `i `uc ]
+"106
+[; ;DIO.c: 106:    }
+}
+[e :U 297 ]
+"107
+[; ;DIO.c: 107:             break;
+[e $U 287  ]
+"108
+[; ;DIO.c: 108:         case 'D':
+[e :U 298 ]
+"109
+[; ;DIO.c: 109:    if(data){
+[e $ ! != -> _data `i -> 0 `i 299  ]
+{
+"110
+[; ;DIO.c: 110:     (*p_PORTDdata).PORT = data;
+[e = . *U _p_PORTDdata 0 _data ]
+"111
+[; ;DIO.c: 111:    }else{
+}
+[e $U 300  ]
+[e :U 299 ]
+{
+"112
+[; ;DIO.c: 112:     (*p_PORTDdata).PORT = 0;
+[e = . *U _p_PORTDdata 0 -> -> 0 `i `uc ]
+"113
+[; ;DIO.c: 113:    }
+}
+[e :U 300 ]
+"114
+[; ;DIO.c: 114:             break;
+[e $U 287  ]
+"115
+[; ;DIO.c: 115:     }
+}
+[e $U 287  ]
+[e :U 288 ]
+[e [\ -> _port `i , $ -> -> 65 `ui `i 289
+ , $ -> -> 66 `ui `i 292
+ , $ -> -> 67 `ui `i 295
+ , $ -> -> 68 `ui `i 298
+ 287 ]
+[e :U 287 ]
+"116
+[; ;DIO.c: 116: }
+[e :UE 286 ]
+}
+"118
+[; ;DIO.c: 118: void DIO_vdtogglePin(unsigned char port,unsigned char pin){
 [v _DIO_vdtogglePin `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _DIO_vdtogglePin ]
 [v _port `uc ~T0 @X0 1 r1 ]
 [v _pin `uc ~T0 @X0 1 r2 ]
 [f ]
-"98
-[; ;DIO.c: 98:  switch(port){
-[e $U 290  ]
+"119
+[; ;DIO.c: 119:  switch(port){
+[e $U 303  ]
 {
-"99
-[; ;DIO.c: 99:   case 'A':
-[e :U 291 ]
-"100
-[; ;DIO.c: 100:    (*p_PORTAdata).PORT ^= (1<<pin);
+"120
+[; ;DIO.c: 120:   case 'A':
+[e :U 304 ]
+"121
+[; ;DIO.c: 121:    (*p_PORTAdata).PORT ^= (1<<pin);
 [e =^ . *U _p_PORTAdata 0 -> << -> 1 `i -> _pin `i `Vuc ]
-"101
-[; ;DIO.c: 101:             break;
-[e $U 289  ]
-"102
-[; ;DIO.c: 102:   case 'B':
-[e :U 292 ]
-"103
-[; ;DIO.c: 103:    (*p_PORTBdata).PORT ^= (1<<pin);
+"122
+[; ;DIO.c: 122:             break;
+[e $U 302  ]
+"123
+[; ;DIO.c: 123:   case 'B':
+[e :U 305 ]
+"124
+[; ;DIO.c: 124:    (*p_PORTBdata).PORT ^= (1<<pin);
 [e =^ . *U _p_PORTBdata 0 -> << -> 1 `i -> _pin `i `Vuc ]
-"104
-[; ;DIO.c: 104:             break;
-[e $U 289  ]
-"105
-[; ;DIO.c: 105:         case 'D':
-[e :U 293 ]
-"106
-[; ;DIO.c: 106:    (*p_PORTDdata).PORT ^= (1<<pin);
+"125
+[; ;DIO.c: 125:             break;
+[e $U 302  ]
+"126
+[; ;DIO.c: 126:         case 'D':
+[e :U 306 ]
+"127
+[; ;DIO.c: 127:    (*p_PORTDdata).PORT ^= (1<<pin);
 [e =^ . *U _p_PORTDdata 0 -> << -> 1 `i -> _pin `i `Vuc ]
-"107
-[; ;DIO.c: 107:             break;
-[e $U 289  ]
-"108
-[; ;DIO.c: 108:  }
+"128
+[; ;DIO.c: 128:             break;
+[e $U 302  ]
+"129
+[; ;DIO.c: 129:  }
 }
-[e $U 289  ]
-[e :U 290 ]
-[e [\ -> _port `i , $ -> -> 65 `ui `i 291
- , $ -> -> 66 `ui `i 292
- , $ -> -> 68 `ui `i 293
- 289 ]
-[e :U 289 ]
-"110
-[; ;DIO.c: 110: }
-[e :UE 288 ]
+[e $U 302  ]
+[e :U 303 ]
+[e [\ -> _port `i , $ -> -> 65 `ui `i 304
+ , $ -> -> 66 `ui `i 305
+ , $ -> -> 68 `ui `i 306
+ 302 ]
+[e :U 302 ]
+"131
+[; ;DIO.c: 131: }
+[e :UE 301 ]
 }
-"112
-[; ;DIO.c: 112: unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin){
+"133
+[; ;DIO.c: 133: unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin){
 [v _DIO_u8ReadPin `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _DIO_u8ReadPin ]
 [v _port `uc ~T0 @X0 1 r1 ]
 [v _pin `uc ~T0 @X0 1 r2 ]
 [f ]
-"113
-[; ;DIO.c: 113:  switch(port){
-[e $U 296  ]
+"134
+[; ;DIO.c: 134:  switch(port){
+[e $U 309  ]
 {
-"114
-[; ;DIO.c: 114:   case 'A':
-[e :U 297 ]
-"115
-[; ;DIO.c: 115:    return ((*p_PORTAdata).PORT & (1<<pin))?1:0;
+"135
+[; ;DIO.c: 135:   case 'A':
+[e :U 310 ]
+"136
+[; ;DIO.c: 136:    return ((*p_PORTAdata).PORT & (1<<pin))?1:0;
 [e ) -> ? != & -> . *U _p_PORTAdata 0 `i << -> 1 `i -> _pin `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-[e $UE 294  ]
-"116
-[; ;DIO.c: 116:   case 'B':
-[e :U 298 ]
-"117
-[; ;DIO.c: 117:    return ((*p_PORTBdata).PORT & (1<<pin))?1:0;
+[e $UE 307  ]
+"137
+[; ;DIO.c: 137:   case 'B':
+[e :U 311 ]
+"138
+[; ;DIO.c: 138:    return ((*p_PORTBdata).PORT & (1<<pin))?1:0;
 [e ) -> ? != & -> . *U _p_PORTBdata 0 `i << -> 1 `i -> _pin `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-[e $UE 294  ]
-"118
-[; ;DIO.c: 118:         case 'D':
-[e :U 299 ]
-"119
-[; ;DIO.c: 119:    return ((*p_PORTDdata).PORT & (1<<pin))?1:0;
+[e $UE 307  ]
+"139
+[; ;DIO.c: 139:         case 'D':
+[e :U 312 ]
+"140
+[; ;DIO.c: 140:    return ((*p_PORTDdata).PORT & (1<<pin))?1:0;
 [e ) -> ? != & -> . *U _p_PORTDdata 0 `i << -> 1 `i -> _pin `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-[e $UE 294  ]
-"120
-[; ;DIO.c: 120:  }
+[e $UE 307  ]
+"141
+[; ;DIO.c: 141:  }
 }
-[e $U 295  ]
-[e :U 296 ]
-[e [\ -> _port `i , $ -> -> 65 `ui `i 297
- , $ -> -> 66 `ui `i 298
- , $ -> -> 68 `ui `i 299
- 295 ]
-[e :U 295 ]
-"121
-[; ;DIO.c: 121:  return 0;
+[e $U 308  ]
+[e :U 309 ]
+[e [\ -> _port `i , $ -> -> 65 `ui `i 310
+ , $ -> -> 66 `ui `i 311
+ , $ -> -> 68 `ui `i 312
+ 308 ]
+[e :U 308 ]
+"142
+[; ;DIO.c: 142:  return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 294  ]
-"122
-[; ;DIO.c: 122: }
-[e :UE 294 ]
+[e $UE 307  ]
+"143
+[; ;DIO.c: 143: }
+[e :UE 307 ]
 }
-"124
-[; ;DIO.c: 124: unsigned char DIO_u8ReadPort(unsigned char port){
+"145
+[; ;DIO.c: 145: unsigned char DIO_u8ReadPort(unsigned char port){
 [v _DIO_u8ReadPort `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _DIO_u8ReadPort ]
 [v _port `uc ~T0 @X0 1 r1 ]
 [f ]
-"125
-[; ;DIO.c: 125:  switch(port){
-[e $U 302  ]
+"146
+[; ;DIO.c: 146:  switch(port){
+[e $U 315  ]
 {
-"126
-[; ;DIO.c: 126:   case 'A':
-[e :U 303 ]
-"127
-[; ;DIO.c: 127:             return ((*p_PORTAdata).PORT);
+"147
+[; ;DIO.c: 147:   case 'A':
+[e :U 316 ]
+"148
+[; ;DIO.c: 148:             return ((*p_PORTAdata).PORT);
 [e ) . *U _p_PORTAdata 0 ]
-[e $UE 300  ]
-"128
-[; ;DIO.c: 128:   case 'B':
-[e :U 304 ]
-"129
-[; ;DIO.c: 129:             return ((*p_PORTBdata).PORT);
+[e $UE 313  ]
+"149
+[; ;DIO.c: 149:   case 'B':
+[e :U 317 ]
+"150
+[; ;DIO.c: 150:             return ((*p_PORTBdata).PORT);
 [e ) . *U _p_PORTBdata 0 ]
-[e $UE 300  ]
-"130
-[; ;DIO.c: 130:         case 'D':
-[e :U 305 ]
-"131
-[; ;DIO.c: 131:             return ((*p_PORTDdata).PORT);
+[e $UE 313  ]
+"151
+[; ;DIO.c: 151:         case 'D':
+[e :U 318 ]
+"152
+[; ;DIO.c: 152:             return ((*p_PORTDdata).PORT);
 [e ) . *U _p_PORTDdata 0 ]
-[e $UE 300  ]
-"132
-[; ;DIO.c: 132:  }
+[e $UE 313  ]
+"153
+[; ;DIO.c: 153:  }
 }
-[e $U 301  ]
-[e :U 302 ]
-[e [\ -> _port `i , $ -> -> 65 `ui `i 303
- , $ -> -> 66 `ui `i 304
- , $ -> -> 68 `ui `i 305
- 301 ]
-[e :U 301 ]
-"133
-[; ;DIO.c: 133:  return 0;
+[e $U 314  ]
+[e :U 315 ]
+[e [\ -> _port `i , $ -> -> 65 `ui `i 316
+ , $ -> -> 66 `ui `i 317
+ , $ -> -> 68 `ui `i 318
+ 314 ]
+[e :U 314 ]
+"154
+[; ;DIO.c: 154:  return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 300  ]
-"134
-[; ;DIO.c: 134: }
-[e :UE 300 ]
+[e $UE 313  ]
+"155
+[; ;DIO.c: 155: }
+[e :UE 313 ]
 }

@@ -1,4 +1,4 @@
-# 1 "TMR1.c"
+# 1 "UART.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "TMR1.c" 2
+# 1 "UART.c" 2
 
 
 
@@ -3650,36 +3650,193 @@ extern volatile __bit nW __attribute__((address(0x7E3A)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 8 "TMR1.c" 2
+# 8 "UART.c" 2
+
+# 1 "./UART.h" 1
+# 19 "./UART.h"
+void UART_vdInit(unsigned short int baud);
+void UART_vdSendByte(unsigned char data);
+void UART_vdSendu8asASCI(unsigned char data);
+# 9 "UART.c" 2
+
+# 1 "./definitions.h" 1
+# 19 "./definitions.h"
+typedef struct{
+    unsigned char PORT;
+    unsigned char pin;
+    unsigned char mode;
+    unsigned char status;
+    unsigned char temp1;
+    int i;
+} DEVICE;
+# 52 "./definitions.h"
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RA0:1;
+        volatile unsigned char RA1:1;
+        volatile unsigned char RA2:1;
+        volatile unsigned char RA3:1;
+        volatile unsigned char RA4:1;
+        volatile unsigned char RA5:1;
+        volatile unsigned char RA6:1;
+    };
+}_PORTAdata;
+volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
 
 
-# 1 "./TMR1.h" 1
-# 28 "./TMR1.h"
-void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
-# 10 "TMR1.c" 2
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RA0:1;
+        volatile unsigned char RA1:1;
+        volatile unsigned char RA2:1;
+        volatile unsigned char RA3:1;
+        volatile unsigned char RA4:1;
+        volatile unsigned char RA5:1;
+        volatile unsigned char RA6:1;
+        volatile unsigned char RA7:1;
+    };
+}_PORTAdirection;
+volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
 
 
-void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value){
-    switch(mode){
-        case 1:
-            T1CONbits.TMR1CS = 1;
-            break;
-        case 0:
-            T1CONbits.TMR1CS = 0;
-            break;
-    }
 
-    T1CONbits.RD16 = bits;
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RB0:1;
+        volatile unsigned char RB1:1;
+        volatile unsigned char RB2:1;
+        volatile unsigned char RB3:1;
+        volatile unsigned char RB4:1;
+        volatile unsigned char RB5:1;
+        volatile unsigned char RB6:1;
+        volatile unsigned char RB7:1;
+    };
+}_PORTBdata;
+volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
 
-    switch(prescaler){
-        case 0:
-            T1CONbits.T1CKPS = 0;
-            break;
-        case 1:
-            T1CONbits.T1CKPS = prescaler_value;
-            break;
-    }
 
-    T1CONbits.T1OSCEN = 0;
-    T1CONbits.TMR1ON = 1;
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RB0:1;
+        volatile unsigned char RB1:1;
+        volatile unsigned char RB2:1;
+        volatile unsigned char RB3:1;
+        volatile unsigned char RB4:1;
+        volatile unsigned char RB5:1;
+        volatile unsigned char RB6:1;
+        volatile unsigned char RB7:1;
+    };
+}_PORTBdirection;
+volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
+
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdata;
+volatile _PORTCdata* p_PORTCdata = (_PORTCdata*)(0xF82);
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdirection;
+volatile _PORTCdirection* p_PORTCdirection = (_PORTCdirection*)(0xF94);
+
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RD0:1;
+        volatile unsigned char RD1:1;
+        volatile unsigned char RD2:1;
+        volatile unsigned char RD3:1;
+        volatile unsigned char RD4:1;
+        volatile unsigned char RD5:1;
+        volatile unsigned char RD6:1;
+        volatile unsigned char RD7:1;
+    };
+}_PORTDdata;
+volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RD0:1;
+        volatile unsigned char RD1:1;
+        volatile unsigned char RD2:1;
+        volatile unsigned char RD3:1;
+        volatile unsigned char RD4:1;
+        volatile unsigned char RD5:1;
+        volatile unsigned char RD6:1;
+        volatile unsigned char RD7:1;
+    };
+}_PORTDdirection;
+volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+# 10 "UART.c" 2
+
+
+
+void UART_vdInit(unsigned short int baud){
+ BRGH = 1;
+    SPBRG = ((4000000/16)/baud) - 1;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+    TRISC6 = 0;
+    TXSTAbits.TXEN = 1;
+}
+
+void UART_vdSendByte(unsigned char data){
+ while (!TXIF);
+
+
+
+
+ TXREG = data;
+}
+
+void UART_vdSendu8asASCI(unsigned char data){
+ unsigned char temp[3]; unsigned char i; unsigned char temp2 = data;
+ for(i=0;i<3;i++){
+  temp[i] = temp2%10;
+  temp2 /= 10;
+ }
+ if(temp[2]==0){
+  if(temp[1]==0){
+   UART_vdSendByte(temp[0]+48);
+  }else{
+   UART_vdSendByte(temp[1]+48);
+   UART_vdSendByte(temp[0]+48);
+  }
+ }else{
+  UART_vdSendByte(temp[2]+48);
+  UART_vdSendByte(temp[1]+48);
+  UART_vdSendByte(temp[0]+48);
+ }
+
 }

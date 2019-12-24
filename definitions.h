@@ -113,6 +113,39 @@ typedef union{
 volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)ADDR_TRISB;
 #define PORTBdirection (*p_PORTBdirection)
 
+//PORTC
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdata;
+volatile _PORTCdata* p_PORTCdata = (_PORTCdata*)ADDR_PORTCdata;
+#define PORTCdata (*p_PORTCdata)
+
+typedef union{
+    volatile unsigned char PORT;
+    struct{
+        volatile unsigned char RC0:1;
+        volatile unsigned char RC1:1;
+        volatile unsigned char RC2:1;
+        volatile unsigned char RC3:1;
+        volatile unsigned char RC4:1;
+        volatile unsigned char RC5:1;
+        volatile unsigned char RC6:1;
+        volatile unsigned char RC7:1;
+    };
+}_PORTCdirection;
+volatile _PORTCdirection* p_PORTCdirection = (_PORTCdirection*)ADDR_TRISC;
+#define PORTCdirection (*p_PORTCdirection)
+
 //PORTD
 typedef union{
     volatile unsigned char PORT;
@@ -145,6 +178,8 @@ typedef union{
 }_PORTDdirection;
 volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)ADDR_TRISD;
 #define PORTDdirection (*p_PORTDdirection)
+
+
 
 #endif	
 

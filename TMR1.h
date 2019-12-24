@@ -25,7 +25,7 @@
 #define TIMER 0
 #define COUNTER 1
 
-TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
+void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
 
 #endif	/* TMR1_H */
 

@@ -32,6 +32,13 @@ void DIO_vdWritePin(unsigned char data,unsigned char port,unsigned char pin){
 				PORTBdata.PORT &= ~(1<<pin);
 			}
             break;
+        case 'C':
+			if(data){
+				PORTCdata.PORT |= (1<<pin);
+				}else{
+				PORTCdata.PORT &= ~(1<<pin);
+			}
+            break;
         case 'D':
 			if(data){
 				PORTDdata.PORT |= (1<<pin);
@@ -58,6 +65,13 @@ void DIO_vdWriteDirPin(unsigned char data,unsigned char port,unsigned char pin){
 				PORTBdirection.PORT &= ~(1<<pin);
 			}
             break;
+        case 'C':
+			if(data){
+				PORTCdirection.PORT |= (1<<pin);
+				}else{
+				PORTCdirection.PORT &= ~(1<<pin);
+			}
+            break;
         case 'D':
 			if(data){
 				PORTDdirection.PORT |= (1<<pin);
@@ -82,6 +96,13 @@ void DIO_vdWritePort(unsigned char data,unsigned char port){
 				PORTBdata.PORT = data;
 			}else{
 				PORTBdata.PORT = 0;
+			}
+            break;
+        case 'C':
+			if(data){
+				PORTCdata.PORT = data;
+			}else{
+				PORTCdata.PORT = 0;
 			}
             break;
         case 'D':

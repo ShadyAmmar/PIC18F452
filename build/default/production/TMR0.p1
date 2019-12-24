@@ -396,8 +396,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5763: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "13 TMR0.c
-[; ;TMR0.c: 13: TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
-[v _TMR0_vdInit `(i ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
+[; ;TMR0.c: 13: void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
+[v _TMR0_vdInit `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
 {
 [e :U _TMR0_vdInit ]
 [v _mode `uc ~T0 @X0 1 r1 ]

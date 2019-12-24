@@ -10,7 +10,7 @@
 #include "TMR0.h"
 
 
-TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
+void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
     switch(mode){
         case COUNTER:
             T0CONbits.T0CS = 1;

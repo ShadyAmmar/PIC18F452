@@ -1,4 +1,4 @@
-# 1 "TMR1.c"
+# 1 "ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "TMR1.c" 2
+# 1 "ADC.c" 2
 
 
 
@@ -3650,36 +3650,30 @@ extern volatile __bit nW __attribute__((address(0x7E3A)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 8 "TMR1.c" 2
+# 8 "ADC.c" 2
+
+# 1 "./ADC.h" 1
+# 24 "./ADC.h"
+void ADC_vdInit();
+unsigned short int ADC_u16getValue(unsigned char pin);
+# 9 "ADC.c" 2
 
 
-# 1 "./TMR1.h" 1
-# 28 "./TMR1.h"
-void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
-# 10 "TMR1.c" 2
+void ADC_vdInit(){
+    ADCON1bits.PCFG = 0b1001;
+    ADCON1bits.ADFM = 0;
+    ADCON0bits.ADCS = 0b001;
+    ADCON1bits.ADCS2 = (0b001>>2);
+    ADCON0bits.ADON = 1;
+}
 
-
-void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value){
-    switch(mode){
-        case 1:
-            T1CONbits.TMR1CS = 1;
-            break;
-        case 0:
-            T1CONbits.TMR1CS = 0;
-            break;
-    }
-
-    T1CONbits.RD16 = bits;
-
-    switch(prescaler){
-        case 0:
-            T1CONbits.T1CKPS = 0;
-            break;
-        case 1:
-            T1CONbits.T1CKPS = prescaler_value;
-            break;
-    }
-
-    T1CONbits.T1OSCEN = 0;
-    T1CONbits.TMR1ON = 1;
+unsigned short int ADC_u16getValue(unsigned char pin){
+    ADCON0bits.CHS = pin;
+    TRISA |= (1<<pin);
+    ADCON0bits.GO = 1;
+    while(!ADIF) LATC2 = 1;
+    LATC2 = 0;
+    unsigned short int data = ( (ADRESH<<8)|(ADRESL) );
+    ADIF = 0;
+    return data;
 }

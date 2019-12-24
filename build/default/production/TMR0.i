@@ -3655,12 +3655,12 @@ extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 
 # 1 "./TMR0.h" 1
 # 30 "./TMR0.h"
-TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);
+void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);
 # 10 "TMR0.c" 2
 
 
 
-TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
+void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
     switch(mode){
         case 1:
             T0CONbits.T0CS = 1;

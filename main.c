@@ -17,11 +17,13 @@
 #include "TMR0.h"
 #include "TMR1.h"
 #include "CCP1.h"
-
+#include "ADC.h"
+#include "UART.h"
 
 DEVICE LED0 = {'B',0,OUTPUT};
 DEVICE LED1 = {'B',1,OUTPUT};
 DEVICE LED2 = {'B',2,OUTPUT};
+DEVICE LED3 = {'C',2,OUTPUT};
 DEVICE BTN0 = {'A',4,INPUT};
 
 
@@ -30,13 +32,17 @@ void main(void) {
     DIO_vdInit(&LED0);
     DIO_vdInit(&LED1);
     DIO_vdInit(&LED2);
+    DIO_vdInit(&LED3);
     DIO_vdInit(&BTN0);
     
     INT_vdinit();
-    CCP1_vdInit(PWM_MODE,TMR2_PRESCALE_16,500);
-    CCP1_vdSetDutyCycle(50);
+    ADC_vdInit();
+    UART_vdInit(9600);
+    
     while(1){
-        
+        UART_vdSendu8asASCI(254);   
+        UART_vdSendByte('  ');
+        _delay(5000);
     }
     
     return;

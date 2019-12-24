@@ -9,7 +9,7 @@
 
 #include "TMR1.h"
 
-TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value){
+void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value){
     switch(mode){
         case COUNTER:
             T1CONbits.TMR1CS = EXT_CLK;

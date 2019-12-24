@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c LED.c BTN.c DIO.c INT.c TMR0.c CCP1.c CCP2.c TMR1.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c LED.c BTN.c DIO.c INT.c TMR0.c CCP1.c CCP2.c TMR1.c ADC.c UART.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1 ${OBJECTDIR}/TMR0.p1 ${OBJECTDIR}/CCP1.p1 ${OBJECTDIR}/CCP2.p1 ${OBJECTDIR}/TMR1.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/BTN.p1.d ${OBJECTDIR}/DIO.p1.d ${OBJECTDIR}/INT.p1.d ${OBJECTDIR}/TMR0.p1.d ${OBJECTDIR}/CCP1.p1.d ${OBJECTDIR}/CCP2.p1.d ${OBJECTDIR}/TMR1.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1 ${OBJECTDIR}/TMR0.p1 ${OBJECTDIR}/CCP1.p1 ${OBJECTDIR}/CCP2.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/UART.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/BTN.p1.d ${OBJECTDIR}/DIO.p1.d ${OBJECTDIR}/INT.p1.d ${OBJECTDIR}/TMR0.p1.d ${OBJECTDIR}/CCP1.p1.d ${OBJECTDIR}/CCP2.p1.d ${OBJECTDIR}/TMR1.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/UART.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1 ${OBJECTDIR}/TMR0.p1 ${OBJECTDIR}/CCP1.p1 ${OBJECTDIR}/CCP2.p1 ${OBJECTDIR}/TMR1.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/BTN.p1 ${OBJECTDIR}/DIO.p1 ${OBJECTDIR}/INT.p1 ${OBJECTDIR}/TMR0.p1 ${OBJECTDIR}/CCP1.p1 ${OBJECTDIR}/CCP2.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/UART.p1
 
 # Source Files
-SOURCEFILES=main.c LED.c BTN.c DIO.c INT.c TMR0.c CCP1.c CCP2.c TMR1.c
+SOURCEFILES=main.c LED.c BTN.c DIO.c INT.c TMR0.c CCP1.c CCP2.c TMR1.c ADC.c UART.c
 
 
 CFLAGS=
@@ -165,6 +165,22 @@ ${OBJECTDIR}/TMR1.p1: TMR1.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/TMR1.d ${OBJECTDIR}/TMR1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/TMR1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/ADC.p1: ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ADC.p1.d 
+	@${RM} ${OBJECTDIR}/ADC.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/ADC.p1 ADC.c 
+	@-${MV} ${OBJECTDIR}/ADC.d ${OBJECTDIR}/ADC.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART.p1.d 
+	@${RM} ${OBJECTDIR}/UART.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/UART.p1 UART.c 
+	@-${MV} ${OBJECTDIR}/UART.d ${OBJECTDIR}/UART.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/UART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -237,6 +253,22 @@ ${OBJECTDIR}/TMR1.p1: TMR1.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/TMR1.p1 TMR1.c 
 	@-${MV} ${OBJECTDIR}/TMR1.d ${OBJECTDIR}/TMR1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/TMR1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/ADC.p1: ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ADC.p1.d 
+	@${RM} ${OBJECTDIR}/ADC.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/ADC.p1 ADC.c 
+	@-${MV} ${OBJECTDIR}/ADC.d ${OBJECTDIR}/ADC.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART.p1.d 
+	@${RM} ${OBJECTDIR}/UART.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto -save-temps=cwd     -o ${OBJECTDIR}/UART.p1 UART.c 
+	@-${MV} ${OBJECTDIR}/UART.d ${OBJECTDIR}/UART.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/UART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

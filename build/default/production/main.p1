@@ -34,7 +34,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "119
 [; ;./definitions.h: 119:     struct{
 [s S248 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S248 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[n S248 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
 "117
 [; ;./definitions.h: 117: typedef union{
 [u S247 `Vuc 1 `S248 1 ]
@@ -42,11 +42,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "135
 [; ;./definitions.h: 135:     struct{
 [s S250 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S250 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[n S250 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
 "133
 [; ;./definitions.h: 133: typedef union{
 [u S249 `Vuc 1 `S250 1 ]
 [n S249 . PORT . ]
+"152
+[; ;./definitions.h: 152:     struct{
+[s S252 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S252 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"150
+[; ;./definitions.h: 150: typedef union{
+[u S251 `Vuc 1 `S252 1 ]
+[n S251 . PORT . ]
+"168
+[; ;./definitions.h: 168:     struct{
+[s S254 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S254 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"166
+[; ;./definitions.h: 166: typedef union{
+[u S253 `Vuc 1 `S254 1 ]
+[n S253 . PORT . ]
 "19
 [; ;./definitions.h: 19: typedef struct{
 [s S238 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
@@ -58,12 +74,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39 ./INT.h
 [; ;./INT.h: 39: void INT_vdinit(void);
 [v _INT_vdinit `(v ~T0 @X0 0 ef ]
-"37 ./CCP1.h
-[; ;./CCP1.h: 37: void CCP1_vdInit(unsigned char mode,unsigned char TMR2_prescale,unsigned long int PWM_freq);
-[v _CCP1_vdInit `(v ~T0 @X0 0 ef3`uc`uc`ul ]
-"41
-[; ;./CCP1.h: 41: void CCP1_vdSetDutyCycle(unsigned char duty);
-[v _CCP1_vdSetDutyCycle `(v ~T0 @X0 0 ef1`uc ]
+"24 ./ADC.h
+[; ;./ADC.h: 24: void ADC_vdInit();
+[v _ADC_vdInit `(v ~T0 @X0 0 e? ]
+"19 ./UART.h
+[; ;./UART.h: 19: void UART_vdInit(unsigned short int baud);
+[v _UART_vdInit `(v ~T0 @X0 0 ef1`us ]
+"21
+[; ;./UART.h: 21: void UART_vdSendu8asASCI(unsigned char data);
+[v _UART_vdSendu8asASCI `(v ~T0 @X0 0 ef1`uc ]
+"20
+[; ;./UART.h: 20: void UART_vdSendByte(unsigned char data);
+[v _UART_vdSendByte `(v ~T0 @X0 0 ef1`uc ]
+[v F2107 `(v ~T0 @X0 1 tf1`ul ]
+"183 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18.h
+[v __delay `JF2107 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -470,16 +496,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> -> 3987 `i `*S245 `*VS245
 ]
 "130
-[; ;./definitions.h: 130: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
-[v _p_PORTDdata `*VS247 ~T0 @X0 1 e ]
-[i _p_PORTDdata
--> -> -> 3971 `i `*S247 `*VS247
+[; ;./definitions.h: 130: volatile _PORTCdata* p_PORTCdata = (_PORTCdata*)(0xF82);
+[v _p_PORTCdata `*VS247 ~T0 @X0 1 e ]
+[i _p_PORTCdata
+-> -> -> 3970 `i `*S247 `*VS247
 ]
 "146
-[; ;./definitions.h: 146: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
-[v _p_PORTDdirection `*VS249 ~T0 @X0 1 e ]
+[; ;./definitions.h: 146: volatile _PORTCdirection* p_PORTCdirection = (_PORTCdirection*)(0xF94);
+[v _p_PORTCdirection `*VS249 ~T0 @X0 1 e ]
+[i _p_PORTCdirection
+-> -> -> 3988 `i `*S249 `*VS249
+]
+"163
+[; ;./definitions.h: 163: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+[v _p_PORTDdata `*VS251 ~T0 @X0 1 e ]
+[i _p_PORTDdata
+-> -> -> 3971 `i `*S251 `*VS251
+]
+"179
+[; ;./definitions.h: 179: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+[v _p_PORTDdirection `*VS253 ~T0 @X0 1 e ]
 [i _p_PORTDdirection
--> -> -> 3989 `i `*S249 `*VS249
+-> -> -> 3989 `i `*S253 `*VS253
 ]
 "17 ./config.h
 [p x OSC = XT ]
@@ -537,8 +575,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "64
 [p x EBTRB = OFF ]
-"22 main.c
-[; ;main.c: 22: DEVICE LED0 = {'B',0,0};
+"23 main.c
+[; ;main.c: 23: DEVICE LED0 = {'B',0,0};
 [v _LED0 `S238 ~T0 @X0 1 e ]
 [i _LED0
 :U ..
@@ -549,8 +587,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"23
-[; ;main.c: 23: DEVICE LED1 = {'B',1,0};
+"24
+[; ;main.c: 24: DEVICE LED1 = {'B',1,0};
 [v _LED1 `S238 ~T0 @X0 1 e ]
 [i _LED1
 :U ..
@@ -561,8 +599,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"24
-[; ;main.c: 24: DEVICE LED2 = {'B',2,0};
+"25
+[; ;main.c: 25: DEVICE LED2 = {'B',2,0};
 [v _LED2 `S238 ~T0 @X0 1 e ]
 [i _LED2
 :U ..
@@ -573,8 +611,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"25
-[; ;main.c: 25: DEVICE BTN0 = {'A',4,1};
+"26
+[; ;main.c: 26: DEVICE LED3 = {'C',2,0};
+[v _LED3 `S238 ~T0 @X0 1 e ]
+[i _LED3
+:U ..
+:U ..
+-> -> 67 `ui `uc
+-> -> 2 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+"27
+[; ;main.c: 27: DEVICE BTN0 = {'A',4,1};
 [v _BTN0 `S238 ~T0 @X0 1 e ]
 [i _BTN0
 :U ..
@@ -586,47 +636,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"28
-[; ;main.c: 28: void main(void) {
+"30
+[; ;main.c: 30: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"30
-[; ;main.c: 30:     DIO_vdInit(&LED0);
-[e ( _DIO_vdInit (1 &U _LED0 ]
-"31
-[; ;main.c: 31:     DIO_vdInit(&LED1);
-[e ( _DIO_vdInit (1 &U _LED1 ]
 "32
-[; ;main.c: 32:     DIO_vdInit(&LED2);
-[e ( _DIO_vdInit (1 &U _LED2 ]
+[; ;main.c: 32:     DIO_vdInit(&LED0);
+[e ( _DIO_vdInit (1 &U _LED0 ]
 "33
-[; ;main.c: 33:     DIO_vdInit(&BTN0);
-[e ( _DIO_vdInit (1 &U _BTN0 ]
+[; ;main.c: 33:     DIO_vdInit(&LED1);
+[e ( _DIO_vdInit (1 &U _LED1 ]
+"34
+[; ;main.c: 34:     DIO_vdInit(&LED2);
+[e ( _DIO_vdInit (1 &U _LED2 ]
 "35
-[; ;main.c: 35:     INT_vdinit();
-[e ( _INT_vdinit ..  ]
+[; ;main.c: 35:     DIO_vdInit(&LED3);
+[e ( _DIO_vdInit (1 &U _LED3 ]
 "36
-[; ;main.c: 36:     CCP1_vdInit(0b1100,0b10,500);
-[e ( _CCP1_vdInit (3 , , -> -> 12 `i `uc -> -> 2 `i `uc -> -> -> 500 `i `l `ul ]
-"37
-[; ;main.c: 37:     CCP1_vdSetDutyCycle(50);
-[e ( _CCP1_vdSetDutyCycle (1 -> -> 50 `i `uc ]
+[; ;main.c: 36:     DIO_vdInit(&BTN0);
+[e ( _DIO_vdInit (1 &U _BTN0 ]
 "38
-[; ;main.c: 38:     while(1){
-[e :U 253 ]
-{
+[; ;main.c: 38:     INT_vdinit();
+[e ( _INT_vdinit ..  ]
+"39
+[; ;main.c: 39:     ADC_vdInit();
+[e ( _ADC_vdInit ..  ]
 "40
-[; ;main.c: 40:     }
-}
-[e :U 252 ]
-[e $U 253  ]
-[e :U 254 ]
+[; ;main.c: 40:     UART_vdInit(9600);
+[e ( _UART_vdInit (1 -> -> 9600 `i `us ]
 "42
-[; ;main.c: 42:     return;
-[e $UE 251  ]
+[; ;main.c: 42:     while(1){
+[e :U 257 ]
+{
 "43
-[; ;main.c: 43: }
-[e :UE 251 ]
+[; ;main.c: 43:         UART_vdSendu8asASCI(254);
+[e ( _UART_vdSendu8asASCI (1 -> -> 254 `i `uc ]
+"44
+[; ;main.c: 44:         UART_vdSendByte('  ');
+[e ( _UART_vdSendByte (1 -> -> 8224 `ui `uc ]
+"45
+[; ;main.c: 45:         _delay(5000);
+[e ( __delay (1 -> -> -> 5000 `i `l `ul ]
+"46
+[; ;main.c: 46:     }
+}
+[e :U 256 ]
+[e $U 257  ]
+[e :U 258 ]
+"48
+[; ;main.c: 48:     return;
+[e $UE 255  ]
+"49
+[; ;main.c: 49: }
+[e :UE 255 ]
 }
