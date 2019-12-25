@@ -1,0 +1,277 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"54 ./definitions.h
+[; ;./definitions.h: 54:     struct{
+[s S3 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
+"52
+[; ;./definitions.h: 52: typedef union{
+[u S2 `Vuc 1 `S3 1 ]
+[n S2 . PORT . ]
+"69
+[; ;./definitions.h: 69:     struct{
+[s S5 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S5 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"67
+[; ;./definitions.h: 67: typedef union{
+[u S4 `Vuc 1 `S5 1 ]
+[n S4 . PORT . ]
+"86
+[; ;./definitions.h: 86:     struct{
+[s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S7 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"84
+[; ;./definitions.h: 84: typedef union{
+[u S6 `Vuc 1 `S7 1 ]
+[n S6 . PORT . ]
+"102
+[; ;./definitions.h: 102:     struct{
+[s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S9 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"100
+[; ;./definitions.h: 100: typedef union{
+[u S8 `Vuc 1 `S9 1 ]
+[n S8 . PORT . ]
+"119
+[; ;./definitions.h: 119:     struct{
+[s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S11 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"117
+[; ;./definitions.h: 117: typedef union{
+[u S10 `Vuc 1 `S11 1 ]
+[n S10 . PORT . ]
+"135
+[; ;./definitions.h: 135:     struct{
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"133
+[; ;./definitions.h: 133: typedef union{
+[u S12 `Vuc 1 `S13 1 ]
+[n S12 . PORT . ]
+"152
+[; ;./definitions.h: 152:     struct{
+[s S15 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S15 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"150
+[; ;./definitions.h: 150: typedef union{
+[u S14 `Vuc 1 `S15 1 ]
+[n S14 . PORT . ]
+"168
+[; ;./definitions.h: 168:     struct{
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S17 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"166
+[; ;./definitions.h: 166: typedef union{
+[u S16 `Vuc 1 `S17 1 ]
+[n S16 . PORT . ]
+"19
+[; ;./definitions.h: 19: typedef struct{
+[s S1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
+[n S1 . PORT pin mode status temp1 i ]
+"16 ./DIO.h
+[; ;./DIO.h: 16: unsigned char DIO_u8ReadPin(unsigned char port,unsigned char pin);
+[v _DIO_u8ReadPin `(uc ~T0 @X0 0 ef2`uc`uc ]
+"64 ./definitions.h
+[; ;./definitions.h: 64: volatile _PORTAdata* p_PORTAdata = (_PORTAdata*)(0xF80);
+[v _p_PORTAdata `*VS2 ~T0 @X0 1 e ]
+[i _p_PORTAdata
+-> -> -> 3968 `i `*S2 `*VS2
+]
+"80
+[; ;./definitions.h: 80: volatile _PORTAdirection* p_PORTAdirection = (_PORTAdirection*)(0xF92);
+[v _p_PORTAdirection `*VS4 ~T0 @X0 1 e ]
+[i _p_PORTAdirection
+-> -> -> 3986 `i `*S4 `*VS4
+]
+"97
+[; ;./definitions.h: 97: volatile _PORTBdata* p_PORTBdata = (_PORTBdata*)(0xF81);
+[v _p_PORTBdata `*VS6 ~T0 @X0 1 e ]
+[i _p_PORTBdata
+-> -> -> 3969 `i `*S6 `*VS6
+]
+"113
+[; ;./definitions.h: 113: volatile _PORTBdirection* p_PORTBdirection = (_PORTBdirection*)(0xF93);
+[v _p_PORTBdirection `*VS8 ~T0 @X0 1 e ]
+[i _p_PORTBdirection
+-> -> -> 3987 `i `*S8 `*VS8
+]
+"130
+[; ;./definitions.h: 130: volatile _PORTCdata* p_PORTCdata = (_PORTCdata*)(0xF82);
+[v _p_PORTCdata `*VS10 ~T0 @X0 1 e ]
+[i _p_PORTCdata
+-> -> -> 3970 `i `*S10 `*VS10
+]
+"146
+[; ;./definitions.h: 146: volatile _PORTCdirection* p_PORTCdirection = (_PORTCdirection*)(0xF94);
+[v _p_PORTCdirection `*VS12 ~T0 @X0 1 e ]
+[i _p_PORTCdirection
+-> -> -> 3988 `i `*S12 `*VS12
+]
+"163
+[; ;./definitions.h: 163: volatile _PORTDdata* p_PORTDdata = (_PORTDdata*)(0xF83);
+[v _p_PORTDdata `*VS14 ~T0 @X0 1 e ]
+[i _p_PORTDdata
+-> -> -> 3971 `i `*S14 `*VS14
+]
+"179
+[; ;./definitions.h: 179: volatile _PORTDdirection* p_PORTDdirection = (_PORTDdirection*)(0xF95);
+[v _p_PORTDdirection `*VS16 ~T0 @X0 1 e ]
+[i _p_PORTDdirection
+-> -> -> 3989 `i `*S16 `*VS16
+]
+"12 BTN.c
+[; ;BTN.c: 12: static unsigned char BTNstatus[] = {0,0,0,0,0,0,0,0};
+[v _BTNstatus `uc ~T0 @X0 -> 8 `i s ]
+[i _BTNstatus
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"14
+[; ;BTN.c: 14: unsigned char BTN_u8getFilteredStatus(DEVICE* btn){
+[v _BTN_u8getFilteredStatus `(uc ~T0 @X0 1 ef1`*S1 ]
+{
+[e :U _BTN_u8getFilteredStatus ]
+[v _btn `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"15
+[; ;BTN.c: 15:  switch( btn->status )
+[e $U 20  ]
+"16
+[; ;BTN.c: 16:  {
+{
+"17
+[; ;BTN.c: 17:   case 1 :
+[e :U 21 ]
+"18
+[; ;BTN.c: 18:   return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 18  ]
+"19
+[; ;BTN.c: 19:   break;
+[e $U 19  ]
+"20
+[; ;BTN.c: 20:   case 0 :
+[e :U 22 ]
+"21
+[; ;BTN.c: 21:   return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 18  ]
+"22
+[; ;BTN.c: 22:   break;
+[e $U 19  ]
+"23
+[; ;BTN.c: 23:   case 3 :
+[e :U 23 ]
+"24
+[; ;BTN.c: 24:   return 3;
+[e ) -> -> 3 `i `uc ]
+[e $UE 18  ]
+"25
+[; ;BTN.c: 25:   break;
+[e $U 19  ]
+"26
+[; ;BTN.c: 26:  }
+}
+[e $U 19  ]
+[e :U 20 ]
+[e [\ -> . *U _btn 3 `i , $ -> 1 `i 21
+ , $ -> 0 `i 22
+ , $ -> 3 `i 23
+ 19 ]
+[e :U 19 ]
+"27
+[; ;BTN.c: 27:  return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 18  ]
+"28
+[; ;BTN.c: 28: }
+[e :UE 18 ]
+}
+"36
+[; ;BTN.c: 36: void BTN_vdRead(DEVICE* btn){
+[v _BTN_vdRead `(v ~T0 @X0 1 ef1`*S1 ]
+{
+[e :U _BTN_vdRead ]
+[v _btn `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"37
+[; ;BTN.c: 37:  unsigned char temp2 = DIO_u8ReadPin(btn->PORT,btn->pin);
+[v _temp2 `uc ~T0 @X0 1 a ]
+[e = _temp2 ( _DIO_u8ReadPin (2 , . *U _btn 0 . *U _btn 1 ]
+"39
+[; ;BTN.c: 39:  if(btn->temp1 == temp2){
+[e $ ! == -> . *U _btn 4 `i -> _temp2 `i 25  ]
+{
+"40
+[; ;BTN.c: 40:   (btn->i)++;
+[e ++ . *U _btn 5 -> 1 `i ]
+"41
+[; ;BTN.c: 41:  }else{
+}
+[e $U 26  ]
+[e :U 25 ]
+{
+"42
+[; ;BTN.c: 42:   btn->temp1 = temp2;
+[e = . *U _btn 4 _temp2 ]
+"43
+[; ;BTN.c: 43:   btn->i =1;
+[e = . *U _btn 5 -> 1 `i ]
+"44
+[; ;BTN.c: 44:  }
+}
+[e :U 26 ]
+"46
+[; ;BTN.c: 46:  if(btn->i % 3 == 0){
+[e $ ! == % . *U _btn 5 -> 3 `i -> 0 `i 27  ]
+{
+"47
+[; ;BTN.c: 47:   btn->status = temp2;
+[e = . *U _btn 3 _temp2 ]
+"48
+[; ;BTN.c: 48:   btn->i =0;
+[e = . *U _btn 5 -> 0 `i ]
+"49
+[; ;BTN.c: 49:  }
+}
+[e :U 27 ]
+"51
+[; ;BTN.c: 51:  if(btn->i == 400 && btn->status==1){
+[e $ ! && == . *U _btn 5 -> 400 `i == -> . *U _btn 3 `i -> 1 `i 28  ]
+{
+"52
+[; ;BTN.c: 52:   btn->status = 3;
+[e = . *U _btn 3 -> -> 3 `i `uc ]
+"53
+[; ;BTN.c: 53:   btn->i = 0;
+[e = . *U _btn 5 -> 0 `i ]
+"54
+[; ;BTN.c: 54:  }
+}
+[e :U 28 ]
+"55
+[; ;BTN.c: 55: }
+[e :UE 24 ]
+}
+"57
+[; ;BTN.c: 57: unsigned char BTN_u8getStatus(DEVICE* btn){
+[v _BTN_u8getStatus `(uc ~T0 @X0 1 ef1`*S1 ]
+{
+[e :U _BTN_u8getStatus ]
+[v _btn `*S1 ~T0 @X0 1 r1 ]
+[f ]
+"58
+[; ;BTN.c: 58:  return DIO_u8ReadPin(btn->PORT,btn->pin);
+[e ) ( _DIO_u8ReadPin (2 , . *U _btn 0 . *U _btn 1 ]
+[e $UE 29  ]
+"59
+[; ;BTN.c: 59: }
+[e :UE 29 ]
+}
