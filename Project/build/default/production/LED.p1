@@ -544,3 +544,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LED.c: 23: }
 [e :UE 257 ]
 }
+"25
+[; ;LED.c: 25: void LED_vdSetStatus(DEVICE* led,unsigned char status){
+[v _LED_vdSetStatus `(v ~T0 @X0 1 ef2`*S238`uc ]
+{
+[e :U _LED_vdSetStatus ]
+[v _led `*S238 ~T0 @X0 1 r1 ]
+[v _status `uc ~T0 @X0 1 r2 ]
+[f ]
+"26
+[; ;LED.c: 26:  DIO_vdWritePin(status,led->PORT,led->pin);
+[e ( _DIO_vdWritePin (3 , , _status . *U _led 0 . *U _led 1 ]
+"27
+[; ;LED.c: 27: }
+[e :UE 258 ]
+}

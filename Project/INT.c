@@ -13,10 +13,12 @@ static void (*callback_INT1)();
 static void (*callback_INT2)();
 static void (*callback_INTonChange)();
 static void (*callback_TMR0)();
+static void (*callback_TMR1)();
 static void (*callback_CCP1)();
 
 void INT_vdinit(void){
     INTCON1bits.GIE = ENABLED;
+    PEIE = 1;         //Enable the Peripheral Interrupt
     
     /*Edge-triggered interrupts*/
     INTCON1bits.INT0IE = INT0_ENABLE;
@@ -32,6 +34,11 @@ void INT_vdinit(void){
     
     /*Timer0 overflow interrupt*/
     INTCON1bits.TMR0IE = TMR0_INT;
+    
+    /*Timer1 overflow interrupt*/
+    TMR1IF = 0; 
+    PIE1bits.TMR1IE = TMR1_INT;
+    IPR1bits.TMR1IP = 0;        //non high priority interrupt
 }
 
 void INT_vdSetINT0Callback(void (*pf)()){
@@ -48,6 +55,9 @@ void INT_vdSetINTOnChangeCallback(void (*pf)()){
 }
 void INT_vdSetTMR0Callback(void (*pf)()){
     callback_TMR0 = pf;
+}
+void INT_vdSetTMR1Callback(void (*pf)()){
+    callback_TMR1 = pf;
 }
 void INT_vdSetCCP1Callback(void (*pf)()){
     callback_CCP1 = pf;
@@ -76,6 +86,12 @@ void __interrupt () ISR(){
     if(TMR0IF){
         callback_TMR0();
         TMR0IF = 0;
+    }
+    
+    /*Timer1 Overflow interrupt*/
+    if(TMR1IF){
+        callback_TMR1();
+        TMR1IF = 0;
     }
     
     /*CCP1 interrupt*/

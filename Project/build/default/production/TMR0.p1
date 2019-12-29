@@ -401,41 +401,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5763
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5763: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 TMR0.c
-[; ;TMR0.c: 13: void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
-[v _TMR0_vdInit `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
+"12 TMR0.c
+[; ;TMR0.c: 12: static unsigned int initial = 0;
+[v _initial `ui ~T0 @X0 1 s ]
+[i _initial
+-> -> 0 `i `ui
+]
+"14
+[; ;TMR0.c: 14: void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init){
+[v _TMR0_vdInit `(v ~T0 @X0 1 ef5`uc`uc`uc`uc`ui ]
 {
 [e :U _TMR0_vdInit ]
 [v _mode `uc ~T0 @X0 1 r1 ]
 [v _bits `uc ~T0 @X0 1 r2 ]
-[v _edge `uc ~T0 @X0 1 r3 ]
-[v _prescaler `uc ~T0 @X0 1 r4 ]
-[v _prescaler_value `uc ~T0 @X0 1 r5 ]
+[v _prescaler `uc ~T0 @X0 1 r3 ]
+[v _prescaler_value `uc ~T0 @X0 1 r4 ]
+[v _init `ui ~T0 @X0 1 r5 ]
 [f ]
-"14
-[; ;TMR0.c: 14:     switch(mode){
+"15
+[; ;TMR0.c: 15:     switch(mode){
 [e $U 235  ]
 {
-"15
-[; ;TMR0.c: 15:         case 1:
-[e :U 236 ]
 "16
-[; ;TMR0.c: 16:             T0CONbits.T0CS = 1;
-[e = . . _T0CONbits 0 3 -> -> 1 `i `uc ]
+[; ;TMR0.c: 16:         case 1:
+[e :U 236 ]
 "17
-[; ;TMR0.c: 17:             break;
-[e $U 234  ]
+[; ;TMR0.c: 17:             T0CONbits.T0CS = 1;
+[e = . . _T0CONbits 0 3 -> -> 1 `i `uc ]
 "18
-[; ;TMR0.c: 18:         case 0:
-[e :U 237 ]
-"19
-[; ;TMR0.c: 19:             T0CONbits.T0CS = 0;
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-"20
-[; ;TMR0.c: 20:             break;
+[; ;TMR0.c: 18:             break;
 [e $U 234  ]
+"19
+[; ;TMR0.c: 19:         case 0:
+[e :U 237 ]
+"20
+[; ;TMR0.c: 20:             T0CONbits.T0CS = 0;
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
 "21
-[; ;TMR0.c: 21:     }
+[; ;TMR0.c: 21:             break;
+[e $U 234  ]
+"22
+[; ;TMR0.c: 22:     }
 }
 [e $U 234  ]
 [e :U 235 ]
@@ -443,30 +449,30 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 0 `i 237
  234 ]
 [e :U 234 ]
-"22
-[; ;TMR0.c: 22:     switch(bits){
+"23
+[; ;TMR0.c: 23:     switch(bits){
 [e $U 239  ]
 {
-"23
-[; ;TMR0.c: 23:         case 0:
-[e :U 240 ]
 "24
-[; ;TMR0.c: 24:             T0CONbits.T08BIT = 1;
-[e = . . _T0CONbits 0 4 -> -> 1 `i `uc ]
+[; ;TMR0.c: 24:         case 0:
+[e :U 240 ]
 "25
-[; ;TMR0.c: 25:             break;
-[e $U 238  ]
+[; ;TMR0.c: 25:             T0CONbits.T08BIT = 1;
+[e = . . _T0CONbits 0 4 -> -> 1 `i `uc ]
 "26
-[; ;TMR0.c: 26:         case 1:
-[e :U 241 ]
-"27
-[; ;TMR0.c: 27:             T0CONbits.T08BIT = 0;
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-"28
-[; ;TMR0.c: 28:             break;
+[; ;TMR0.c: 26:             break;
 [e $U 238  ]
+"27
+[; ;TMR0.c: 27:         case 1:
+[e :U 241 ]
+"28
+[; ;TMR0.c: 28:             T0CONbits.T08BIT = 0;
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
 "29
-[; ;TMR0.c: 29:     }
+[; ;TMR0.c: 29:             break;
+[e $U 238  ]
+"30
+[; ;TMR0.c: 30:     }
 }
 [e $U 238  ]
 [e :U 239 ]
@@ -474,123 +480,104 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 241
  238 ]
 [e :U 238 ]
-"30
-[; ;TMR0.c: 30:     switch(edge){
+"32
+[; ;TMR0.c: 32:     T0CONbits.T0SE = 0;
+[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+"34
+[; ;TMR0.c: 34:     switch(prescaler){
 [e $U 243  ]
 {
-"31
-[; ;TMR0.c: 31:         case 1:
-[e :U 244 ]
-"32
-[; ;TMR0.c: 32:             T0CONbits.T0SE = 1;
-[e = . . _T0CONbits 0 2 -> -> 1 `i `uc ]
-"33
-[; ;TMR0.c: 33:             break;
-[e $U 242  ]
-"34
-[; ;TMR0.c: 34:         case 0:
-[e :U 245 ]
 "35
-[; ;TMR0.c: 35:             T0CONbits.T0SE = 0;
-[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+[; ;TMR0.c: 35:         case 0:
+[e :U 244 ]
 "36
-[; ;TMR0.c: 36:             break;
-[e $U 242  ]
+[; ;TMR0.c: 36:             T0CONbits.PSA = 1;
+[e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
 "37
-[; ;TMR0.c: 37:     }
+[; ;TMR0.c: 37:             break;
+[e $U 242  ]
+"38
+[; ;TMR0.c: 38:         case 1:
+[e :U 245 ]
+"39
+[; ;TMR0.c: 39:             T0CONbits.PSA = 0;
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+"40
+[; ;TMR0.c: 40:             break;
+[e $U 242  ]
+"41
+[; ;TMR0.c: 41:     }
 }
 [e $U 242  ]
 [e :U 243 ]
-[e [\ -> _edge `i , $ -> 1 `i 244
- , $ -> 0 `i 245
+[e [\ -> _prescaler `i , $ -> 0 `i 244
+ , $ -> 1 `i 245
  242 ]
 [e :U 242 ]
-"38
-[; ;TMR0.c: 38:     switch(prescaler){
-[e $U 247  ]
-{
-"39
-[; ;TMR0.c: 39:         case 0:
-[e :U 248 ]
-"40
-[; ;TMR0.c: 40:             T0CONbits.PSA = 1;
-[e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
-"41
-[; ;TMR0.c: 41:             break;
-[e $U 246  ]
-"42
-[; ;TMR0.c: 42:         case 1:
-[e :U 249 ]
 "43
-[; ;TMR0.c: 43:             T0CONbits.PSA = 0;
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-"44
-[; ;TMR0.c: 44:             break;
-[e $U 246  ]
-"45
-[; ;TMR0.c: 45:     }
-}
-[e $U 246  ]
-[e :U 247 ]
-[e [\ -> _prescaler `i , $ -> 0 `i 248
- , $ -> 1 `i 249
- 246 ]
-[e :U 246 ]
-"47
-[; ;TMR0.c: 47:     T0CONbits.T0PS = prescaler_value;
+[; ;TMR0.c: 43:     T0CONbits.T0PS = prescaler_value;
 [e = . . _T0CONbits 0 0 _prescaler_value ]
-"49
-[; ;TMR0.c: 49:     T0CONbits.TMR0ON = 1;
+"44
+[; ;TMR0.c: 44:     initial = init;
+[e = _initial _init ]
+"45
+[; ;TMR0.c: 45:     TMR0L = initial;
+[e = _TMR0L -> _initial `uc ]
+"46
+[; ;TMR0.c: 46:     TMR0H = (initial>>8);
+[e = _TMR0H -> >> _initial -> 8 `i `uc ]
+"47
+[; ;TMR0.c: 47:     T0CONbits.TMR0ON = 1;
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"50
-[; ;TMR0.c: 50: }
+"48
+[; ;TMR0.c: 48: }
 [e :UE 233 ]
 }
-"52
-[; ;TMR0.c: 52: void TMR0_vdStop(){
+"50
+[; ;TMR0.c: 50: void TMR0_vdStop(){
 [v _TMR0_vdStop `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR0_vdStop ]
 [f ]
-"53
-[; ;TMR0.c: 53:     T0CONbits.TMR0ON = 0;
+"51
+[; ;TMR0.c: 51:     T0CONbits.TMR0ON = 0;
 [e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-"54
-[; ;TMR0.c: 54: }
-[e :UE 250 ]
+"52
+[; ;TMR0.c: 52: }
+[e :UE 246 ]
 }
-"56
-[; ;TMR0.c: 56: void TMR0_vdContinue(){
+"54
+[; ;TMR0.c: 54: void TMR0_vdContinue(){
 [v _TMR0_vdContinue `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR0_vdContinue ]
 [f ]
-"57
-[; ;TMR0.c: 57:     T0CONbits.TMR0ON = 1;
+"55
+[; ;TMR0.c: 55:     T0CONbits.TMR0ON = 1;
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"58
-[; ;TMR0.c: 58: }
-[e :UE 251 ]
+"56
+[; ;TMR0.c: 56: }
+[e :UE 247 ]
 }
-"60
-[; ;TMR0.c: 60: void TMR0_vdReset(){
+"58
+[; ;TMR0.c: 58: void TMR0_vdReset(){
 [v _TMR0_vdReset `(v ~T0 @X0 1 ef ]
 {
 [e :U _TMR0_vdReset ]
 [f ]
-"61
-[; ;TMR0.c: 61:     T0CONbits.TMR0ON = 0;
+"59
+[; ;TMR0.c: 59:     T0CONbits.TMR0ON = 0;
 [e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+"60
+[; ;TMR0.c: 60:     TMR0L = initial;
+[e = _TMR0L -> _initial `uc ]
+"61
+[; ;TMR0.c: 61:     TMR0H = (initial>>8);
+[e = _TMR0H -> >> _initial -> 8 `i `uc ]
 "62
-[; ;TMR0.c: 62:     TMR0L = 0;
-[e = _TMR0L -> -> 0 `i `uc ]
-"63
-[; ;TMR0.c: 63:     TMR0H = 0;
-[e = _TMR0H -> -> 0 `i `uc ]
-"64
-[; ;TMR0.c: 64:     T0CONbits.TMR0ON = 1;
+[; ;TMR0.c: 62:     T0CONbits.TMR0ON = 1;
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"65
-[; ;TMR0.c: 65: }
-[e :UE 252 ]
+"63
+[; ;TMR0.c: 63: }
+[e :UE 248 ]
 }

@@ -9,8 +9,9 @@
 
 #include "TMR0.h"
 
+static unsigned int initial = 0;
 
-void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value){
+void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init){
     switch(mode){
         case COUNTER:
             T0CONbits.T0CS = 1;
@@ -27,14 +28,9 @@ void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsign
             T0CONbits.T08BIT = 0;
             break;
     }
-    switch(edge){
-        case HIGH_TO_LOW:
-            T0CONbits.T0SE = 1;
-            break;
-        case LOW_TO_HIGH:
-            T0CONbits.T0SE = 0;
-            break;
-    }
+
+    T0CONbits.T0SE = TMR0_EDGE;
+    
     switch(prescaler){
         case PRE_SCALER_OFF:
             T0CONbits.PSA = 1;
@@ -45,7 +41,9 @@ void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsign
     }
     
     T0CONbits.T0PS = prescaler_value;
-    
+    initial = init;
+    TMR0L = initial;
+    TMR0H = (initial>>8);
     T0CONbits.TMR0ON = 1;
 }
 
@@ -59,7 +57,7 @@ void TMR0_vdContinue(){
 
 void TMR0_vdReset(){
     T0CONbits.TMR0ON = 0;
-    TMR0L = 0;
-    TMR0H = 0;
+    TMR0L = initial;
+    TMR0H = (initial>>8);
     T0CONbits.TMR0ON = 1;
 }

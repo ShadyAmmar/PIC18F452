@@ -26,8 +26,11 @@
 #define TMR0_SCALE_128 0b110
 #define TMR0_SCALE_256 0b111
 
+/*Configurations*/
+#define TMR0_EDGE LOW_TO_HIGH
+
 /*Prototypes*/
-void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char edge,unsigned char prescaler,unsigned char prescaler_value);
+void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init);
 void TMR0_vdStop();
 void TMR0_vdContinue();
 void TMR0_vdReset();

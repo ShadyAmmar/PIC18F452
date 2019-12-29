@@ -11,6 +11,7 @@
 void LED_vdOn(DEVICE* led);
 void LED_vdOff(DEVICE* led);
 void LED_vdtoggle(DEVICE* led);
+void LED_vdSetStatus(DEVICE* led,unsigned char status);
 
 #endif	/* LED_H */
 

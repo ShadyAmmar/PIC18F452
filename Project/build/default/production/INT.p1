@@ -1,10 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F2141 `(v ~T0 @X0 0 t? ]
-[v F2143 `(v ~T0 @X0 0 t? ]
 [v F2145 `(v ~T0 @X0 0 t? ]
 [v F2147 `(v ~T0 @X0 0 t? ]
 [v F2149 `(v ~T0 @X0 0 t? ]
 [v F2151 `(v ~T0 @X0 0 t? ]
+[v F2153 `(v ~T0 @X0 0 t? ]
+[v F2155 `(v ~T0 @X0 0 t? ]
+[v F2157 `(v ~T0 @X0 0 t? ]
 "5428 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5428:     struct {
 [s S231 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -24,6 +25,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5454
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5454: extern volatile INTCON1bits_t INTCON1bits __attribute__((address(0xFF2)));
 [v _INTCON1bits `VS230 ~T0 @X0 0 e@4082 ]
+"6479
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 6479: extern volatile __bit PEIE __attribute__((address(0x7F96)));
+[v _PEIE `Vb ~T0 @X0 0 e@32662 ]
 "5144
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5144:     struct {
 [s S220 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -58,18 +62,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5257
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 5257: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
 [v _INTCON2bits `VS222 ~T0 @X0 0 e@4081 ]
-[v F2154 `(v ~T0 @X0 0 t? ]
-[v F2156 `(v ~T0 @X0 0 t? ]
-[v F2159 `(v ~T0 @X0 0 t? ]
-[v F2161 `(v ~T0 @X0 0 t? ]
-[v F2164 `(v ~T0 @X0 0 t? ]
-[v F2166 `(v ~T0 @X0 0 t? ]
-[v F2169 `(v ~T0 @X0 0 t? ]
-[v F2171 `(v ~T0 @X0 0 t? ]
-[v F2174 `(v ~T0 @X0 0 t? ]
-[v F2176 `(v ~T0 @X0 0 t? ]
-[v F2179 `(v ~T0 @X0 0 t? ]
-[v F2181 `(v ~T0 @X0 0 t? ]
+"6956
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 6956: extern volatile __bit TMR1IF __attribute__((address(0x7CF0)));
+[v _TMR1IF `Vb ~T0 @X0 0 e@31984 ]
+"2268
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2268:     struct {
+[s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S82 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
+"2278
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2278:     struct {
+[s S83 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S83 . . TX1IE RC1IE ]
+"2267
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2267: typedef union {
+[u S81 `S82 1 `S83 1 ]
+[n S81 . . . ]
+"2284
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2284: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
+[v _PIE1bits `VS81 ~T0 @X0 0 e@3997 ]
+"2422
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2422:     struct {
+[s S88 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S88 . TMR1IP TMR2IP CCP1IP SSPIP TXIP RCIP ADIP PSPIP ]
+"2432
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2432:     struct {
+[s S89 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S89 . . TX1IP RC1IP ]
+"2421
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2421: typedef union {
+[u S87 `S88 1 `S89 1 ]
+[n S87 . . . ]
+"2438
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 2438: extern volatile IPR1bits_t IPR1bits __attribute__((address(0xF9F)));
+[v _IPR1bits `VS87 ~T0 @X0 0 e@3999 ]
+[v F2160 `(v ~T0 @X0 0 t? ]
+[v F2162 `(v ~T0 @X0 0 t? ]
+[v F2165 `(v ~T0 @X0 0 t? ]
+[v F2167 `(v ~T0 @X0 0 t? ]
+[v F2170 `(v ~T0 @X0 0 t? ]
+[v F2172 `(v ~T0 @X0 0 t? ]
+[v F2175 `(v ~T0 @X0 0 t? ]
+[v F2177 `(v ~T0 @X0 0 t? ]
+[v F2180 `(v ~T0 @X0 0 t? ]
+[v F2182 `(v ~T0 @X0 0 t? ]
+[v F2185 `(v ~T0 @X0 0 t? ]
+[v F2187 `(v ~T0 @X0 0 t? ]
+[v F2190 `(v ~T0 @X0 0 t? ]
+[v F2192 `(v ~T0 @X0 0 t? ]
 [t ~ __interrupt . k ]
 [t T38 __interrupt ]
 "6092
@@ -473,235 +512,278 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "11 INT.c
 [; ;INT.c: 11: static void (*callback_INT0)();
-[v _callback_INT0 `*F2141 ~T0 @X0 1 s ]
+[v _callback_INT0 `*F2145 ~T0 @X0 1 s ]
 "12
 [; ;INT.c: 12: static void (*callback_INT1)();
-[v _callback_INT1 `*F2143 ~T0 @X0 1 s ]
+[v _callback_INT1 `*F2147 ~T0 @X0 1 s ]
 "13
 [; ;INT.c: 13: static void (*callback_INT2)();
-[v _callback_INT2 `*F2145 ~T0 @X0 1 s ]
+[v _callback_INT2 `*F2149 ~T0 @X0 1 s ]
 "14
 [; ;INT.c: 14: static void (*callback_INTonChange)();
-[v _callback_INTonChange `*F2147 ~T0 @X0 1 s ]
+[v _callback_INTonChange `*F2151 ~T0 @X0 1 s ]
 "15
 [; ;INT.c: 15: static void (*callback_TMR0)();
-[v _callback_TMR0 `*F2149 ~T0 @X0 1 s ]
+[v _callback_TMR0 `*F2153 ~T0 @X0 1 s ]
 "16
-[; ;INT.c: 16: static void (*callback_CCP1)();
-[v _callback_CCP1 `*F2151 ~T0 @X0 1 s ]
-"18
-[; ;INT.c: 18: void INT_vdinit(void){
+[; ;INT.c: 16: static void (*callback_TMR1)();
+[v _callback_TMR1 `*F2155 ~T0 @X0 1 s ]
+"17
+[; ;INT.c: 17: static void (*callback_CCP1)();
+[v _callback_CCP1 `*F2157 ~T0 @X0 1 s ]
+"19
+[; ;INT.c: 19: void INT_vdinit(void){
 [v _INT_vdinit `(v ~T0 @X0 1 ef ]
 {
 [e :U _INT_vdinit ]
 [f ]
-"19
-[; ;INT.c: 19:     INTCON1bits.GIE = 1;
+"20
+[; ;INT.c: 20:     INTCON1bits.GIE = 1;
 [e = . . _INTCON1bits 1 7 -> -> 1 `i `uc ]
-"22
-[; ;INT.c: 22:     INTCON1bits.INT0IE = 1;
-[e = . . _INTCON1bits 0 4 -> -> 1 `i `uc ]
-"23
-[; ;INT.c: 23:     INTCON3bits.INT1IE = 1;
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
+"21
+[; ;INT.c: 21:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
 "24
-[; ;INT.c: 24:     INTCON3bits.INT2IE = 1;
-[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
+[; ;INT.c: 24:     INTCON1bits.INT0IE = 1;
+[e = . . _INTCON1bits 0 4 -> -> 1 `i `uc ]
+"25
+[; ;INT.c: 25:     INTCON3bits.INT1IE = 1;
+[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
 "26
-[; ;INT.c: 26:     INTCON2bits.INTEDG0 = 1;
-[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
-"27
-[; ;INT.c: 27:     INTCON2bits.INTEDG1 = 1;
-[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
+[; ;INT.c: 26:     INTCON3bits.INT2IE = 1;
+[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
 "28
-[; ;INT.c: 28:     INTCON2bits.INTEDG2 = 1;
+[; ;INT.c: 28:     INTCON2bits.INTEDG0 = 1;
+[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
+"29
+[; ;INT.c: 29:     INTCON2bits.INTEDG1 = 1;
+[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
+"30
+[; ;INT.c: 30:     INTCON2bits.INTEDG2 = 1;
 [e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
-"31
-[; ;INT.c: 31:     INTCON1bits.RBIE = 0;
+"33
+[; ;INT.c: 33:     INTCON1bits.RBIE = 0;
 [e = . . _INTCON1bits 0 3 -> -> 0 `i `uc ]
-"34
-[; ;INT.c: 34:     INTCON1bits.TMR0IE = 1;
-[e = . . _INTCON1bits 0 5 -> -> 1 `i `uc ]
-"35
-[; ;INT.c: 35: }
-[e :UE 238 ]
-}
-"37
-[; ;INT.c: 37: void INT_vdSetINT0Callback(void (*pf)()){
-[v _INT_vdSetINT0Callback `(v ~T0 @X0 1 ef1`*F2154 ]
-{
-[e :U _INT_vdSetINT0Callback ]
-[v _pf `*F2156 ~T0 @X0 1 r1 ]
-[f ]
-"38
-[; ;INT.c: 38:     callback_INT0 = pf;
-[e = _callback_INT0 _pf ]
+"36
+[; ;INT.c: 36:     INTCON1bits.TMR0IE = 0;
+[e = . . _INTCON1bits 0 5 -> -> 0 `i `uc ]
 "39
-[; ;INT.c: 39: }
-[e :UE 239 ]
-}
+[; ;INT.c: 39:     TMR1IF = 0;
+[e = _TMR1IF -> -> 0 `i `b ]
 "40
-[; ;INT.c: 40: void INT_vdSetINT1Callback(void (*pf)()){
-[v _INT_vdSetINT1Callback `(v ~T0 @X0 1 ef1`*F2159 ]
-{
-[e :U _INT_vdSetINT1Callback ]
-[v _pf `*F2161 ~T0 @X0 1 r1 ]
-[f ]
+[; ;INT.c: 40:     PIE1bits.TMR1IE = 1;
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
 "41
-[; ;INT.c: 41:     callback_INT1 = pf;
-[e = _callback_INT1 _pf ]
+[; ;INT.c: 41:     IPR1bits.TMR1IP = 0;
+[e = . . _IPR1bits 0 0 -> -> 0 `i `uc ]
 "42
 [; ;INT.c: 42: }
+[e :UE 238 ]
+}
+"44
+[; ;INT.c: 44: void INT_vdSetINT0Callback(void (*pf)()){
+[v _INT_vdSetINT0Callback `(v ~T0 @X0 1 ef1`*F2160 ]
+{
+[e :U _INT_vdSetINT0Callback ]
+[v _pf `*F2162 ~T0 @X0 1 r1 ]
+[f ]
+"45
+[; ;INT.c: 45:     callback_INT0 = pf;
+[e = _callback_INT0 _pf ]
+"46
+[; ;INT.c: 46: }
+[e :UE 239 ]
+}
+"47
+[; ;INT.c: 47: void INT_vdSetINT1Callback(void (*pf)()){
+[v _INT_vdSetINT1Callback `(v ~T0 @X0 1 ef1`*F2165 ]
+{
+[e :U _INT_vdSetINT1Callback ]
+[v _pf `*F2167 ~T0 @X0 1 r1 ]
+[f ]
+"48
+[; ;INT.c: 48:     callback_INT1 = pf;
+[e = _callback_INT1 _pf ]
+"49
+[; ;INT.c: 49: }
 [e :UE 240 ]
 }
-"43
-[; ;INT.c: 43: void INT_vdSetINT2Callback(void (*pf)()){
-[v _INT_vdSetINT2Callback `(v ~T0 @X0 1 ef1`*F2164 ]
+"50
+[; ;INT.c: 50: void INT_vdSetINT2Callback(void (*pf)()){
+[v _INT_vdSetINT2Callback `(v ~T0 @X0 1 ef1`*F2170 ]
 {
 [e :U _INT_vdSetINT2Callback ]
-[v _pf `*F2166 ~T0 @X0 1 r1 ]
+[v _pf `*F2172 ~T0 @X0 1 r1 ]
 [f ]
-"44
-[; ;INT.c: 44:     callback_INT2 = pf;
+"51
+[; ;INT.c: 51:     callback_INT2 = pf;
 [e = _callback_INT2 _pf ]
-"45
-[; ;INT.c: 45: }
+"52
+[; ;INT.c: 52: }
 [e :UE 241 ]
 }
-"46
-[; ;INT.c: 46: void INT_vdSetINTOnChangeCallback(void (*pf)()){
-[v _INT_vdSetINTOnChangeCallback `(v ~T0 @X0 1 ef1`*F2169 ]
+"53
+[; ;INT.c: 53: void INT_vdSetINTOnChangeCallback(void (*pf)()){
+[v _INT_vdSetINTOnChangeCallback `(v ~T0 @X0 1 ef1`*F2175 ]
 {
 [e :U _INT_vdSetINTOnChangeCallback ]
-[v _pf `*F2171 ~T0 @X0 1 r1 ]
+[v _pf `*F2177 ~T0 @X0 1 r1 ]
 [f ]
-"47
-[; ;INT.c: 47:     callback_INTonChange = pf;
+"54
+[; ;INT.c: 54:     callback_INTonChange = pf;
 [e = _callback_INTonChange _pf ]
-"48
-[; ;INT.c: 48: }
+"55
+[; ;INT.c: 55: }
 [e :UE 242 ]
 }
-"49
-[; ;INT.c: 49: void INT_vdSetTMR0Callback(void (*pf)()){
-[v _INT_vdSetTMR0Callback `(v ~T0 @X0 1 ef1`*F2174 ]
+"56
+[; ;INT.c: 56: void INT_vdSetTMR0Callback(void (*pf)()){
+[v _INT_vdSetTMR0Callback `(v ~T0 @X0 1 ef1`*F2180 ]
 {
 [e :U _INT_vdSetTMR0Callback ]
-[v _pf `*F2176 ~T0 @X0 1 r1 ]
+[v _pf `*F2182 ~T0 @X0 1 r1 ]
 [f ]
-"50
-[; ;INT.c: 50:     callback_TMR0 = pf;
+"57
+[; ;INT.c: 57:     callback_TMR0 = pf;
 [e = _callback_TMR0 _pf ]
-"51
-[; ;INT.c: 51: }
+"58
+[; ;INT.c: 58: }
 [e :UE 243 ]
 }
-"52
-[; ;INT.c: 52: void INT_vdSetCCP1Callback(void (*pf)()){
-[v _INT_vdSetCCP1Callback `(v ~T0 @X0 1 ef1`*F2179 ]
+"59
+[; ;INT.c: 59: void INT_vdSetTMR1Callback(void (*pf)()){
+[v _INT_vdSetTMR1Callback `(v ~T0 @X0 1 ef1`*F2185 ]
 {
-[e :U _INT_vdSetCCP1Callback ]
-[v _pf `*F2181 ~T0 @X0 1 r1 ]
+[e :U _INT_vdSetTMR1Callback ]
+[v _pf `*F2187 ~T0 @X0 1 r1 ]
 [f ]
-"53
-[; ;INT.c: 53:     callback_CCP1 = pf;
-[e = _callback_CCP1 _pf ]
-"54
-[; ;INT.c: 54: }
+"60
+[; ;INT.c: 60:     callback_TMR1 = pf;
+[e = _callback_TMR1 _pf ]
+"61
+[; ;INT.c: 61: }
 [e :UE 244 ]
 }
+"62
+[; ;INT.c: 62: void INT_vdSetCCP1Callback(void (*pf)()){
+[v _INT_vdSetCCP1Callback `(v ~T0 @X0 1 ef1`*F2190 ]
+{
+[e :U _INT_vdSetCCP1Callback ]
+[v _pf `*F2192 ~T0 @X0 1 r1 ]
+[f ]
+"63
+[; ;INT.c: 63:     callback_CCP1 = pf;
+[e = _callback_CCP1 _pf ]
+"64
+[; ;INT.c: 64: }
+[e :UE 245 ]
+}
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"56
-[; ;INT.c: 56: void __attribute__((picinterrupt(("")))) ISR(){
+"66
+[; ;INT.c: 66: void __attribute__((picinterrupt(("")))) ISR(){
 [v _ISR `(v ~T38 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
-"58
-[; ;INT.c: 58:     if(INT0IF){
-[e $ ! _INT0IF 246  ]
+"68
+[; ;INT.c: 68:     if(INT0IF){
+[e $ ! _INT0IF 247  ]
 {
-"59
-[; ;INT.c: 59:         callback_INT0();
+"69
+[; ;INT.c: 69:         callback_INT0();
 [e ( *U _callback_INT0 ..  ]
-"60
-[; ;INT.c: 60:         INT0IF = 0;
+"70
+[; ;INT.c: 70:         INT0IF = 0;
 [e = _INT0IF -> -> 0 `i `b ]
-"61
-[; ;INT.c: 61:     }
-}
-[e :U 246 ]
-"62
-[; ;INT.c: 62:     if(INT1IF){
-[e $ ! _INT1IF 247  ]
-{
-"63
-[; ;INT.c: 63:         callback_INT1();
-[e ( *U _callback_INT1 ..  ]
-"64
-[; ;INT.c: 64:         INT1IF = 0;
-[e = _INT1IF -> -> 0 `i `b ]
-"65
-[; ;INT.c: 65:     }
+"71
+[; ;INT.c: 71:     }
 }
 [e :U 247 ]
-"66
-[; ;INT.c: 66:     if(INT2IF){
-[e $ ! _INT2IF 248  ]
+"72
+[; ;INT.c: 72:     if(INT1IF){
+[e $ ! _INT1IF 248  ]
 {
-"67
-[; ;INT.c: 67:         callback_INT2();
-[e ( *U _callback_INT2 ..  ]
-"68
-[; ;INT.c: 68:         INT2IF = 0;
-[e = _INT2IF -> -> 0 `i `b ]
-"69
-[; ;INT.c: 69:     }
+"73
+[; ;INT.c: 73:         callback_INT1();
+[e ( *U _callback_INT1 ..  ]
+"74
+[; ;INT.c: 74:         INT1IF = 0;
+[e = _INT1IF -> -> 0 `i `b ]
+"75
+[; ;INT.c: 75:     }
 }
 [e :U 248 ]
-"70
-[; ;INT.c: 70:     if(RBIF){
-[e $ ! _RBIF 249  ]
-{
-"71
-[; ;INT.c: 71:         callback_INTonChange();
-[e ( *U _callback_INTonChange ..  ]
-"72
-[; ;INT.c: 72:         RBIF = 0;
-[e = _RBIF -> -> 0 `i `b ]
-"73
-[; ;INT.c: 73:     }
-}
-[e :U 249 ]
 "76
-[; ;INT.c: 76:     if(TMR0IF){
-[e $ ! _TMR0IF 250  ]
+[; ;INT.c: 76:     if(INT2IF){
+[e $ ! _INT2IF 249  ]
 {
 "77
-[; ;INT.c: 77:         callback_TMR0();
-[e ( *U _callback_TMR0 ..  ]
+[; ;INT.c: 77:         callback_INT2();
+[e ( *U _callback_INT2 ..  ]
 "78
-[; ;INT.c: 78:         TMR0IF = 0;
-[e = _TMR0IF -> -> 0 `i `b ]
+[; ;INT.c: 78:         INT2IF = 0;
+[e = _INT2IF -> -> 0 `i `b ]
 "79
 [; ;INT.c: 79:     }
 }
-[e :U 250 ]
-"82
-[; ;INT.c: 82:     if(CCP1IF){
-[e $ ! _CCP1IF 251  ]
+[e :U 249 ]
+"80
+[; ;INT.c: 80:     if(RBIF){
+[e $ ! _RBIF 250  ]
 {
+"81
+[; ;INT.c: 81:         callback_INTonChange();
+[e ( *U _callback_INTonChange ..  ]
+"82
+[; ;INT.c: 82:         RBIF = 0;
+[e = _RBIF -> -> 0 `i `b ]
 "83
-[; ;INT.c: 83:         callback_CCP1();
-[e ( *U _callback_CCP1 ..  ]
-"84
-[; ;INT.c: 84:         CCP1IF = 0;
-[e = _CCP1IF -> -> 0 `i `b ]
-"85
-[; ;INT.c: 85:     }
+[; ;INT.c: 83:     }
+}
+[e :U 250 ]
+"86
+[; ;INT.c: 86:     if(TMR0IF){
+[e $ ! _TMR0IF 251  ]
+{
+"87
+[; ;INT.c: 87:         callback_TMR0();
+[e ( *U _callback_TMR0 ..  ]
+"88
+[; ;INT.c: 88:         TMR0IF = 0;
+[e = _TMR0IF -> -> 0 `i `b ]
+"89
+[; ;INT.c: 89:     }
 }
 [e :U 251 ]
-"86
-[; ;INT.c: 86: }
-[e :UE 245 ]
+"92
+[; ;INT.c: 92:     if(TMR1IF){
+[e $ ! _TMR1IF 252  ]
+{
+"93
+[; ;INT.c: 93:         callback_TMR1();
+[e ( *U _callback_TMR1 ..  ]
+"94
+[; ;INT.c: 94:         TMR1IF = 0;
+[e = _TMR1IF -> -> 0 `i `b ]
+"95
+[; ;INT.c: 95:     }
+}
+[e :U 252 ]
+"98
+[; ;INT.c: 98:     if(CCP1IF){
+[e $ ! _CCP1IF 253  ]
+{
+"99
+[; ;INT.c: 99:         callback_CCP1();
+[e ( *U _callback_CCP1 ..  ]
+"100
+[; ;INT.c: 100:         CCP1IF = 0;
+[e = _CCP1IF -> -> 0 `i `b ]
+"101
+[; ;INT.c: 101:     }
+}
+[e :U 253 ]
+"102
+[; ;INT.c: 102: }
+[e :UE 246 ]
 }

@@ -3968,6 +3968,7 @@ unsigned char DIO_u8ReadPort(unsigned char port);
 void LED_vdOn(DEVICE* led);
 void LED_vdOff(DEVICE* led);
 void LED_vdtoggle(DEVICE* led);
+void LED_vdSetStatus(DEVICE* led,unsigned char status);
 # 11 "LED.c" 2
 
 
@@ -3981,4 +3982,8 @@ void LED_vdOff(DEVICE* led){
 
 void LED_vdtoggle(DEVICE* led){
  DIO_vdtogglePin(led->PORT,led->pin);
+}
+
+void LED_vdSetStatus(DEVICE* led,unsigned char status){
+ DIO_vdWritePin(status,led->PORT,led->pin);
 }

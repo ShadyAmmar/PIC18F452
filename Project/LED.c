@@ -21,3 +21,7 @@ void LED_vdOff(DEVICE* led){
 void LED_vdtoggle(DEVICE* led){
 	DIO_vdtogglePin(led->PORT,led->pin);
 }
+
+void LED_vdSetStatus(DEVICE* led,unsigned char status){
+	DIO_vdWritePin(status,led->PORT,led->pin);
+}

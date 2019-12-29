@@ -3655,11 +3655,16 @@ extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 
 # 1 "./TMR1.h" 1
 # 28 "./TMR1.h"
-void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value);
+void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init);
+void TMR1_vdStop();
+void TMR1_vdContinue();
+void TMR1_vdReset();
 # 10 "TMR1.c" 2
 
 
-void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value){
+static unsigned int initial = 0;
+
+void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init){
     switch(mode){
         case 1:
             T1CONbits.TMR1CS = 1;
@@ -3681,5 +3686,23 @@ void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,u
     }
 
     T1CONbits.T1OSCEN = 0;
+    TMR1IF = 0;
+    TMR1L = initial;
+    TMR1H = (initial>>8);
+    T1CONbits.TMR1ON = 1;
+}
+
+void TMR1_vdStop(){
+    T1CONbits.TMR1ON = 0;
+}
+
+void TMR1_vdContinue(){
+    T1CONbits.TMR1ON = 1;
+}
+
+void TMR1_vdReset(){
+    T1CONbits.TMR1ON = 0;
+    TMR1L = initial;
+    TMR1H = (initial>>8);
     T1CONbits.TMR1ON = 1;
 }
