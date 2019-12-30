@@ -1,4 +1,4 @@
-# 1 "INT.c"
+# 1 "../TMR3.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "INT.c" 2
+# 1 "../TMR3.c" 2
 
 
 
@@ -14,128 +14,6 @@
 
 
 
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
-# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\xc8debug.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
-# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 176 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 212 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 2 3
-
-
-int atoi (const char *);
-long atol (const char *);
-long long atoll (const char *);
-double atof (const char *);
-
-float strtof (const char *restrict, char **restrict);
-double strtod (const char *restrict, char **restrict);
-long double strtold (const char *restrict, char **restrict);
-
-
-
-
-
-long strtol (const char *restrict, char **restrict, int);
-unsigned long strtoul (const char *restrict, char **restrict, int);
-long long strtoll (const char *restrict, char **restrict, int);
-unsigned long long strtoull (const char *restrict, char **restrict, int);
-
-int rand (void);
-void srand (unsigned);
-# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-          void abort (void);
-int atexit (void (*) (void));
-          void exit (int);
-          void _Exit (int);
-# 65 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-
-
-
-
-__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-int abs (int);
-long labs (long);
-long long llabs (long long);
-
-typedef struct { int quot, rem; } div_t;
-typedef struct { long quot, rem; } ldiv_t;
-typedef struct { long long quot, rem; } lldiv_t;
-
-div_t div (int, int);
-ldiv_t ldiv (long, long);
-lldiv_t lldiv (long long, long long);
-
-
-typedef struct { unsigned int quot, rem; } udiv_t;
-typedef struct { unsigned long quot, rem; } uldiv_t;
-udiv_t udiv (unsigned int, unsigned int);
-uldiv_t uldiv (unsigned long, unsigned long);
-# 104 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\stdlib.h" 3
-size_t __ctype_get_mb_cur_max(void);
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\c99\\xc8debug.h" 2 3
-
-
-
-
-
-
-
-
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 23 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\htc.h" 2 3
-# 5 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 2 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18_chip_select.h" 1 3
-# 604 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18_chip_select.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18f452.h" 1 3
 # 44 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18f452.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\__at.h" 1 3
@@ -3772,178 +3650,76 @@ extern volatile __bit nW __attribute__((address(0x7E3A)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 604 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18_chip_select.h" 2 3
-# 8 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 2 3
-# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+# 8 "../TMR3.c" 2
 
 
+# 1 "../TMR3.h" 1
+# 26 "../TMR3.h"
+void TMR3_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init);
+void TMR3_vdStop();
+void TMR3_vdContinue();
+void TMR3_vdReset();
+void TMR3_vdSetTMR3Callback(void (*pf)());
+# 10 "../TMR3.c" 2
 
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\errata.h" 1 3
-# 26 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 2 3
-# 49 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-#pragma intrinsic(__nop)
-extern void __nop(void);
-# 154 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
-__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
-__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
-# 174 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\pic18.h" 3
-unsigned char __t1rd16on(void);
-unsigned char __t3rd16on(void);
-
-
-
-
-
-
-#pragma intrinsic(_delay)
-extern __attribute__((nonreentrant)) void _delay(unsigned long);
-#pragma intrinsic(_delaywdt)
-extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
-#pragma intrinsic(_delay3)
-extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 8 "INT.c" 2
-
-# 1 "./INT.h" 1
-# 41 "./INT.h"
+# 1 "../INT.h" 1
+# 39 "../INT.h"
 void INT_vdinit(void);
 void INT_vdSetINT0Callback(void (*pf)());
 void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
 void INT_vdSetINTOnChangeCallback(void (*pf)());
-
-void INT_vdSetTMR0Callback(void (*pf)(),unsigned int init);
-void INT_vdSetTMR1Callback(void (*pf)(),unsigned int init);
-void INT_vdSetTMR3Callback(void (*pf)(),unsigned int init);
-
+void INT_vdSetTMR0Callback(void (*pf)());
 void INT_vdSetCCP1Callback(void (*pf)());
-# 9 "INT.c" 2
+# 11 "../TMR3.c" 2
 
 
-static void (*callback_INT0)();
-static void (*callback_INT1)();
-static void (*callback_INT2)();
-static void (*callback_INTonChange)();
-static void (*callback_TMR0)();
-static void (*callback_TMR1)();
-static void (*callback_TMR3)();
-static void (*callback_CCP1)();
+static unsigned int initial = 0;
 
-static unsigned int initial_tmr0 = 0;
-static unsigned int initial_tmr1 = 0;
-static unsigned int initial_tmr3 = 0;
+void TMR3_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init){
+    switch(mode){
+        case 1:
+            T3CONbits.TMR3CS = 1;
+            break;
+        case 0:
+            T3CONbits.TMR3CS = 0;
+            break;
+    }
 
-void INT_vdinit(void){
-    INTCON1bits.GIE = 1;
-    PEIE = 1;
+    T3CONbits.RD16 = bits;
 
-
-    INTCON1bits.INT0IE = 1;
-    INTCON3bits.INT1IE = 1;
-    INTCON3bits.INT2IE = 1;
-
-    INTCON2bits.INTEDG0 = 1;
-    INTCON2bits.INTEDG1 = 1;
-    INTCON2bits.INTEDG2 = 1;
-
-
-    INTCON1bits.RBIE = 0;
-
-
-    INTCON1bits.TMR0IE = 1;
-
-
-    TMR1IF = 0;
-    PIE1bits.TMR1IE = 1;
-    IPR1bits.TMR1IP = 0;
+    switch(prescaler){
+        case 0:
+            T3CONbits.T3CKPS = 0;
+            break;
+        case 1:
+            T3CONbits.T3CKPS = prescaler_value;
+            break;
+    }
 
 
     TMR3IF = 0;
-    PIE2bits.TMR3IE = 1;
-    IPR2bits.TMR3IP = 0;
+    initial = init;
+    TMR3L = initial;
+    TMR3H = (initial>>8);
+    T3CONbits.TMR3ON = 1;
 }
 
-void INT_vdSetINT0Callback(void (*pf)()){
-    callback_INT0 = pf;
-}
-void INT_vdSetINT1Callback(void (*pf)()){
-    callback_INT1 = pf;
-}
-void INT_vdSetINT2Callback(void (*pf)()){
-    callback_INT2 = pf;
-}
-void INT_vdSetINTOnChangeCallback(void (*pf)()){
-    callback_INTonChange = pf;
-}
-void INT_vdSetTMR0Callback(void (*pf)(),unsigned int init){
-    callback_TMR0 = pf;
-    initial_tmr0 = init;
-}
-void INT_vdSetTMR1Callback(void (*pf)(),unsigned int init){
-    callback_TMR1 = pf;
-    initial_tmr1 = init;
-}
-void INT_vdSetTMR3Callback(void (*pf)(),unsigned int init){
-    callback_TMR3 = pf;
-    initial_tmr3 = init;
-}
-void INT_vdSetCCP1Callback(void (*pf)()){
-    callback_CCP1 = pf;
+void TMR3_vdStop(){
+    T3CONbits.TMR3ON = 0;
 }
 
-void __attribute__((picinterrupt(("")))) ISR(){
+void TMR3_vdContinue(){
+    T3CONbits.TMR3ON = 1;
+}
 
-    if(INT0IF){
-        callback_INT0();
-        INT0IF = 0;
-    }
-    if(INT1IF){
-        callback_INT1();
-        INT1IF = 0;
-    }
-    if(INT2IF){
-        callback_INT2();
-        INT2IF = 0;
-    }
-    if(RBIF){
-        callback_INTonChange();
-        RBIF = 0;
-    }
+void TMR3_vdReset(){
+    T3CONbits.TMR3ON = 0;
+    TMR3L = initial;
+    TMR3H = (initial>>8);
+    T3CONbits.TMR3ON = 1;
+}
 
-
-    if(TMR0IF){
-        callback_TMR0();
-        TMR0L = initial_tmr0;
-        TMR0H = (initial_tmr0>>8);
-        TMR0IF = 0;
-    }
-
-
-    if(TMR1IF){
-        callback_TMR1();
-        TMR1L = initial_tmr1;
-        TMR1H = (initial_tmr1>>8);
-        TMR1IF = 0;
-    }
-
-
-    if(TMR3IF){
-        callback_TMR3();
-        TMR3L = initial_tmr3;
-        TMR3H = (initial_tmr3>>8);
-        TMR3IF = 0;
-    }
-
-
-    if(CCP1IF){
-        callback_CCP1();
-        CCP1IF = 0;
-    }
+void TMR3_vdSetTMR3Callback(void (*pf)()){
+    INT_vdSetTMR3Callback(pf,initial);
 }

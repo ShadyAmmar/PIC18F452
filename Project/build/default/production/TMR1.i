@@ -3659,7 +3659,23 @@ void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,u
 void TMR1_vdStop();
 void TMR1_vdContinue();
 void TMR1_vdReset();
+void TMR1_vdSetTMR1Callback(void (*pf)());
 # 10 "TMR1.c" 2
+
+# 1 "./INT.h" 1
+# 41 "./INT.h"
+void INT_vdinit(void);
+void INT_vdSetINT0Callback(void (*pf)());
+void INT_vdSetINT1Callback(void (*pf)());
+void INT_vdSetINT2Callback(void (*pf)());
+void INT_vdSetINTOnChangeCallback(void (*pf)());
+
+void INT_vdSetTMR0Callback(void (*pf)(),unsigned int init);
+void INT_vdSetTMR1Callback(void (*pf)(),unsigned int init);
+void INT_vdSetTMR3Callback(void (*pf)(),unsigned int init);
+
+void INT_vdSetCCP1Callback(void (*pf)());
+# 11 "TMR1.c" 2
 
 
 static unsigned int initial = 0;
@@ -3687,6 +3703,7 @@ void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,u
 
     T1CONbits.T1OSCEN = 0;
     TMR1IF = 0;
+    initial = init;
     TMR1L = initial;
     TMR1H = (initial>>8);
     T1CONbits.TMR1ON = 1;
@@ -3705,4 +3722,8 @@ void TMR1_vdReset(){
     TMR1L = initial;
     TMR1H = (initial>>8);
     T1CONbits.TMR1ON = 1;
+}
+
+void TMR1_vdSetTMR1Callback(void (*pf)()){
+    INT_vdSetTMR1Callback(pf,initial);
 }

@@ -71,29 +71,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./DIO.h
 [; ;./DIO.h: 11: void DIO_vdInit(DEVICE* dev);
 [v _DIO_vdInit `(v ~T0 @X0 0 ef1`*S238 ]
-"40 ./INT.h
-[; ;./INT.h: 40: void INT_vdinit(void);
+"41 ./INT.h
+[; ;./INT.h: 41: void INT_vdinit(void);
 [v _INT_vdinit `(v ~T0 @X0 0 ef ]
 [v F2272 `(v ~T0 @X0 0 t? ]
-"41
-[; ;./INT.h: 41: void INT_vdSetINT0Callback(void (*pf)());
+"42
+[; ;./INT.h: 42: void INT_vdSetINT0Callback(void (*pf)());
 [v _INT_vdSetINT0Callback `(v ~T0 @X0 0 ef1`*F2272 ]
-"30 main.c
-[; ;main.c: 30: void int0_callback();
+"31 main.c
+[; ;main.c: 31: void int0_callback();
 [v _int0_callback `(v ~T0 @X0 0 e? ]
 [v F2276 `(v ~T0 @X0 0 t? ]
-"42 ./INT.h
-[; ;./INT.h: 42: void INT_vdSetINT1Callback(void (*pf)());
+"43 ./INT.h
+[; ;./INT.h: 43: void INT_vdSetINT1Callback(void (*pf)());
 [v _INT_vdSetINT1Callback `(v ~T0 @X0 0 ef1`*F2276 ]
-"31 main.c
-[; ;main.c: 31: void int1_callback();
+"32 main.c
+[; ;main.c: 32: void int1_callback();
 [v _int1_callback `(v ~T0 @X0 0 e? ]
 [v F2280 `(v ~T0 @X0 0 t? ]
-"43 ./INT.h
-[; ;./INT.h: 43: void INT_vdSetINT2Callback(void (*pf)());
+"44 ./INT.h
+[; ;./INT.h: 44: void INT_vdSetINT2Callback(void (*pf)());
 [v _INT_vdSetINT2Callback `(v ~T0 @X0 0 ef1`*F2280 ]
-"32 main.c
-[; ;main.c: 32: void int2_callback();
+"33 main.c
+[; ;main.c: 33: void int2_callback();
 [v _int2_callback `(v ~T0 @X0 0 e? ]
 "33 ./TMR0.h
 [; ;./TMR0.h: 33: void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init);
@@ -101,12 +101,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;./TMR0.h: 34: void TMR0_vdStop();
 [v _TMR0_vdStop `(v ~T0 @X0 0 e? ]
-[v F2288 `(v ~T0 @X0 0 t? ]
-"46 ./INT.h
-[; ;./INT.h: 46: void INT_vdSetTMR0Callback(void (*pf)());
-[v _INT_vdSetTMR0Callback `(v ~T0 @X0 0 ef1`*F2288 ]
-"33 main.c
-[; ;main.c: 33: void tmr0_callback();
+[v F2316 `(v ~T0 @X0 0 t? ]
+"37
+[; ;./TMR0.h: 37: void TMR0_vdSetTMR0Callback(void (*pf)());
+[v _TMR0_vdSetTMR0Callback `(v ~T0 @X0 0 ef1`*F2316 ]
+"34 main.c
+[; ;main.c: 34: void tmr0_callback();
 [v _tmr0_callback `(v ~T0 @X0 0 e? ]
 "28 ./TMR1.h
 [; ;./TMR1.h: 28: void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init);
@@ -114,13 +114,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;./TMR1.h: 29: void TMR1_vdStop();
 [v _TMR1_vdStop `(v ~T0 @X0 0 e? ]
-[v F2292 `(v ~T0 @X0 0 t? ]
-"48 ./INT.h
-[; ;./INT.h: 48: void INT_vdSetTMR1Callback(void (*pf)());
-[v _INT_vdSetTMR1Callback `(v ~T0 @X0 0 ef1`*F2292 ]
-"34 main.c
-[; ;main.c: 34: void tmr1_callback();
+[v F2329 `(v ~T0 @X0 0 t? ]
+"32
+[; ;./TMR1.h: 32: void TMR1_vdSetTMR1Callback(void (*pf)());
+[v _TMR1_vdSetTMR1Callback `(v ~T0 @X0 0 ef1`*F2329 ]
+"35 main.c
+[; ;main.c: 35: void tmr1_callback();
 [v _tmr1_callback `(v ~T0 @X0 0 e? ]
+"26 ./TMR3.h
+[; ;./TMR3.h: 26: void TMR3_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init);
+[v _TMR3_vdInit `(v ~T0 @X0 0 ef5`uc`uc`uc`uc`ui ]
+"27
+[; ;./TMR3.h: 27: void TMR3_vdStop();
+[v _TMR3_vdStop `(v ~T0 @X0 0 e? ]
+[v F2342 `(v ~T0 @X0 0 t? ]
+"30
+[; ;./TMR3.h: 30: void TMR3_vdSetTMR3Callback(void (*pf)());
+[v _TMR3_vdSetTMR3Callback `(v ~T0 @X0 0 ef1`*F2342 ]
+"36 main.c
+[; ;main.c: 36: void tmr3_callback();
+[v _tmr3_callback `(v ~T0 @X0 0 e? ]
 "24 ./ADC.h
 [; ;./ADC.h: 24: void ADC_vdInit();
 [v _ADC_vdInit `(v ~T0 @X0 0 e? ]
@@ -139,15 +152,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20
 [; ;./UART.h: 20: void UART_vdSendByte(unsigned char data);
 [v _UART_vdSendByte `(v ~T0 @X0 0 ef1`uc ]
-"22
-[; ;./UART.h: 22: void UART_vdSendu16asASCI(unsigned short int data);
-[v _UART_vdSendu16asASCI `(v ~T0 @X0 0 ef1`us ]
-"4533 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4533: extern volatile unsigned char TMR1H __attribute__((address(0xFCF)));
-[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
-"4526
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 4526: extern volatile unsigned char TMR1L __attribute__((address(0xFCE)));
-[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
 [v F2107 `(v ~T0 @X0 1 tf1`ul ]
 "183 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18.h
 [v __delay `JF2107 ~T0 @X0 0 e ]
@@ -158,9 +162,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31 ./TMR1.h
 [; ;./TMR1.h: 31: void TMR1_vdReset();
 [v _TMR1_vdReset `(v ~T0 @X0 0 e? ]
-"13 ./LED.h
-[; ;./LED.h: 13: void LED_vdtoggle(DEVICE* led);
-[v _LED_vdtoggle `(v ~T0 @X0 0 ef1`*S238 ]
+"29 ./TMR3.h
+[; ;./TMR3.h: 29: void TMR3_vdReset();
+[v _TMR3_vdReset `(v ~T0 @X0 0 e? ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f452.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -646,8 +650,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "64
 [p x EBTRB = OFF ]
-"22 main.c
-[; ;main.c: 22: DEVICE LED1 = {'D',0,0};
+"23 main.c
+[; ;main.c: 23: DEVICE LED1 = {'D',0,0};
 [v _LED1 `S238 ~T0 @X0 1 e ]
 [i _LED1
 :U ..
@@ -658,8 +662,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"23
-[; ;main.c: 23: DEVICE LED2 = {'D',1,0};
+"24
+[; ;main.c: 24: DEVICE LED2 = {'D',1,0};
 [v _LED2 `S238 ~T0 @X0 1 e ]
 [i _LED2
 :U ..
@@ -670,8 +674,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"24
-[; ;main.c: 24: DEVICE LED3 = {'D',2,0};
+"25
+[; ;main.c: 25: DEVICE LED3 = {'D',2,0};
 [v _LED3 `S238 ~T0 @X0 1 e ]
 [i _LED3
 :U ..
@@ -682,8 +686,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"26
-[; ;main.c: 26: DEVICE BTN1 = {'B',0,1};
+"27
+[; ;main.c: 27: DEVICE BTN1 = {'B',0,1};
 [v _BTN1 `S238 ~T0 @X0 1 e ]
 [i _BTN1
 :U ..
@@ -694,8 +698,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"27
-[; ;main.c: 27: DEVICE BTN2 = {'B',1,1};
+"28
+[; ;main.c: 28: DEVICE BTN2 = {'B',1,1};
 [v _BTN2 `S238 ~T0 @X0 1 e ]
 [i _BTN2
 :U ..
@@ -706,8 +710,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"28
-[; ;main.c: 28: DEVICE BTN3 = {'B',2,1};
+"29
+[; ;main.c: 29: DEVICE BTN3 = {'B',2,1};
 [v _BTN3 `S238 ~T0 @X0 1 e ]
 [i _BTN3
 :U ..
@@ -718,289 +722,330 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"36
-[; ;main.c: 36: volatile unsigned char status1 = 0;
+"38
+[; ;main.c: 38: volatile unsigned char status1 = 0;
 [v _status1 `Vuc ~T0 @X0 1 e ]
 [i _status1
 -> -> 0 `i `uc
 ]
-"37
-[; ;main.c: 37: volatile unsigned char status2 = 0;
+"39
+[; ;main.c: 39: volatile unsigned char status2 = 0;
 [v _status2 `Vuc ~T0 @X0 1 e ]
 [i _status2
 -> -> 0 `i `uc
 ]
-"38
-[; ;main.c: 38: volatile unsigned char status3 = 0;
+"40
+[; ;main.c: 40: volatile unsigned char status3 = 0;
 [v _status3 `Vuc ~T0 @X0 1 e ]
 [i _status3
 -> -> 0 `i `uc
 ]
-"40
-[; ;main.c: 40: volatile unsigned long int x1 = 0;
+"42
+[; ;main.c: 42: volatile unsigned long int x1 = 0;
 [v _x1 `Vul ~T0 @X0 1 e ]
 [i _x1
 -> -> -> 0 `i `l `ul
 ]
-"41
-[; ;main.c: 41: volatile unsigned long int x2 = 0;
+"43
+[; ;main.c: 43: volatile unsigned long int x2 = 0;
 [v _x2 `Vul ~T0 @X0 1 e ]
 [i _x2
 -> -> -> 0 `i `l `ul
 ]
-"42
-[; ;main.c: 42: volatile unsigned long int x3 = 0;
+"44
+[; ;main.c: 44: volatile unsigned long int x3 = 0;
 [v _x3 `Vul ~T0 @X0 1 e ]
 [i _x3
 -> -> -> 0 `i `l `ul
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"44
-[; ;main.c: 44: void main(void) {
+"46
+[; ;main.c: 46: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"46
-[; ;main.c: 46:     DIO_vdInit(&LED1);
-[e ( _DIO_vdInit (1 &U _LED1 ]
-"47
-[; ;main.c: 47:     DIO_vdInit(&LED2);
-[e ( _DIO_vdInit (1 &U _LED2 ]
 "48
-[; ;main.c: 48:     DIO_vdInit(&LED3);
-[e ( _DIO_vdInit (1 &U _LED3 ]
+[; ;main.c: 48:     DIO_vdInit(&LED1);
+[e ( _DIO_vdInit (1 &U _LED1 ]
 "49
-[; ;main.c: 49:     DIO_vdInit(&BTN1);
-[e ( _DIO_vdInit (1 &U _BTN1 ]
+[; ;main.c: 49:     DIO_vdInit(&LED2);
+[e ( _DIO_vdInit (1 &U _LED2 ]
 "50
-[; ;main.c: 50:     DIO_vdInit(&BTN2);
-[e ( _DIO_vdInit (1 &U _BTN2 ]
+[; ;main.c: 50:     DIO_vdInit(&LED3);
+[e ( _DIO_vdInit (1 &U _LED3 ]
 "51
-[; ;main.c: 51:     DIO_vdInit(&BTN3);
-[e ( _DIO_vdInit (1 &U _BTN3 ]
+[; ;main.c: 51:     DIO_vdInit(&BTN1);
+[e ( _DIO_vdInit (1 &U _BTN1 ]
+"52
+[; ;main.c: 52:     DIO_vdInit(&BTN2);
+[e ( _DIO_vdInit (1 &U _BTN2 ]
 "53
-[; ;main.c: 53:     INT_vdinit();
-[e ( _INT_vdinit ..  ]
-"54
-[; ;main.c: 54:     INT_vdSetINT0Callback(int0_callback);
-[e ( _INT_vdSetINT0Callback (1 &U _int0_callback ]
+[; ;main.c: 53:     DIO_vdInit(&BTN3);
+[e ( _DIO_vdInit (1 &U _BTN3 ]
 "55
-[; ;main.c: 55:     INT_vdSetINT1Callback(int1_callback);
-[e ( _INT_vdSetINT1Callback (1 &U _int1_callback ]
+[; ;main.c: 55:     INT_vdinit();
+[e ( _INT_vdinit ..  ]
 "56
-[; ;main.c: 56:     INT_vdSetINT2Callback(int2_callback);
-[e ( _INT_vdSetINT2Callback (1 &U _int2_callback ]
+[; ;main.c: 56:     INT_vdSetINT0Callback(int0_callback);
+[e ( _INT_vdSetINT0Callback (1 &U _int0_callback ]
+"57
+[; ;main.c: 57:     INT_vdSetINT1Callback(int1_callback);
+[e ( _INT_vdSetINT1Callback (1 &U _int1_callback ]
 "58
-[; ;main.c: 58:     TMR0_vdInit(0,0,1,0b111,0);
-[e ( _TMR0_vdInit (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc -> -> 7 `i `uc -> -> 0 `i `ui ]
-"59
-[; ;main.c: 59:     TMR0_vdStop();
-[e ( _TMR0_vdStop ..  ]
+[; ;main.c: 58:     INT_vdSetINT2Callback(int2_callback);
+[e ( _INT_vdSetINT2Callback (1 &U _int2_callback ]
 "60
-[; ;main.c: 60:     INT_vdSetTMR0Callback(tmr0_callback);
-[e ( _INT_vdSetTMR0Callback (1 &U _tmr0_callback ]
+[; ;main.c: 60:     TMR0_vdInit(0,0,1,0b111,11);
+[e ( _TMR0_vdInit (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 1 `i `uc -> -> 7 `i `uc -> -> 11 `i `ui ]
+"61
+[; ;main.c: 61:     TMR0_vdStop();
+[e ( _TMR0_vdStop ..  ]
 "62
-[; ;main.c: 62:     TMR1_vdInit(0,0,0,0,3000);
-[e ( _TMR1_vdInit (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 3000 `i `ui ]
-"63
-[; ;main.c: 63:     TMR1_vdStop();
-[e ( _TMR1_vdStop ..  ]
+[; ;main.c: 62:     TMR0_vdSetTMR0Callback(tmr0_callback);
+[e ( _TMR0_vdSetTMR0Callback (1 &U _tmr0_callback ]
 "64
-[; ;main.c: 64:     INT_vdSetTMR1Callback(tmr1_callback);
-[e ( _INT_vdSetTMR1Callback (1 &U _tmr1_callback ]
+[; ;main.c: 64:     TMR1_vdInit(0,0,0,0,3050);
+[e ( _TMR1_vdInit (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 3050 `i `ui ]
+"65
+[; ;main.c: 65:     TMR1_vdStop();
+[e ( _TMR1_vdStop ..  ]
 "66
-[; ;main.c: 66:     ADC_vdInit();
-[e ( _ADC_vdInit ..  ]
+[; ;main.c: 66:     TMR1_vdSetTMR1Callback(tmr1_callback);
+[e ( _TMR1_vdSetTMR1Callback (1 &U _tmr1_callback ]
 "68
-[; ;main.c: 68:     UART_vdInit(9600);
-[e ( _UART_vdInit (1 -> -> 9600 `i `us ]
+[; ;main.c: 68:     TMR3_vdInit(0,0,0,0,3050);
+[e ( _TMR3_vdInit (4 , , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc -> -> 3050 `i `ui ]
+"69
+[; ;main.c: 69:     TMR3_vdStop();
+[e ( _TMR3_vdStop ..  ]
 "70
-[; ;main.c: 70:     unsigned int input_T;
-[v _input_T `ui ~T0 @X0 1 a ]
-"71
-[; ;main.c: 71:     unsigned char T;
-[v _T `uc ~T0 @X0 1 a ]
+[; ;main.c: 70:     TMR3_vdSetTMR3Callback(tmr3_callback);
+[e ( _TMR3_vdSetTMR3Callback (1 &U _tmr3_callback ]
 "72
-[; ;main.c: 72:     unsigned long long int x_max8;
-[v _x_max8 `uo ~T0 @X0 1 a ]
-"73
-[; ;main.c: 73:     unsigned long long int x_max16;
-[v _x_max16 `uo ~T0 @X0 1 a ]
+[; ;main.c: 72:     ADC_vdInit();
+[e ( _ADC_vdInit ..  ]
 "74
-[; ;main.c: 74:     while(1){
+[; ;main.c: 74:     UART_vdInit(9600);
+[e ( _UART_vdInit (1 -> -> 9600 `i `us ]
+"76
+[; ;main.c: 76:     unsigned int input_T;
+[v _input_T `ui ~T0 @X0 1 a ]
+"77
+[; ;main.c: 77:     unsigned char T;
+[v _T `uc ~T0 @X0 1 a ]
+"78
+[; ;main.c: 78:     unsigned long long int x_max8;
+[v _x_max8 `uo ~T0 @X0 1 a ]
+"79
+[; ;main.c: 79:     unsigned long long int x_max16;
+[v _x_max16 `uo ~T0 @X0 1 a ]
+"80
+[; ;main.c: 80:     while(1){
 [e :U 257 ]
 {
-"75
-[; ;main.c: 75:         input_T = ADC_u16getValue(0);
-[e = _input_T -> ( _ADC_u16getValue (1 -> -> 0 `i `uc `ui ]
-"76
-[; ;main.c: 76:         T = 50*input_T/1023 + 10;
-[e = _T -> + / * -> -> 50 `i `ui _input_T -> -> 1023 `i `ui -> -> 10 `i `ui `uc ]
 "81
-[; ;main.c: 81:         x_max8 = T * 14;
-[e = _x_max8 -> -> * -> _T `i -> 14 `i `o `uo ]
-"84
-[; ;main.c: 84:         x_max16 = T * 15;
-[e = _x_max16 -> -> * -> _T `i -> 15 `i `o `uo ]
-"85
-[; ;main.c: 85:         if(x1 == x_max8){
+[; ;main.c: 81:         input_T = ADC_u16getValue(0);
+[e = _input_T -> ( _ADC_u16getValue (1 -> -> 0 `i `uc `ui ]
+"82
+[; ;main.c: 82:         T = 50*input_T/1023 + 10;
+[e = _T -> + / * -> -> 50 `i `ui _input_T -> -> 1023 `i `ui -> -> 10 `i `ui `uc ]
+"87
+[; ;main.c: 87:         x_max8 = T * 13;
+[e = _x_max8 -> -> * -> _T `i -> 13 `i `o `uo ]
+"90
+[; ;main.c: 90:         x_max16 = T * 14;
+[e = _x_max16 -> -> * -> _T `i -> 14 `i `o `uo ]
+"91
+[; ;main.c: 91:         if(x1 == x_max8){
 [e $ ! == -> _x1 `uo _x_max8 259  ]
 {
-"86
-[; ;main.c: 86:             TMR0_vdStop();
+"92
+[; ;main.c: 92:             TMR0_vdStop();
 [e ( _TMR0_vdStop ..  ]
-"87
-[; ;main.c: 87:             x1 = 0;
+"93
+[; ;main.c: 93:             x1 = 0;
 [e = _x1 -> -> -> 0 `i `l `ul ]
-"88
-[; ;main.c: 88:             status1 = !status1;
+"94
+[; ;main.c: 94:             status1 = !status1;
 [e = _status1 -> -> ! != -> _status1 `i -> 0 `i `i `uc ]
-"89
-[; ;main.c: 89:         }
+"95
+[; ;main.c: 95:         }
 }
 [e :U 259 ]
-"90
-[; ;main.c: 90:         if(x2 == x_max16){
+"96
+[; ;main.c: 96:         if(x2 == x_max16){
 [e $ ! == -> _x2 `uo _x_max16 260  ]
 {
-"91
-[; ;main.c: 91:             TMR1_vdStop();
+"97
+[; ;main.c: 97:             TMR1_vdStop();
 [e ( _TMR1_vdStop ..  ]
-"92
-[; ;main.c: 92:             x2 = 0;
+"98
+[; ;main.c: 98:             x2 = 0;
 [e = _x2 -> -> -> 0 `i `l `ul ]
-"93
-[; ;main.c: 93:             status2 = !status2;
+"99
+[; ;main.c: 99:             status2 = !status2;
 [e = _status2 -> -> ! != -> _status2 `i -> 0 `i `i `uc ]
-"94
-[; ;main.c: 94:         }
+"100
+[; ;main.c: 100:         }
 }
 [e :U 260 ]
-"97
-[; ;main.c: 97:         LED_vdSetStatus(&LED1,status1);
-[e ( _LED_vdSetStatus (2 , &U _LED1 _status1 ]
-"98
-[; ;main.c: 98:         LED_vdSetStatus(&LED2,status2);
-[e ( _LED_vdSetStatus (2 , &U _LED2 _status2 ]
-"99
-[; ;main.c: 99:         UART_vdSendu8asASCI(T);
-[e ( _UART_vdSendu8asASCI (1 _T ]
-"100
-[; ;main.c: 100:         UART_vdSendByte('/');
-[e ( _UART_vdSendByte (1 -> -> 47 `ui `uc ]
 "101
-[; ;main.c: 101:         UART_vdSendu16asASCI((TMR1H<<8)|TMR1L);
-[e ( _UART_vdSendu16asASCI (1 -> | << -> _TMR1H `i -> 8 `i -> _TMR1L `i `us ]
+[; ;main.c: 101:         if(x3 == x_max16){
+[e $ ! == -> _x3 `uo _x_max16 261  ]
+{
 "102
-[; ;main.c: 102:         UART_vdSendByte('/');
-[e ( _UART_vdSendByte (1 -> -> 47 `ui `uc ]
+[; ;main.c: 102:             TMR3_vdStop();
+[e ( _TMR3_vdStop ..  ]
 "103
-[; ;main.c: 103:         UART_vdSendu8asASCI(x_max16);
-[e ( _UART_vdSendu8asASCI (1 -> _x_max16 `uc ]
+[; ;main.c: 103:             x3 = 0;
+[e = _x3 -> -> -> 0 `i `l `ul ]
 "104
-[; ;main.c: 104:         UART_vdSendByte(' ');
-[e ( _UART_vdSendByte (1 -> -> 32 `ui `uc ]
+[; ;main.c: 104:             status3 = !status3;
+[e = _status3 -> -> ! != -> _status3 `i -> 0 `i `i `uc ]
 "105
-[; ;main.c: 105:         _delay((unsigned long)((10)*(4000000/4000.0)));
+[; ;main.c: 105:         }
+}
+[e :U 261 ]
+"108
+[; ;main.c: 108:         LED_vdSetStatus(&LED1,status1);
+[e ( _LED_vdSetStatus (2 , &U _LED1 _status1 ]
+"109
+[; ;main.c: 109:         LED_vdSetStatus(&LED2,status2);
+[e ( _LED_vdSetStatus (2 , &U _LED2 _status2 ]
+"110
+[; ;main.c: 110:         LED_vdSetStatus(&LED3,status3);
+[e ( _LED_vdSetStatus (2 , &U _LED3 _status3 ]
+"111
+[; ;main.c: 111:         UART_vdSendu8asASCI(T);
+[e ( _UART_vdSendu8asASCI (1 _T ]
+"112
+[; ;main.c: 112:         UART_vdSendByte('/');
+[e ( _UART_vdSendByte (1 -> -> 47 `ui `uc ]
+"117
+[; ;main.c: 117:         _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"106
-[; ;main.c: 106:     }
+"118
+[; ;main.c: 118:     }
 }
 [e :U 256 ]
 [e $U 257  ]
 [e :U 258 ]
-"108
-[; ;main.c: 108:     return;
+"120
+[; ;main.c: 120:     return;
 [e $UE 255  ]
-"109
-[; ;main.c: 109: }
+"121
+[; ;main.c: 121: }
 [e :UE 255 ]
 }
-"111
-[; ;main.c: 111: void int0_callback(){
+"123
+[; ;main.c: 123: void int0_callback(){
 [v _int0_callback `(v ~T0 @X0 1 ef ]
 {
 [e :U _int0_callback ]
 [f ]
-"112
-[; ;main.c: 112:     if(!status1){
-[e $ ! ! != -> _status1 `i -> 0 `i 262  ]
+"124
+[; ;main.c: 124:     if(!status1){
+[e $ ! ! != -> _status1 `i -> 0 `i 263  ]
 {
-"113
-[; ;main.c: 113:         status1 = 1;
+"125
+[; ;main.c: 125:         status1 = 1;
 [e = _status1 -> -> 1 `i `uc ]
-"114
-[; ;main.c: 114:         TMR0_vdReset();
+"126
+[; ;main.c: 126:         TMR0_vdReset();
 [e ( _TMR0_vdReset ..  ]
-"115
-[; ;main.c: 115:     }
+"127
+[; ;main.c: 127:     }
 }
-[e :U 262 ]
-"117
-[; ;main.c: 117: }
-[e :UE 261 ]
+[e :U 263 ]
+"129
+[; ;main.c: 129: }
+[e :UE 262 ]
 }
-"119
-[; ;main.c: 119: void int1_callback(){
+"131
+[; ;main.c: 131: void int1_callback(){
 [v _int1_callback `(v ~T0 @X0 1 ef ]
 {
 [e :U _int1_callback ]
 [f ]
-"120
-[; ;main.c: 120:     if(!status2){
-[e $ ! ! != -> _status2 `i -> 0 `i 264  ]
+"132
+[; ;main.c: 132:     if(!status2){
+[e $ ! ! != -> _status2 `i -> 0 `i 265  ]
 {
-"121
-[; ;main.c: 121:         status2 = 1;
+"133
+[; ;main.c: 133:         status2 = 1;
 [e = _status2 -> -> 1 `i `uc ]
-"122
-[; ;main.c: 122:         TMR1_vdReset();
+"134
+[; ;main.c: 134:         TMR1_vdReset();
 [e ( _TMR1_vdReset ..  ]
-"123
-[; ;main.c: 123:     }
+"135
+[; ;main.c: 135:     }
 }
-[e :U 264 ]
-"124
-[; ;main.c: 124: }
-[e :UE 263 ]
+[e :U 265 ]
+"136
+[; ;main.c: 136: }
+[e :UE 264 ]
 }
-"126
-[; ;main.c: 126: void int2_callback(){
+"138
+[; ;main.c: 138: void int2_callback(){
 [v _int2_callback `(v ~T0 @X0 1 ef ]
 {
 [e :U _int2_callback ]
 [f ]
-"127
-[; ;main.c: 127:     LED_vdtoggle(&LED3);
-[e ( _LED_vdtoggle (1 &U _LED3 ]
-"128
-[; ;main.c: 128: }
-[e :UE 265 ]
+"139
+[; ;main.c: 139:     if(!status3){
+[e $ ! ! != -> _status3 `i -> 0 `i 267  ]
+{
+"140
+[; ;main.c: 140:         status3 = 1;
+[e = _status3 -> -> 1 `i `uc ]
+"141
+[; ;main.c: 141:         TMR3_vdReset();
+[e ( _TMR3_vdReset ..  ]
+"142
+[; ;main.c: 142:     }
 }
-"130
-[; ;main.c: 130: void tmr0_callback(){
+[e :U 267 ]
+"143
+[; ;main.c: 143: }
+[e :UE 266 ]
+}
+"145
+[; ;main.c: 145: void tmr0_callback(){
 [v _tmr0_callback `(v ~T0 @X0 1 ef ]
 {
 [e :U _tmr0_callback ]
 [f ]
-"131
-[; ;main.c: 131:     x1++;
+"146
+[; ;main.c: 146:     x1++;
 [e ++ _x1 -> -> 1 `i `Vul ]
-"132
-[; ;main.c: 132: }
-[e :UE 266 ]
+"147
+[; ;main.c: 147: }
+[e :UE 268 ]
 }
-"134
-[; ;main.c: 134: void tmr1_callback(){
+"149
+[; ;main.c: 149: void tmr1_callback(){
 [v _tmr1_callback `(v ~T0 @X0 1 ef ]
 {
 [e :U _tmr1_callback ]
 [f ]
-"135
-[; ;main.c: 135:     x2++;
+"150
+[; ;main.c: 150:     x2++;
 [e ++ _x2 -> -> 1 `i `Vul ]
-"136
-[; ;main.c: 136: }
-[e :UE 267 ]
+"151
+[; ;main.c: 151: }
+[e :UE 269 ]
+}
+"153
+[; ;main.c: 153: void tmr3_callback(){
+[v _tmr3_callback `(v ~T0 @X0 1 ef ]
+{
+[e :U _tmr3_callback ]
+[f ]
+"154
+[; ;main.c: 154:     x3++;
+[e ++ _x3 -> -> 1 `i `Vul ]
+"155
+[; ;main.c: 155: }
+[e :UE 270 ]
 }

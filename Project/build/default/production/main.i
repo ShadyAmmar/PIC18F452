@@ -4033,16 +4033,16 @@ unsigned char BTN_u8getStatus(DEVICE* btn);
 # 15 "main.c" 2
 
 # 1 "./INT.h" 1
-# 40 "./INT.h"
+# 41 "./INT.h"
 void INT_vdinit(void);
 void INT_vdSetINT0Callback(void (*pf)());
 void INT_vdSetINT1Callback(void (*pf)());
 void INT_vdSetINT2Callback(void (*pf)());
 void INT_vdSetINTOnChangeCallback(void (*pf)());
 
-void INT_vdSetTMR0Callback(void (*pf)());
-
-void INT_vdSetTMR1Callback(void (*pf)());
+void INT_vdSetTMR0Callback(void (*pf)(),unsigned int init);
+void INT_vdSetTMR1Callback(void (*pf)(),unsigned int init);
+void INT_vdSetTMR3Callback(void (*pf)(),unsigned int init);
 
 void INT_vdSetCCP1Callback(void (*pf)());
 # 16 "main.c" 2
@@ -4053,6 +4053,7 @@ void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,u
 void TMR0_vdStop();
 void TMR0_vdContinue();
 void TMR0_vdReset();
+void TMR0_vdSetTMR0Callback(void (*pf)());
 # 17 "main.c" 2
 
 # 1 "./TMR1.h" 1
@@ -4061,13 +4062,23 @@ void TMR1_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,u
 void TMR1_vdStop();
 void TMR1_vdContinue();
 void TMR1_vdReset();
+void TMR1_vdSetTMR1Callback(void (*pf)());
 # 18 "main.c" 2
+
+# 1 "./TMR3.h" 1
+# 26 "./TMR3.h"
+void TMR3_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,unsigned char prescaler_value,unsigned int init);
+void TMR3_vdStop();
+void TMR3_vdContinue();
+void TMR3_vdReset();
+void TMR3_vdSetTMR3Callback(void (*pf)());
+# 19 "main.c" 2
 
 # 1 "./ADC.h" 1
 # 24 "./ADC.h"
 void ADC_vdInit();
 unsigned short int ADC_u16getValue(unsigned char pin);
-# 19 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./UART.h" 1
 # 19 "./UART.h"
@@ -4075,7 +4086,7 @@ void UART_vdInit(unsigned short int baud);
 void UART_vdSendByte(unsigned char data);
 void UART_vdSendu8asASCI(unsigned char data);
 void UART_vdSendu16asASCI(unsigned short int data);
-# 20 "main.c" 2
+# 21 "main.c" 2
 
 
 DEVICE LED1 = {'D',0,0};
@@ -4091,6 +4102,7 @@ void int1_callback();
 void int2_callback();
 void tmr0_callback();
 void tmr1_callback();
+void tmr3_callback();
 
 volatile unsigned char status1 = 0;
 volatile unsigned char status2 = 0;
@@ -4114,13 +4126,17 @@ void main(void) {
     INT_vdSetINT1Callback(int1_callback);
     INT_vdSetINT2Callback(int2_callback);
 
-    TMR0_vdInit(0,0,1,0b111,0);
+    TMR0_vdInit(0,0,1,0b111,11);
     TMR0_vdStop();
-    INT_vdSetTMR0Callback(tmr0_callback);
+    TMR0_vdSetTMR0Callback(tmr0_callback);
 
-    TMR1_vdInit(0,0,0,0,3000);
+    TMR1_vdInit(0,0,0,0,3050);
     TMR1_vdStop();
-    INT_vdSetTMR1Callback(tmr1_callback);
+    TMR1_vdSetTMR1Callback(tmr1_callback);
+
+    TMR3_vdInit(0,0,0,0,3050);
+    TMR3_vdStop();
+    TMR3_vdSetTMR3Callback(tmr3_callback);
 
     ADC_vdInit();
 
@@ -4137,10 +4153,10 @@ void main(void) {
 
 
 
-        x_max8 = T * 14;
+        x_max8 = T * 13;
 
 
-        x_max16 = T * 15;
+        x_max16 = T * 14;
         if(x1 == x_max8){
             TMR0_vdStop();
             x1 = 0;
@@ -4151,16 +4167,22 @@ void main(void) {
             x2 = 0;
             status2 = !status2;
         }
+        if(x3 == x_max16){
+            TMR3_vdStop();
+            x3 = 0;
+            status3 = !status3;
+        }
 
 
         LED_vdSetStatus(&LED1,status1);
         LED_vdSetStatus(&LED2,status2);
+        LED_vdSetStatus(&LED3,status3);
         UART_vdSendu8asASCI(T);
         UART_vdSendByte('/');
-        UART_vdSendu16asASCI((TMR1H<<8)|TMR1L);
-        UART_vdSendByte('/');
-        UART_vdSendu8asASCI(x_max16);
-        UART_vdSendByte(' ');
+
+
+
+
         _delay((unsigned long)((10)*(4000000/4000.0)));
     }
 
@@ -4183,7 +4205,10 @@ void int1_callback(){
 }
 
 void int2_callback(){
-    LED_vdtoggle(&LED3);
+    if(!status3){
+        status3 = 1;
+        TMR3_vdReset();
+    }
 }
 
 void tmr0_callback(){
@@ -4192,4 +4217,8 @@ void tmr0_callback(){
 
 void tmr1_callback(){
     x2++;
+}
+
+void tmr3_callback(){
+    x3++;
 }

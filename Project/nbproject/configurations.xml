@@ -33,6 +33,8 @@
       <itemPath>TMR1.h</itemPath>
       <itemPath>UART.c</itemPath>
       <itemPath>UART.h</itemPath>
+      <itemPath>TMR3.c</itemPath>
+      <itemPath>TMR3.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -45,7 +47,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>.</Elem>
+    <Elem>..</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

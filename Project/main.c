@@ -16,6 +16,7 @@
 #include "INT.h"
 #include "TMR0.h"
 #include "TMR1.h"
+#include "TMR3.h"
 #include "ADC.h"
 #include "UART.h"
 
@@ -32,6 +33,7 @@ void int1_callback();
 void int2_callback();
 void tmr0_callback();
 void tmr1_callback();
+void tmr3_callback();
 
 volatile unsigned char status1 = 0;
 volatile unsigned char status2 = 0;
@@ -55,13 +57,17 @@ void main(void) {
     INT_vdSetINT1Callback(int1_callback);
     INT_vdSetINT2Callback(int2_callback);
     
-    TMR0_vdInit(TIMER,BIT8,PRE_SCALER_ON,TMR0_SCALE_256,0);
+    TMR0_vdInit(TIMER,BIT8,PRE_SCALER_ON,TMR0_SCALE_256,11);
     TMR0_vdStop();
-    INT_vdSetTMR0Callback(tmr0_callback);
+    TMR0_vdSetTMR0Callback(tmr0_callback);
     
-    TMR1_vdInit(TIMER,BIT8,PRE_SCALER_OFF,0,3000);
+    TMR1_vdInit(TIMER,BIT8,PRE_SCALER_OFF,0,3050);
     TMR1_vdStop();
-    INT_vdSetTMR1Callback(tmr1_callback);
+    TMR1_vdSetTMR1Callback(tmr1_callback);
+    
+    TMR3_vdInit(TIMER,BIT8,PRE_SCALER_OFF,0,3050);
+    TMR3_vdStop();
+    TMR3_vdSetTMR3Callback(tmr3_callback);
     
     ADC_vdInit();
     
@@ -78,10 +84,10 @@ void main(void) {
         //UART_vdSendByte(' ');
         //UART_vdSendu16asASCI(T);
         //UART_vdSendByte('/');
-        x_max8 = T * 14;
+        x_max8 = T * 12;
         //UART_vdSendu16asASCI(x_max);
         //UART_vdSendByte(' ');
-        x_max16 = T * 15;
+        x_max16 = T * 13;
         if(x1 == x_max8){
             TMR0_vdStop();
             x1 = 0;
@@ -92,16 +98,22 @@ void main(void) {
             x2 = 0;
             status2 = !status2;
         }
+        if(x3 == x_max16){
+            TMR3_vdStop();
+            x3 = 0;
+            status3 = !status3;
+        }
         
         
         LED_vdSetStatus(&LED1,status1);
         LED_vdSetStatus(&LED2,status2);
+        LED_vdSetStatus(&LED3,status3);
         UART_vdSendu8asASCI(T);
         UART_vdSendByte('/');
-        UART_vdSendu16asASCI((TMR1H<<8)|TMR1L);
+        /*UART_vdSendu16asASCI((TMR1H<<8)|TMR1L);
         UART_vdSendByte('/');
         UART_vdSendu8asASCI(x_max16);
-        UART_vdSendByte(' ');
+        UART_vdSendByte(' ');*/
         __delay_ms(10);
     }
     
@@ -124,7 +136,10 @@ void int1_callback(){
 }
 
 void int2_callback(){
-    LED_vdtoggle(&LED3);
+    if(!status3){
+        status3 = 1;
+        TMR3_vdReset();
+    }
 }
 
 void tmr0_callback(){
@@ -133,4 +148,8 @@ void tmr0_callback(){
 
 void tmr1_callback(){
     x2++;
+}
+
+void tmr3_callback(){
+    x3++;
 }

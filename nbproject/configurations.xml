@@ -37,6 +37,8 @@
       <itemPath>ADC.c</itemPath>
       <itemPath>UART.c</itemPath>
       <itemPath>UART.h</itemPath>
+      <itemPath>TMR3.c</itemPath>
+      <itemPath>TMR3.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -48,6 +50,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">

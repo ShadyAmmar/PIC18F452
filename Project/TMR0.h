@@ -34,6 +34,7 @@ void TMR0_vdInit(unsigned char mode,unsigned char bits,unsigned char prescaler,u
 void TMR0_vdStop();
 void TMR0_vdContinue();
 void TMR0_vdReset();
+void TMR0_vdSetTMR0Callback(void (*pf)());
 
 #endif	/* TMR0_H */
 

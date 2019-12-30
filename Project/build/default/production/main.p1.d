@@ -8,5 +8,6 @@ BTN.h  \
 INT.h  \
 TMR0.h  \
 TMR1.h  \
+TMR3.h  \
 ADC.h  \
 UART.h 

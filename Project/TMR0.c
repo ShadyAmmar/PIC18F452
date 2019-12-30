@@ -8,6 +8,7 @@
 #include <pic18f452.h>
 
 #include "TMR0.h"
+#include "INT.h"
 
 static unsigned int initial = 0;
 
@@ -60,4 +61,8 @@ void TMR0_vdReset(){
     TMR0L = initial;
     TMR0H = (initial>>8);
     T0CONbits.TMR0ON = 1;
+}
+
+void TMR0_vdSetTMR0Callback(void (*pf)()){
+    INT_vdSetTMR0Callback(pf,initial);
 }
