@@ -28,6 +28,10 @@ DEVICE BTN1 = {'B',0,INPUT};
 DEVICE BTN2 = {'B',1,INPUT};
 DEVICE BTN3 = {'B',2,INPUT};
 
+DEVICE btnStop1 = {'B',3,INPUT};
+DEVICE btnStop2 = {'B',4,INPUT};
+DEVICE btnStop3 = {'B',5,INPUT};
+
 void int0_callback();
 void int1_callback();
 void int2_callback();
@@ -51,6 +55,9 @@ void main(void) {
     DIO_vdInit(&BTN1);
     DIO_vdInit(&BTN2);
     DIO_vdInit(&BTN3);
+    DIO_vdInit(&btnStop1);
+    DIO_vdInit(&btnStop2);
+    DIO_vdInit(&btnStop3);
     
     INT_vdinit();
     INT_vdSetINT0Callback(int0_callback);
