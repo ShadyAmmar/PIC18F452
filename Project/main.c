@@ -23,6 +23,7 @@
 DEVICE LED1 = {'D',0,OUTPUT};
 DEVICE LED2 = {'D',1,OUTPUT};
 DEVICE LED3 = {'D',2,OUTPUT};
+DEVICE LED4 = {'D',3,OUTPUT};
 
 DEVICE BTN1 = {'B',0,INPUT};
 DEVICE BTN2 = {'B',1,INPUT};
@@ -52,6 +53,7 @@ void main(void) {
     DIO_vdInit(&LED1);
     DIO_vdInit(&LED2);
     DIO_vdInit(&LED3);
+    DIO_vdInit(&LED4);
     DIO_vdInit(&BTN1);
     DIO_vdInit(&BTN2);
     DIO_vdInit(&BTN3);
@@ -111,6 +113,19 @@ void main(void) {
             status3 = !status3;
         }
         
+        /*Stop buttons*/
+        if(BTN_u8getStatus(&btnStop1)){
+            TMR0_vdStop();
+            status1 = 0;
+        }
+        if(BTN_u8getStatus(&btnStop2)){
+            TMR1_vdStop();
+            status2 = 0;
+        }
+        if(BTN_u8getStatus(&btnStop3)){
+            TMR3_vdStop();
+            status3 = 0;
+        }
         
         LED_vdSetStatus(&LED1,status1);
         LED_vdSetStatus(&LED2,status2);
@@ -121,6 +136,8 @@ void main(void) {
         UART_vdSendByte('/');
         UART_vdSendu8asASCI(x_max16);
         UART_vdSendByte(' ');*/
+        
+        LED_vdSetStatus(&LED4, (status1||status2||status3) );
         __delay_ms(10);
     }
     

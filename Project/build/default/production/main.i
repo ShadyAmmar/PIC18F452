@@ -4092,10 +4092,15 @@ void UART_vdSendu16asASCI(unsigned short int data);
 DEVICE LED1 = {'D',0,0};
 DEVICE LED2 = {'D',1,0};
 DEVICE LED3 = {'D',2,0};
+DEVICE LED4 = {'D',3,0};
 
 DEVICE BTN1 = {'B',0,1};
 DEVICE BTN2 = {'B',1,1};
 DEVICE BTN3 = {'B',2,1};
+
+DEVICE btnStop1 = {'B',3,1};
+DEVICE btnStop2 = {'B',4,1};
+DEVICE btnStop3 = {'B',5,1};
 
 void int0_callback();
 void int1_callback();
@@ -4117,9 +4122,13 @@ void main(void) {
     DIO_vdInit(&LED1);
     DIO_vdInit(&LED2);
     DIO_vdInit(&LED3);
+    DIO_vdInit(&LED4);
     DIO_vdInit(&BTN1);
     DIO_vdInit(&BTN2);
     DIO_vdInit(&BTN3);
+    DIO_vdInit(&btnStop1);
+    DIO_vdInit(&btnStop2);
+    DIO_vdInit(&btnStop3);
 
     INT_vdinit();
     INT_vdSetINT0Callback(int0_callback);
@@ -4153,10 +4162,10 @@ void main(void) {
 
 
 
-        x_max8 = T * 13;
+        x_max8 = T * 12;
 
 
-        x_max16 = T * 14;
+        x_max16 = T * 13;
         if(x1 == x_max8){
             TMR0_vdStop();
             x1 = 0;
@@ -4174,6 +4183,19 @@ void main(void) {
         }
 
 
+        if(BTN_u8getStatus(&btnStop1)){
+            TMR0_vdStop();
+            status1 = 0;
+        }
+        if(BTN_u8getStatus(&btnStop2)){
+            TMR1_vdStop();
+            status2 = 0;
+        }
+        if(BTN_u8getStatus(&btnStop3)){
+            TMR3_vdStop();
+            status3 = 0;
+        }
+
         LED_vdSetStatus(&LED1,status1);
         LED_vdSetStatus(&LED2,status2);
         LED_vdSetStatus(&LED3,status3);
@@ -4183,6 +4205,8 @@ void main(void) {
 
 
 
+
+        LED_vdSetStatus(&LED4, (status1||status2||status3) );
         _delay((unsigned long)((10)*(4000000/4000.0)));
     }
 
